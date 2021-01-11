@@ -5,6 +5,8 @@ import { View, Text } from 'react-native';
 
 //components
 import { SMIcons } from 'library/components/atoms';
+import { AdviceCard } from 'library/components/atoms/AdviceCard/index';
+import { Button } from 'library/components/atoms/Button/index';
 
 //styles
 import styles from './Test.styles';
