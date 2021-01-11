@@ -8,3 +8,12 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+# react-native-reanimated
+-keep class com.facebook.react.turbomodule.** { *; }
+
+# react-native-svg
+-keep public class com.horcrux.svg.** {*;}
+
+# react-native-config
+-keep class com.fridayflower.florist.BuildConfig { *; }

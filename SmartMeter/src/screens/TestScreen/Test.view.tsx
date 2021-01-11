@@ -3,6 +3,9 @@ import { View, Text } from 'react-native';
 
 //other deps
 
+//modules
+import { LoaderOverlay } from 'library/components/molecules';
+
 //components
 import { SMIcons } from 'library/components/atoms';
 import { AdviceCard } from 'library/components/atoms/AdviceCard/index';
@@ -29,6 +32,17 @@ export const TestView: React.FC<TestViewProps> = ({
 			<Text>
 				Test screen
 			</Text>
+
+			<View style={{
+				width: '100%',
+				height: 500,
+				backgroundColor: 'blue',
+			}}
+			>
+				<LoaderOverlay
+					isLoading={true}
+					fadeColor={'#FCFCFC'} />
+			</View>
 		</View>
 	);
 };
