@@ -13,6 +13,7 @@
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.8.10",
     "@react-navigation/stack": "^5.12.8",
+    "@types/ramda": "^0.27.34",
     "date-fns": "^2.16.1",
     "ramda": "^0.27.1",
     "react": "16.13.1",
