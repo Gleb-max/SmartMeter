@@ -8,8 +8,11 @@ import { LoaderOverlay } from 'library/components/molecules';
 
 //components
 import { SMIcons } from 'library/components/atoms';
-import { AdviceCard } from 'library/components/atoms/AdviceCard/index';
-import { Button } from 'library/components/atoms/Button/index';
+import { AdviceCard } from 'library/components/atoms/AdviceCard/';
+import { Button } from 'library/components/atoms/Button/';
+import { HeadlineText } from 'library/components/atoms/HeadlineText';
+import { GilroyText } from 'library/components/atoms/GilroyText';
+import { RobotoText } from 'library/components/atoms/RobotoText';
 
 //styles
 import styles from './Test.styles';
@@ -36,13 +39,10 @@ export const TestView: React.FC<TestViewProps> = ({
 			<View style={{
 				width: '100%',
 				height: 500,
-				backgroundColor: 'blue',
-			}}
-			>
-				<LoaderOverlay
-					isLoading={true}
-					fadeColor={'#FCFCFC'} />
-			</View>
+				alignItems: 'center',
+				justifyContent: 'center',
+			}} />
+			<RobotoText text = 'text' type = 'Light' size = {60} style = {{ color: '#747474' }} />
 		</View>
 	);
 };

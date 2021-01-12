@@ -11,18 +11,22 @@ type ScenarioItemButtonProps = {
 };
 
 export const ScenarioItemButton: React.FC<ScenarioItemButtonProps> = ({
-    number,
-    text,
-    onPress,
+	number,
+	text,
+	onPress,
 }) => {
 	return (
-        <TouchableOpacity style={styles.container} onPress={onPress}>
-            <View style={styles.numberContainer}>
-                <Text style={styles.number}>{number}</Text>
-            </View>
-            <View style={styles.textContainer}>
-                <Text style={styles.text}>{text}</Text>
-            </View>
-        </TouchableOpacity>
+		<TouchableOpacity style={styles.container} onPress={onPress}>
+			<View style={styles.numberContainer}>
+				<Text style={styles.number}>
+					{number}
+				</Text>
+			</View>
+			<View style={styles.textContainer}>
+				<Text style={styles.text}>
+					{text}
+				</Text>
+			</View>
+		</TouchableOpacity>
 	);
 };
