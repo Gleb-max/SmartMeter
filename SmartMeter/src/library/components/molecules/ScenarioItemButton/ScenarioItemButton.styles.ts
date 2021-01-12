@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
 	container: {
         justifyContent: 'space-between',
         backgroundColor: '#005670',
-		alignItems: 'stretch',
+	alignItems: 'stretch',
         borderRadius: 15,
         marginLeft: 30,
         marginRight: 61,
