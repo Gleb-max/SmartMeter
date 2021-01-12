@@ -13,6 +13,7 @@ import { Button } from 'library/components/atoms/Button/';
 import { HeadlineText } from 'library/components/atoms/HeadlineText';
 import { GilroyText } from 'library/components/atoms/GilroyText';
 import { RobotoText } from 'library/components/atoms/RobotoText';
+import { VolumeIndicator } from 'library/components/molecules/VolumeIndicator';
 
 //styles
 import styles from './Test.styles';
@@ -41,8 +42,10 @@ export const TestView: React.FC<TestViewProps> = ({
 				height: 500,
 				alignItems: 'center',
 				justifyContent: 'center',
-			}} />
-			<RobotoText text = 'text' type = 'Light' size = {60} style = {{ color: '#747474' }} />
+			}}
+			>
+				<VolumeIndicator hot = {true} volume = '319' date = '02.01.2021 20:37' />
+			</View>
 		</View>
 	);
 };

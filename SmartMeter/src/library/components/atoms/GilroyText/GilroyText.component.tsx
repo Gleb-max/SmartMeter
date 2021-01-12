@@ -12,7 +12,7 @@ type GilroyTextProps = {
 	text: string;
 	type: 'Medium' | 'Semibold' | 'Regular';
 	size: number;
-	style: StyleProp<TextStyle>;
+	style?: StyleProp<TextStyle>;
 };
 
 export const GilroyText: React.FC<GilroyTextProps> = ({
