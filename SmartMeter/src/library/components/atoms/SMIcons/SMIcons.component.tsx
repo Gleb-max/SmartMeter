@@ -58,5 +58,3 @@ export const SMIcons: React.FC<SMIconsProps> = React.memo(({
 		</Svg>
 	);
 });
-
-export default SMIcons;
