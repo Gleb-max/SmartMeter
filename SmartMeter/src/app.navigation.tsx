@@ -16,6 +16,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<AnnouncementsNavigation />
+		<TestNavigation />
 	);
 };

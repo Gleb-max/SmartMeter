@@ -6,7 +6,8 @@ export type CommonIconName =
 	'ic_graphics' |
 	'ic_adrop' |
 	'ic_notification' |
-	'ic_account';
+	'ic_account' |
+	'ic_arrow_right';
 
 export type TabBarIconName =
 	'ic_tabbar_profile' |
