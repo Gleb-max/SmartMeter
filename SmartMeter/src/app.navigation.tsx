@@ -7,6 +7,7 @@ import { enableScreens } from 'react-native-screens';
 import { TestNavigation } from './screens/TestScreen';
 import { LoginNavigation } from './screens/LoginScreen';
 import { AnnouncementsNavigation } from './screens/AnnouncementsScreen';
+import { MainNavigation } from 'screens/MainScreen';
 
 //native-powered screen containers
 //run before any navigation stacks render
@@ -16,6 +17,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<TestNavigation />
+		<MainNavigation />
 	);
 };

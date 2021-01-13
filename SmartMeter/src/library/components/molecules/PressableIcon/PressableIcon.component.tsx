@@ -1,14 +1,14 @@
 import React from 'react';
-import { TouchableOpacity, View, Image } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 
 //components
-import {SMIcons} from 'library/components/atoms'
+import { SMIcons } from 'library/components/atoms';
 
 //styles
 import styles from './PressableIcon.styles';
 
 //types
-import {Icons} from 'library/types';
+import { Icons } from 'library/types';
 
 type PressableIconProps = {
 	iconName: Icons.CommonIconName;
@@ -26,14 +26,17 @@ export const PressableIcon: React.FC<PressableIconProps> = ({
 	withNotif,
 }) => {
 	return (
-		<View style={styles.container}>
-			<TouchableOpacity onPress={onPress}>
-				<SMIcons 
-					name={iconName} 
-					size={size} 
-					color={color} />
-				{withNotif && <View style={styles.count} />}
-			</TouchableOpacity>
-		</View>
+		// <View style={styles.container}>
+		<TouchableOpacity onPress={onPress}>
+			<SMIcons
+				name={iconName}
+				size={size}
+				color={color} />
+
+			{withNotif && (
+				<View style={styles.count} />
+			)}
+		</TouchableOpacity>
+		// </View>
 	);
 };

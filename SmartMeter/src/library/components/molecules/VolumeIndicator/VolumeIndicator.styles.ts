@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
 		borderRadius: 135,
 		alignItems: 'center',
 		justifyContent: 'center',
+		position: 'absolute',
 	},
 	ellipse: {
 		backgroundColor: '#ffffff',

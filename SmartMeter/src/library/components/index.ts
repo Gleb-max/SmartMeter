@@ -1,2 +1,2 @@
 export { SMIcons } from './atoms';
-export { AnnouncementCard, PressableIcon, PressableIconWithNotify, CustomTextInput, CustomDropDown } from './molecules';
+export { AnnouncementCard, PressableIcon, CustomTextInput, CustomDropDown, VolumeIndicator, ScenarioItemButton } from './molecules';

@@ -45,7 +45,15 @@ const commonIcons: CommonIconsDataMap = {
 	ic_arrow_right: [{
 		d: 'M14.586 12L7.293 4.707l1.414-1.414L17.414 12l-8.707 8.707-1.414-1.414L14.586 12z',
 		evenOdd: true,
-	}]
+	}],
+	ic_arrow_down: [{
+		d: 'M11.254 4.254l.825.825L7 10.16l-5.08-5.08.826-.825L7 8.508l4.254-4.254z',
+		evenOdd: true,
+	}],
+	ic_arrow_up: [{
+		d: 'M3.53 12.53l-1.06-1.06L9 4.94l6.53 6.53-1.06 1.06L9 7.06l-5.47 5.47z',
+		evenOdd: true,
+	}],
 };
 
 const tabBarIcons: TabBarIconsDataMap = {
