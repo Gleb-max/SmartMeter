@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View, ViewStyle, StyleProp } from 'react-native';
 
 //components
 import { SMIcons } from 'library/components/atoms';
@@ -12,10 +12,11 @@ import { Icons } from 'library/types';
 
 type PressableIconProps = {
 	iconName: Icons.CommonIconName;
+	onPress: () => void;
 	color?: string;
 	size?: number;
-	onPress?: () => void;
 	withNotif?: boolean;
+	style?: StyleProp<ViewStyle>
 }
 
 export const PressableIcon: React.FC<PressableIconProps> = ({
@@ -24,10 +25,11 @@ export const PressableIcon: React.FC<PressableIconProps> = ({
 	iconName,
 	onPress,
 	withNotif,
+	style,
 }) => {
 	return (
 		// <View style={styles.container}>
-		<TouchableOpacity onPress={onPress}>
+		<TouchableOpacity onPress={onPress} style = {style}>
 			<SMIcons
 				name={iconName}
 				size={size}

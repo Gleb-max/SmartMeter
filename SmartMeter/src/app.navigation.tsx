@@ -8,6 +8,7 @@ import { TestNavigation } from './screens/TestScreen';
 import { LoginNavigation } from './screens/LoginScreen';
 import { AnnouncementsNavigation } from './screens/AnnouncementsScreen';
 import { MainNavigation } from 'screens/MainScreen';
+import { AdvicesNavigation } from 'screens/AdvicesScreen';
 
 //native-powered screen containers
 //run before any navigation stacks render
@@ -17,6 +18,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<MainNavigation />
+		<AdvicesNavigation />
 	);
 };

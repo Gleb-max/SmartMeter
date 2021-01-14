@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TextStyle, StyleProp } from 'react-native';
+import { Text, TextStyle, StyleProp, ViewStyle } from 'react-native';
 
 //other deps
 
@@ -12,7 +12,8 @@ type GilroyTextProps = {
 	text: string;
 	type: 'Medium' | 'Semibold' | 'Regular';
 	size: number;
-	style?: StyleProp<TextStyle>;
+	styleText?: StyleProp<TextStyle>;
+	style?: StyleProp<ViewStyle>;
 };
 
 export const GilroyText: React.FC<GilroyTextProps> = ({
@@ -20,9 +21,10 @@ export const GilroyText: React.FC<GilroyTextProps> = ({
 	type = 'Medium',
 	size,
 	style,
+	styleText,
 }) => {
 	return (
-		<Text style={[{ fontFamily: `Gilroy-${type}`, fontSize: size }, style]}>
+		<Text style={[{ fontFamily: `Gilroy-${type}`, fontSize: size }, style, styleText]}>
 			{text}
 		</Text>
 	);
