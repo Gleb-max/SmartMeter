@@ -2,42 +2,42 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 
 //components
-import { AdviceCard, PressableIcon } from 'library/components/molecules';
+import { PressableIcon, NextButton } from 'library/components/molecules';
 import { GilroyText } from 'library/components/atoms';
 
 //styles
-import styles from './Advices.styles';
+import styles from './Receipts.styles';
 
 //types
-type AdvicesProps = {
-	advicesList: string[];
-	onSelectAdvice: (adviceIndex: number) => void;
+type ReceiptsProps = {
+	datesList: string[];
+	paidList: boolean[];
+	onSelectReceipt: (receiptIndex: number) => void;
+	onPressNotify: () => void;
 };
 
-export const AdvicesView: React.FC<AdvicesProps> = ({
-	advicesList,
-	onSelectAdvice,
+export const ReceiptsView: React.FC<ReceiptsProps> = ({
+	datesList,
+	paidList,
+	onSelectReceipt,
+	onPressNotify,
 }) => {
 	//renders
 	const _renderListItem = React.useCallback(({ item, index }) => {
 		return (
-			<View
-				style={styles.component}
-				key={index}
-			>
-				<AdviceCard
-					text={advicesList[index]}
-					onPress={() => onSelectAdvice(index)} />
-			</View>
+			<NextButton
+				date={datesList[index]}
+				isPaid={paidList[index]}
+				onPress={() => onSelectReceipt(index)} />
 		);
-	}, [advicesList, onSelectAdvice]);
+	}, [datesList, onSelectReceipt, paidList]);
 
 	const _renderHeader = React.useCallback(() => {
 		return (
 			<>
 				<PressableIcon
 					iconName='ic_notification'
-					onPress={() => { }}
+					onPress={() => onPressNotify}
 					size={29}
 					color='black'
 					withNotif={true}
@@ -48,21 +48,18 @@ export const AdvicesView: React.FC<AdvicesProps> = ({
 					size='g1'
 					style={styles.header}
 				>
-					Полезные советы
+					Квитанции
 				</GilroyText>
 			</>
 		);
 	}, []);
 	return (
-		<View style={ styles.container }>
+		<View style={styles.container}>
 			<FlatList
-				data={advicesList}
+				data={datesList}
 				renderItem={_renderListItem}
 				ListHeaderComponent={_renderHeader}
-				numColumns={2}
-				columnWrapperStyle={styles.flatList}
 				keyExtractor={(item: string, index: number) => item + index}
-				style={{ }}
 				showsVerticalScrollIndicator={false}
 				contentContainerStyle={styles.flatListContainer} />
 		</View>

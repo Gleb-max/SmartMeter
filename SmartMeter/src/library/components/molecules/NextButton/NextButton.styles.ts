@@ -1,15 +1,16 @@
 import { StyleSheet } from 'react-native';
+import { Helpers } from 'library/theme';
+import { DimensionsManager } from 'library/modules/DimensionsManager';
 
 const styles = StyleSheet.create({
 	container: {
-		width: 283,
-		height: 39,
+		width: '100%',
+		height: DimensionsManager.horizontalScale(60),
 		backgroundColor: '#ffffff',
-		elevation: 1,
+		marginTop: 21,
+		...Helpers.boxShadow('rgb(223, 227, 229)', { x: 0, y: 4 }, 50, 0.3, 0.7),
 	},
 	header: {
-		fontFamily: 'Montserrat',
-		fontSize: 17,
 		color: '#000000',
 		marginLeft: 18,
 		position: 'absolute',
@@ -22,20 +23,17 @@ const styles = StyleSheet.create({
 	},
 	blueMarker: {
 		width: 11,
-		height: 17,
+		height: 27,
 		backgroundColor: '#005670',
 	},
 	redMarker: {
 		width: 11,
-		height: 17,
+		height: 27,
 		backgroundColor: '#FF5B5B',
 	},
-	image: {
-		width: 8.5,
-		height: 14.5,
-		marginLeft: 250,
-		marginTop: 11.74,
-		backgroundColor: '#000000',
+	icon: {
+		marginLeft: 300,
+		marginTop: 23,
 		position: 'absolute',
 	},
 });

@@ -4,6 +4,9 @@ import { TouchableOpacity, Text, View } from 'react-native';
 //styles
 import styles from './NextButton.styles';
 
+//components
+import { SMIcons, HeadlineText } from 'library/components/atoms';
+
 //types
 type NextButtonProps = {
 	onPress: () => void;
@@ -17,31 +20,31 @@ export const NextButton: React.FC<NextButtonProps> = ({
 	onPress,
 }) => {
 	return (
-		isPaid ? (
-			<View style={styles.container}>
-				<View style={styles.blueMarker} />
-				<Text style={styles.header}>
-					Квитанция от
-					{' '}
-					{date}
-				</Text>
-				<Text style={styles.text}>
-					Оплачено
-				</Text>
-			</View>
-		) : (
-			<TouchableOpacity style={styles.container} onPress={onPress}>
-				<View style={styles.redMarker} />
-				<Text style={styles.header}>
-					Квитанция от
-					{' '}
-					{date}
-				</Text>
-				<Text style={styles.text}>
-					Неоплачено
-				</Text>
-				<View style={styles.image} />
-			</TouchableOpacity>
-		)
+		<TouchableOpacity
+			style={styles.container}
+			onPress={onPress}
+		>
+			<View style={(isPaid) ? styles.blueMarker : styles.redMarker} />
+
+			<HeadlineText
+				type='Medium'
+				style={styles.header}
+				size='h3'
+			>
+				Квитанция от
+				{' '}
+				{date}
+			</HeadlineText>
+
+			<Text style={styles.text}>
+				{(isPaid) ? 'Оплачено' : 'Неоплачено'}
+			</Text>
+
+			<SMIcons
+				name = 'ic_arrow_right'
+				size = {15}
+				color = '#747474'
+				style = {styles.icon} />
+		</TouchableOpacity>
 	);
 };

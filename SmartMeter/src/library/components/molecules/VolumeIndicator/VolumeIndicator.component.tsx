@@ -30,15 +30,24 @@ export const VolumeIndicator: React.FC<VolumeIndicatorProps> = ({
 		>
 			<View style = {styles.ellipse}>
 				<GilroyText
-					text={`${volume} m³`}
 					type = 'Semibold'
-					size = {31} />
+					size = 'g1'
+				>
+					{volume}
+					{' '}
+					m³
+				</GilroyText>
 
 				<RobotoText
-					text = {`на ${date}`}
 					type = 'Regular'
-					size = {12.5}
-					style = {styles.dateText} />
+					size = 'r5'
+					style = {styles.dateText}
+				>
+					на
+					{' '}
+					{date}
+
+				</RobotoText>
 			</View>
 		</View>
 	);

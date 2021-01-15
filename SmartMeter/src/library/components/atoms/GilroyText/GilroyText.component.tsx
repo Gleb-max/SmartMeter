@@ -9,23 +9,41 @@ import { Text, TextStyle, StyleProp, ViewStyle } from 'react-native';
 
 //types
 type GilroyTextProps = {
-	text: string;
 	type: 'Medium' | 'Semibold' | 'Regular';
-	size: number;
+	size: 'g1' | 'g2' | 'g3' | 'g4';
 	styleText?: StyleProp<TextStyle>;
 	style?: StyleProp<ViewStyle>;
+	children: React.ReactNode;
 };
 
 export const GilroyText: React.FC<GilroyTextProps> = ({
-	text,
 	type = 'Medium',
 	size,
-	style,
 	styleText,
+	style,
+	children,
 }) => {
+	let fontSize;
+	switch (size) {
+		case 'g1':
+			fontSize = 31;
+			break;
+		case 'g2':
+			fontSize = 24;
+			break;
+		case 'g3':
+			fontSize = 18;
+			break;
+		case 'g4':
+			fontSize = 16;
+			break;
+		default:
+			break;
+	}
+
 	return (
-		<Text style={[{ fontFamily: `Gilroy-${type}`, fontSize: size }, style, styleText]}>
-			{text}
+		<Text style={[{ fontFamily: `Gilroy-${type}`, fontSize: fontSize }, style, styleText]}>
+			{children}
 		</Text>
 	);
 };
