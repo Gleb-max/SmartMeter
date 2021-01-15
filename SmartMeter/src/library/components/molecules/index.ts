@@ -7,3 +7,5 @@ export { VolumeIndicator } from './VolumeIndicator';
 export { ScenarioItemButton } from './ScenarioItemButton';
 export { AdviceCard } from './AdviceCard';
 export { NextButton } from './NextButton';
+export { InfoTitle } from './InfoTitle';
+export { MapCard } from './MapCard';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { StyleProp, ViewStyle } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 
 //components
@@ -13,6 +13,7 @@ type MapCardProps = {
 	maplongitude: number;
 	markerlatitude: number;
 	markerlongitude: number;
+	style?: StyleProp<ViewStyle>;
 };
 
 export const MapCard: React.FC<MapCardProps> = ({
@@ -20,11 +21,12 @@ export const MapCard: React.FC<MapCardProps> = ({
 	maplongitude = 60.583332,
 	markerlatitude = 56.833332,
 	markerlongitude = 60.583332,
+	style,
 }) => {
 	return (
 		<MapView
 			provider={PROVIDER_GOOGLE}
-			style={styles.map}
+			style={[styles.map, style]}
 			region={{
 				latitude: maplatitude,
 				longitude: maplongitude,

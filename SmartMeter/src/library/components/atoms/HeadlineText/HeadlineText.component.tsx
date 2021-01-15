@@ -12,7 +12,7 @@ type HeadlineTextProps = {
 	type: 'Semibold'|'Medium';
 	// size: number; 20 14 18 16
 	size: 'h1' | 'h2' | 'h3' | 'h4';
-	style: StyleProp<TextStyle>;
+	style?: StyleProp<TextStyle>;
 	children: React.ReactNode;
 };
 
