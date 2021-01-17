@@ -28,7 +28,6 @@ export const PressableIcon: React.FC<PressableIconProps> = ({
 	style,
 }) => {
 	return (
-		// <View style={styles.container}>
 		<TouchableOpacity onPress={onPress} style = {style}>
 			<SMIcons
 				name={iconName}
@@ -39,6 +38,5 @@ export const PressableIcon: React.FC<PressableIconProps> = ({
 				<View style={styles.count} />
 			)}
 		</TouchableOpacity>
-		// </View>
 	);
 };

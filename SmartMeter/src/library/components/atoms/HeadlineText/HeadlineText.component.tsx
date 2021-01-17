@@ -1,24 +1,17 @@
 import React from 'react';
 import { Text, TextStyle, StyleProp } from 'react-native';
 
-//other deps
-
-//components
-
-//styles
-
 //types
 type HeadlineTextProps = {
 	type: 'Semibold'|'Medium';
-	// size: number; 20 14 18 16
-	size: 'h1' | 'h2' | 'h3' | 'h4';
-	style?: StyleProp<TextStyle>;
+	size?: 'h1' | 'h2' | 'h3' | 'h4';
+	style: StyleProp<TextStyle>;
 	children: React.ReactNode;
 };
 
 export const HeadlineText: React.FC<HeadlineTextProps> = ({
 	type = 'Medium',
-	size,
+	size = 'h1',
 	style,
 	children,
 }) => {
@@ -37,6 +30,7 @@ export const HeadlineText: React.FC<HeadlineTextProps> = ({
 			fontSize = 14;
 			break;
 		default:
+      fontSize = 20;
 			break;
 	}
 	return (

@@ -1,8 +1,11 @@
 import React from 'react';
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
 //styles
 import styles from './InfoItemCard.styles';
+
+//components
+import { GilroyText, HeadlineText } from 'library/components/atoms';
 
 type InfoItemCardProps = {
 	date: string;
@@ -16,49 +19,45 @@ export const InfoItemCard: React.FC<InfoItemCardProps> = ({
 	type,
 }) => {
 	//for mark
-	const markWidth = () => {
-		if (type == 'announcement') return 11
-		else if (type == 'notification') return 10
-		else return 11
-	};
 	const markHeight = () => {
-		if (type == 'announcement') return 44
-		else if (type == 'notification') return 49
-		else return 30
+		if (type === 'announcement') return 44;
+		else if (type === 'notification') return 49;
+		else return 30;
 	};
 
-	//for text
-	const leftPaddingContent = () => {
-		if (type == 'announcement') return 16
-		else if (type == 'notification') return 9
-		else return 16
-	}
-	const fontSizeContent = () => {
-		if (type == 'announcement') return 14
-		else if (type == 'notification') return 16
-		else return 14
-	}
-
-	const customStyles = StyleSheet.create({
-		mark: {
-			width: markWidth(),
-			height: markHeight(),
-		},
-		contentContainer: {
-			minHeight: markHeight(),
-		},
-		contentText: {
-			paddingLeft: leftPaddingContent(),
-			fontSize: fontSizeContent(),
-		},
-	})
 	return (
 		<View style={styles.container}>
-            <Text style={styles.date}>{date}</Text>
-            <View style={[styles.contentContainer, (type == 'notification') && {borderRadius: 8}, customStyles.contentContainer]}>
-                <View style={[styles.mark, customStyles.mark, (type == 'notification') && {borderBottomLeftRadius: 8, borderTopLeftRadius: 8}]}/>
-                <Text style={[styles.contentText, customStyles.contentText]}>{content}</Text>
-            </View>
-        </View>
+			<GilroyText
+				size = 'g4'
+				type = 'Medium'
+				style={styles.date}
+			>
+				{date}
+			</GilroyText>
+
+			<View
+				style={[
+					styles.contentContainer,
+					{ minHeight: markHeight() },
+					(type === 'notification') && { borderRadius: 8 },
+				]}
+			>
+				<View
+					style={[styles.mark, {
+						width: (type === 'notification') ? 10 : 11,
+						height: markHeight(),
+					}]} />
+
+				<HeadlineText
+					style={[styles.contentText, {
+						paddingLeft: (type === 'notification') ? 9 : 16,
+						fontSize: (type === 'notification') ? 16 : 14,
+					}]}
+					type = 'Medium'
+				>
+					{content}
+				</HeadlineText>
+			</View>
+		</View>
 	);
 };

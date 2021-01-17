@@ -50,7 +50,7 @@ export const SMIcons: React.FC<SMIconsProps> = React.memo(({
 		<Svg
 			width={iconSize}
 			height={iconSize}
-			viewBox='0 0 26 27'
+			viewBox='0 0 30 30'
 			fill={iconColor}
 			style={_style}
 		>

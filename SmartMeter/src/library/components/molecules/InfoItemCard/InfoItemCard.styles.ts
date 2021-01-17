@@ -1,9 +1,21 @@
+import { Helpers } from 'library/theme';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: '#FFFFFF',
 		alignSelf: 'stretch',
+		paddingHorizontal: 27,
+	},
+	contentContainer: {
+		backgroundColor: '#FFFFFF',
+		marginVertical: 1,
+		flexDirection: 'row',
+		...Helpers.boxShadow('rgb(223, 227, 229)', { x: 0, y: 4 }, 50, 0.3, 2),
+	},
+	contentText: {
+		color: '#000000',
+		alignSelf: 'center',
 		justifyContent: 'center',
 		paddingRight: 24,
 	},
@@ -33,6 +45,16 @@ const styles = StyleSheet.create({
 		paddingBottom: 10,
 		paddingRight: 21,
 		lineHeight: 20,
+	},
+	mark: {
+		alignSelf: 'flex-start',
+		marginTop: 0,
+		marginLeft: 0,
+		backgroundColor: '#005670',
+	},
+	date: {
+		color: '#000000',
+		marginTop: 26,
 		alignSelf: 'center',
 	},
 	date: {
