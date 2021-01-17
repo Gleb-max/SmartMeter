@@ -5,7 +5,7 @@ import { Text, TextStyle, StyleProp } from 'react-native';
 type HeadlineTextProps = {
 	type: 'Semibold'|'Medium';
 	size?: 'h1' | 'h2' | 'h3' | 'h4';
-	style: StyleProp<TextStyle>;
+	style?: StyleProp<TextStyle>;
 	children: React.ReactNode;
 };
 

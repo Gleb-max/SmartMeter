@@ -11,6 +11,7 @@ import { AuthNavigation } from './screens/AuthScreen';
 import { MainNavigation } from 'screens/MainScreen';
 import { AdvicesNavigation } from 'screens/AdvicesScreen';
 import { ReceiptsNavigation } from 'screens/ReceiptsScreen';
+import { AdviceItemNavigation } from 'screens/AdviceItemScreen';
 import { NewsNavigation } from 'screens/NewsScreen';
 import { InformationNavigation } from 'screens/InformationScreen';
 
@@ -22,6 +23,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<AuthNavigation />
+		<AdviceItemNavigation />
 	);
 };
