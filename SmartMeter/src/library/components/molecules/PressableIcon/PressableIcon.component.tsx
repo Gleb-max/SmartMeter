@@ -17,6 +17,8 @@ type PressableIconProps = {
 	size?: number;
 	withNotif?: boolean;
 	style?: StyleProp<ViewStyle>
+	width?: number,
+	height?: number,
 }
 
 export const PressableIcon: React.FC<PressableIconProps> = ({
@@ -35,7 +37,7 @@ export const PressableIcon: React.FC<PressableIconProps> = ({
 				color={color} />
 
 			{withNotif && (
-				<View style={styles.count} />
+				<View style={styles.indicator} />
 			)}
 		</TouchableOpacity>
 	);

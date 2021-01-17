@@ -6,4 +6,6 @@ export type SMIconsProps = {
 	color?: string;
 	size?: number;
 	style?: StyleProp<TextStyle>;
+	width?: number,
+	height?: number,
 }

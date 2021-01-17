@@ -9,7 +9,10 @@ export type CommonIconName =
 	'ic_account' |
 	'ic_arrow_up' |
 	'ic_arrow_right' |
-	'ic_arrow_down';
+	'ic_arrow_down' |
+	'ic_analytics' |
+	'ic_announcements' |
+	'ic_receipts';
 
 export type TabBarIconName =
 	'ic_tabbar_profile' |

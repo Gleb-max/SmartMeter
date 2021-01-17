@@ -18,6 +18,8 @@ export const SMIcons: React.FC<SMIconsProps> = React.memo(({
 	color,
 	size,
 	style,
+	width = 24,
+	height = 24,
 }) => {
 	const _style = flattenStyle(style) as TextStyle;
 
@@ -50,7 +52,7 @@ export const SMIcons: React.FC<SMIconsProps> = React.memo(({
 		<Svg
 			width={iconSize}
 			height={iconSize}
-			viewBox='0 0 30 30'
+			viewBox={`0 0 ${width} ${height}`}
 			fill={iconColor}
 			style={_style}
 		>

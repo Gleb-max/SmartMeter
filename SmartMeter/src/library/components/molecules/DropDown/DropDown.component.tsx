@@ -14,6 +14,7 @@ type CustomDropDownProp = {
 	data: string[];
 	onChange: (selectedItem: string) => void;
 	style?: StyleProp<ViewStyle>;
+	containerStyle?: StyleProp<ViewStyle>;
 	listStyle?: StyleProp<ViewStyle>;
 }
 
@@ -21,6 +22,7 @@ export const CustomDropDown: React.FC<CustomDropDownProp> = ({
 	data,
 	onChange,
 	style,
+	containerStyle,
 	listStyle,
 }) => {
 	//state
@@ -33,38 +35,17 @@ export const CustomDropDown: React.FC<CustomDropDownProp> = ({
 		onChange(selectedItem);
 	}, [onChange]);
 
-	//renders
-	const _renderCustomArrowUp = React.useCallback(() => {
-		return (
-			<SMIcons
-				size={18}
-				color={'#DCDCDC'}
-				name='ic_arrow_up' />
-		);
-	}, []);
-	const _renderCustomArrowDown = React.useCallback(() => {
-		return (
-			<SMIcons
-				size={18}
-				color={'#DCDCDC'}
-				name='ic_arrow_up'
-				style={styles.IconArrowUp} />
-		);
-	}, []);
-
 	return (
 		<DropDownPicker
 			items={dropdownValues}
 			defaultValue={data[0]}
 			onChangeItem={(item: any, index: number) => _onChange(item.label)}
 			activeLabelStyle={{ color: '#000' }}
-			containerStyle={{ height: 40, marginTop: 250 }}
-			style={[styles.container, style]}
-			dropDownStyle={listStyle}
+			containerStyle={[styles.container, containerStyle]}
+			style={[styles.dropdown, style]}
+			dropDownStyle={[styles.list, listStyle]}
 			placeholderStyle={{ color: '#000' }}
 			labelStyle={{ color: '#000' }}
-			itemStyle={[styles.itemStyle]}
-			customArrowUp={_renderCustomArrowUp}
-			customArrowDown={_renderCustomArrowDown} />
+			itemStyle={[styles.itemStyle]} />
 	);
 };

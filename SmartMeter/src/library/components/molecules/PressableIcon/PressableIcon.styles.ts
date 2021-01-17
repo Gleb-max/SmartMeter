@@ -5,13 +5,13 @@ const styles = StyleSheet.create({
 		backgroundColor: '#FFFFFF',
 		alignSelf: 'flex-start',
 	},
-	count: {
+	indicator: {
 		position: 'absolute',
 		backgroundColor: '#FF5B5B',
 		width: 8,
 		height: 8,
-		top: 4,
-		left: 18,
+		top: 1.46,
+		right: 0,
 		borderRadius: 4,
 	},
 });
