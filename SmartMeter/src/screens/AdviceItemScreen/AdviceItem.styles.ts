@@ -4,6 +4,9 @@ const styles = StyleSheet.create({
 	container: {
 		padding: 30,
 	},
+	contentContainer: {
+		paddingBottom: 50,
+	},
 	titleText: {
 		marginBottom: 28,
 	},

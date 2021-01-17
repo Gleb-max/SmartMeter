@@ -1,20 +1,14 @@
-/* eslint-disable max-len */
 import React from 'react';
-import { View, ScrollView, Text } from 'react-native';
-
-//other deps
-import { T } from 'ramda';
+import { View, ScrollView } from 'react-native';
 
 //styles
 import styles from './Announcements.styles';
 
 //components
 import { GilroyText } from 'library/components/atoms';
-import { 
-  InfoItemCard, 
-  AnnouncementCard, 
-  PressableIcon, 
-  CustomDropDown 
+import {
+	InfoItemCard,
+	PressableIcon,
 } from 'library/components/molecules';
 
 export type AnnouncementsViewProps = {
@@ -24,8 +18,6 @@ export type AnnouncementsViewProps = {
 		type: 'announcement' | 'notification' | 'news';
 	}[];
 	onPressNotify?: () => void;
-  
-type AnnouncementsViewProps = {
 }
 
 export const AnnouncementsView: React.FC<AnnouncementsViewProps> = ({
@@ -56,13 +48,16 @@ export const AnnouncementsView: React.FC<AnnouncementsViewProps> = ({
 					withNotif={false}
 					style={styles.icon} />
 
-				<GilroyText 
-          size = 'g1' 
-          type = 'Semibold' 
-          style = {styles.header}
-        >
+				<GilroyText
+					size = 'g1'
+					type = 'Semibold'
+					style = {styles.header}
+				>
 					Объявления
 				</GilroyText>
 
 				{ _renderAnnouncementItem() }
+			</View>
+		</ScrollView>
+	);
 };

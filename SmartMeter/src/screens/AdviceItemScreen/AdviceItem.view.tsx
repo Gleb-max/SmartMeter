@@ -1,8 +1,6 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
 
-//other deps
-
 //components
 import { GilroyText, HeadlineText } from 'library/components/atoms';
 import { PressableIcon } from 'library/components/molecules';
@@ -61,7 +59,10 @@ export const AdviceItemView: React.FC<AdviceItemViewProps> = ({
 		});
 	}, [advices]);
 	return (
-		<ScrollView style={styles.container}>
+		<ScrollView
+			style={styles.container}
+			contentContainerStyle={styles.contentContainer}
+		>
 			<PressableIcon
 				iconName='ic_notification'
 				onPress={() => { }}

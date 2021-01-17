@@ -6,8 +6,8 @@ import styles from './AdviceCard.styles';
 
 //types
 type AdviceCardProps = {
-	onPress: () => void;
 	text: string;
+	onPress: () => void;
 	style?: StyleProp<ViewStyle>;
 	styleText?: StyleProp<TextStyle>;
 	textBox?: StyleProp<ViewStyle>;
@@ -21,8 +21,11 @@ export const AdviceCard: React.FC<AdviceCardProps> = ({
 	textBox,
 }) => {
 	return (
-		<TouchableOpacity style={[styles.container, style]} onPress={onPress}>
-			<View style={textBox}>
+		<TouchableOpacity
+			style={[styles.container, style]}
+			onPress={onPress}
+		>
+			<View style = {textBox}>
 				<Text style={[styles.text, styleText]}>
 					{text}
 				</Text>

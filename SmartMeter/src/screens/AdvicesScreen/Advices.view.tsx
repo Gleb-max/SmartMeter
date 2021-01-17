@@ -19,16 +19,13 @@ export const AdvicesView: React.FC<AdvicesProps> = ({
 	onSelectAdvice,
 }) => {
 	//renders
-	const _renderListItem = React.useCallback(({ item, index }) => {
+	const _renderListItem = React.useCallback(({ index }) => {
 		return (
-			<View
-				style={styles.component}
-				key={index}
-			>
-				<AdviceCard
-					text={advicesList[index]}
-					onPress={() => onSelectAdvice(index)} />
-			</View>
+			<AdviceCard
+				text={advicesList[index]}
+				style={styles.adviceCard}
+				onPress={() => onSelectAdvice(index)}
+				key={index} />
 		);
 	}, [advicesList, onSelectAdvice]);
 

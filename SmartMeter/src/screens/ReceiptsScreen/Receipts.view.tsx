@@ -2,8 +2,8 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 
 //components
-import { PressableIcon, NextButton } from 'library/components/molecules';
 import { GilroyText } from 'library/components/atoms';
+import { PressableIcon, NextButton } from 'library/components/molecules';
 
 //styles
 import styles from './Receipts.styles';
@@ -23,11 +23,12 @@ export const ReceiptsView: React.FC<ReceiptsProps> = ({
 	onPressNotify,
 }) => {
 	//renders
-	const _renderListItem = React.useCallback(({ item, index }) => {
+	const _renderListItem = React.useCallback(({ index }) => {
 		return (
 			<NextButton
 				text={datesList[index]}
 				isPaid={paidList[index]}
+				style={{ marginTop: 21 }}
 				onPress={() => onSelectReceipt(index)} />
 		);
 	}, [datesList, onSelectReceipt, paidList]);
@@ -52,7 +53,8 @@ export const ReceiptsView: React.FC<ReceiptsProps> = ({
 				</GilroyText>
 			</>
 		);
-	}, []);
+	}, [onPressNotify]);
+
 	return (
 		<View style={styles.container}>
 			<FlatList

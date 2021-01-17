@@ -16,10 +16,15 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 30,
 	},
 	component: {
+		marginBottom: 2,
 		flexDirection: 'row',
 	},
 	flatList: {
 		justifyContent: 'space-between',
+	},
+	adviceCard: {
+		marginTop: 24,
+		marginBottom: 2,
 	},
 });
 

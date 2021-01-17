@@ -12,9 +12,9 @@ import styles from './News.styles';
 type NewsViewProps = {
 	datesList: string[];
 	newsContentList: string[];
+	header: string;
 	onPressNotify: () => void;
 	onPressButton: () => void;
-	header: string;
 };
 
 export const NewsView: React.FC<NewsViewProps> = ({
@@ -25,11 +25,12 @@ export const NewsView: React.FC<NewsViewProps> = ({
 	header,
 }) => {
 	//renders
-	const _renderListItem = React.useCallback(({ item, index }) => {
+	const _renderListItem = React.useCallback(({ index }) => {
 		return (
 			<InfoItemCard
 				date={datesList[index]}
 				content={newsContentList[index]}
+				style={{ width: '100%' }}
 				type='news' />
 		);
 	}, [datesList, newsContentList]);
@@ -77,7 +78,7 @@ export const NewsView: React.FC<NewsViewProps> = ({
 				ListHeaderComponent={_renderHeader}
 				keyExtractor={(item: string, index: number) => item + index}
 				showsVerticalScrollIndicator={false}
-				contentContainerStyle={styles.flatListContainer} />
+				style={styles.flatListContainer} />
 		</View>
 	);
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { StyleProp, View, ViewStyle } from 'react-native';
 
 //styles
 import styles from './InfoItemCard.styles';
@@ -11,12 +11,14 @@ type InfoItemCardProps = {
 	date: string;
 	content: string;
 	type: 'announcement' | 'notification' | 'news';
+	style?: StyleProp<ViewStyle>;
 }
 
 export const InfoItemCard: React.FC<InfoItemCardProps> = ({
 	date,
 	content,
 	type,
+	style,
 }) => {
 	//for mark
 	const markHeight = () => {
@@ -26,7 +28,7 @@ export const InfoItemCard: React.FC<InfoItemCardProps> = ({
 	};
 
 	return (
-		<View style={styles.container}>
+		<View style={[styles.container, style]}>
 			<GilroyText
 				size = 'g4'
 				type = 'Medium'

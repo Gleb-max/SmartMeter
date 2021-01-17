@@ -22,12 +22,14 @@ const _data = [{
 	time: 'выходной',
 }];
 
+const _address = '620109 Свердловская обл, г Екатеринбург, ул Ленина 56';
+
 export const InformationScreen: React.FC<InformationScreenProps> = ({
 
 }) => {
 	return (
 		<InformationView
 			workingHours={_data}
-			address={'620109 Свердловская обл, г Екатеринбург, ул Ленина 56'} />
+			address={_address} />
 	);
 };

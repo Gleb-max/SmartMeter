@@ -30,11 +30,13 @@ export const HeadlineText: React.FC<HeadlineTextProps> = ({
 			fontSize = 14;
 			break;
 		default:
-      fontSize = 20;
+			fontSize = 20;
 			break;
 	}
 	return (
-		<Text style={[{ fontFamily: `Montserrat-${type}`, fontSize }, style]}>
+		<Text
+			style={[{ fontFamily: `Montserrat-${type}`, fontSize }, style]}
+		>
 			{children}
 		</Text>
 	);

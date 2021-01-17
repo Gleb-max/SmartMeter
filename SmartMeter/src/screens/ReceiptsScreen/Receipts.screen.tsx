@@ -9,14 +9,20 @@ type ReceiptsScreenProps = {
 };
 
 //constats
-const _datesList =
-['Квитанция за 25.12.2020',
+const _datesList = [
+	'Квитанция за 25.12.2020',
 	'Квитанция за 25.02.2020',
 	'Квитанция за 25.02.2020',
 	'Квитанция за 25.02.2020',
-	'Квитанция за 25.02.2020'];
+	'Квитанция за 25.02.2020',
+	'Квитанция за 25.02.2020',
+	'Квитанция за 25.02.2020',
+	'Квитанция за 25.02.2020',
+	'Квитанция за 25.02.2020',
+	'Квитанция за 25.02.2020',
+];
 
-const _paidList = [true, false];
+const _paidList = [true, false, true, true, false, false, true];
 
 export const ReceiptsScreen: React.FC<ReceiptsScreenProps> = ({
 
