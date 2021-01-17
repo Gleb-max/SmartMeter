@@ -7,7 +7,12 @@ const styles = StyleSheet.create({
 		width: '100%',
 		height: DimensionsManager.horizontalScale(60),
 		backgroundColor: '#ffffff',
-		marginTop: 21,
+		...Helpers.boxShadow('rgb(223, 227, 229)', { x: 0, y: 4 }, 50, 0.3, 0.7),
+	},
+	containerWithoutMarker: {
+		width: 320,
+		height: DimensionsManager.horizontalScale(40),
+		backgroundColor: '#ffffff',
 		...Helpers.boxShadow('rgb(223, 227, 229)', { x: 0, y: 4 }, 50, 0.3, 0.7),
 	},
 	header: {
@@ -34,6 +39,19 @@ const styles = StyleSheet.create({
 	icon: {
 		marginLeft: 300,
 		marginTop: 23,
+		position: 'absolute',
+	},
+	iconWithoutMarker: {
+		marginLeft: 290,
+		marginTop: 13,
+		position: 'absolute',
+	},
+	withoutMarkerText: {
+		marginTop: 12,
+		color: '#000000',
+		fontFamily: 'Montserrat-Medium',
+		fontSize: 14,
+		marginLeft: 18,
 		position: 'absolute',
 	},
 });

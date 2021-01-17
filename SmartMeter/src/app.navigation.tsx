@@ -10,6 +10,7 @@ import { AnnouncementsNavigation } from './screens/AnnouncementsScreen';
 import { MainNavigation } from 'screens/MainScreen';
 import { AdvicesNavigation } from 'screens/AdvicesScreen';
 import { ReceiptsNavigation } from 'screens/ReceiptsScreen';
+import { NewsNavigation } from 'screens/NewsScreen';
 import { InformationNavigation } from 'screens/InformationScreen';
 
 //native-powered screen containers
@@ -20,6 +21,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<InformationNavigation />
+		<NewsNavigation />
 	);
 };

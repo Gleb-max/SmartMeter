@@ -26,7 +26,7 @@ export const ReceiptsView: React.FC<ReceiptsProps> = ({
 	const _renderListItem = React.useCallback(({ item, index }) => {
 		return (
 			<NextButton
-				date={datesList[index]}
+				text={datesList[index]}
 				isPaid={paidList[index]}
 				onPress={() => onSelectReceipt(index)} />
 		);
