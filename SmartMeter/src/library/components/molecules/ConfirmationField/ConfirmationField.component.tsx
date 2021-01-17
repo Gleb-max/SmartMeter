@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Text, View, SafeAreaView } from 'react-native';
+import { Text, View, SafeAreaView, ViewStyle } from 'react-native';
 
 //components
 import { Loader } from 'library/components/atoms';
@@ -8,35 +8,41 @@ import { Loader } from 'library/components/atoms';
 import styles from './ConfirmationField.styles';
 
 import {
-    CodeField,
-    Cursor,
-    useBlurOnFulfill,
-    useClearByFocusCell,
-  } from 'react-native-confirmation-code-field';
+  CodeField,
+  Cursor,
+  useBlurOnFulfill,
+  useClearByFocusCell,
+} from 'react-native-confirmation-code-field';
 
 type ConfirmationFieldProps = {
     cellCount: number;
+    containerStyle?: ViewStyle;
+    onSubmit: () => void;
 };
 
 export const ConfirmationField: React.FC<ConfirmationFieldProps> = ({
-    cellCount
+    cellCount,
+    containerStyle,
+    onSubmit,
 }) => {
     const [value, setValue] = useState('');
-    const ref = useBlurOnFulfill({value, cellCount: cellCount});
+    // const ref = useBlurOnFulfill({value, cellCount: cellCount});
     const [props, getCellOnLayoutHandler] = useClearByFocusCell({
         value,
         setValue,
       });
 	return (
       <CodeField
-        ref={ref}
+        // ref={ref}
+        blurOnSubmit
         {...props}
         value={value}
         onChangeText={setValue}
         cellCount={cellCount}
-        rootStyle={styles.codeFieldRoot}
+        rootStyle={[containerStyle, styles.codeFieldRoot]}
         keyboardType="number-pad"
         textContentType="oneTimeCode"
+        onSubmitEditing={onSubmit}
         renderCell={({index, symbol, isFocused}) => (
           <View
             onLayout={getCellOnLayoutHandler(index)}

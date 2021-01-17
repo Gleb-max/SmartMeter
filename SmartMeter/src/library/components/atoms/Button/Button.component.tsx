@@ -8,7 +8,7 @@ import styles from './Button.styles';
 type ButtonProps = {
 	onPress: () => void;
 	header: string;
-	style: StyleProp<ViewStyle>;
+	style?: StyleProp<ViewStyle>;
 }
 
 export const Button: React.FC<ButtonProps> = ({

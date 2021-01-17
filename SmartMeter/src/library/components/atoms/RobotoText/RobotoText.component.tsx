@@ -4,7 +4,7 @@ import { Text, TextStyle, StyleProp } from 'react-native';
 //types
 type RobotoTextProps = {
 	children: React.ReactNode;
-	type: 'Light' | 'Regular';
+  type: 'Light' | 'Regular' | 'Medium';
 	size: 'r1' | 'r2' | 'r3' | 'r4' | 'r5';
 	style: StyleProp<TextStyle>;
 };

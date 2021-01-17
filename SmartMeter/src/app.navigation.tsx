@@ -7,6 +7,7 @@ import { enableScreens } from 'react-native-screens';
 import { TestNavigation } from './screens/TestScreen';
 import { LoginNavigation } from './screens/LoginScreen';
 import { AnnouncementsNavigation } from './screens/AnnouncementsScreen';
+import { AuthNavigation } from './screens/AuthScreen';
 import { MainNavigation } from 'screens/MainScreen';
 import { AdvicesNavigation } from 'screens/AdvicesScreen';
 import { ReceiptsNavigation } from 'screens/ReceiptsScreen';
@@ -21,6 +22,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<AnnouncementsNavigation />
+		<AuthNavigation />
 	);
 };

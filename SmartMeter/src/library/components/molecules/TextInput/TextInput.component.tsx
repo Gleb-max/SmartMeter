@@ -1,6 +1,9 @@
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 
+//styles
+import styles from './TextInput.styles'
+
 import {TextField} from 'react-native-material-textfield';
 
 type CustomTextInputProps = {
@@ -13,7 +16,12 @@ type CustomTextInputProps = {
 }
 
 export const CustomTextInput: React.FC<CustomTextInputProps> = ({
-    value, placeholder, keyboardType, isPassword, onChange, style
+    value, 
+    placeholder, 
+    keyboardType, 
+    isPassword,
+    onChange, 
+    style,
 }) => {
     return (
         <TextField
@@ -22,8 +30,11 @@ export const CustomTextInput: React.FC<CustomTextInputProps> = ({
             textColor='#747474'
             labelFontSize={17}
             fontSize={18}
-            labelTextStyle={{marginBottom: 20}}
-            tintColor={"#005670"}
+            labelTextStyle={styles.labelText}
+            tintColor="#005670"
+            blurOnSubmit={isPassword}
+            underlineColorAndroid="transparent"
+            containerStyle={[style, styles.container]}
         />
     );
 };
