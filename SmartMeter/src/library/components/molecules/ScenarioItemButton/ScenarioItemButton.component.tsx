@@ -35,6 +35,7 @@ export const ScenarioItemButton: React.FC<ScenarioItemButtonProps> = ({
 					{number}
 				</Text>
 			</View>
+
 			<View style={styles.textContainer}>
 				<Text style={[styles.text, styleText]}>
 					{text}

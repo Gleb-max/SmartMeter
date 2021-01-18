@@ -4,9 +4,6 @@ import { StyleProp, ViewStyle } from 'react-native';
 //other deps
 import DropDownPicker from 'react-native-dropdown-picker';
 
-//component
-import { SMIcons } from 'library/components';
-
 //styles
 import styles from './DropDown.styles';
 
@@ -39,7 +36,7 @@ export const CustomDropDown: React.FC<CustomDropDownProp> = ({
 		<DropDownPicker
 			items={dropdownValues}
 			defaultValue={data[0]}
-			onChangeItem={(item: any, index: number) => _onChange(item.label)}
+			onChangeItem={(item: any) => _onChange(item.label)}
 			activeLabelStyle={{ color: '#000' }}
 			containerStyle={[styles.container, containerStyle]}
 			style={[styles.dropdown, style]}

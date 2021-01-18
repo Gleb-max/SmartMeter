@@ -14,26 +14,30 @@ type EmergencyContactsItemProps = {
 };
 
 export const EmergencyContactsItem: React.FC<EmergencyContactsItemProps> = ({
-    name,
-    phone,
-    style,
+	name,
+	phone,
+	style,
 }) => {
 	return (
-        <View style={[styles.container, style]}>
-            <View style={styles.mark}/>
+		<View style={[styles.container, style]}>
+			<View style={styles.mark} />
 
-                <View style={styles.contactInfoContainer}>
-                    <Text style={styles.name}>{name}</Text>
+			<View style={styles.contactInfoContainer}>
+				<Text style={styles.name}>
+					{name}
+				</Text>
 
-                    <Text style={styles.phone}>{phone}</Text>
-                </View>
+				<Text style={styles.phone}>
+					{phone}
+				</Text>
+			</View>
 
-            <TouchableOpacity style={styles.arrowContainer}>
-                    <SMIcons 
-                    name="ic_arrow_right" 
-                    size={24}
-                    color="#747474" />
-            </TouchableOpacity>
-        </View>
+			<TouchableOpacity style={styles.arrowContainer}>
+				<SMIcons
+					name='ic_arrow_right'
+					size={24}
+					color='#747474' />
+			</TouchableOpacity>
+		</View>
 	);
 };

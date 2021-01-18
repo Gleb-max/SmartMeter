@@ -1,5 +1,8 @@
 import React from 'react';
-import { TouchableOpacity, Text, View, ViewStyle, StyleProp } from 'react-native';
+import { TouchableOpacity, ViewStyle, StyleProp } from 'react-native';
+
+//components
+import { RobotoText } from 'library/components/atoms';
 
 //styles
 import styles from './Button.styles';
@@ -21,9 +24,13 @@ export const Button: React.FC<ButtonProps> = ({
 			style= { [styles.container, style]}
 			onPress = { onPress }
 		>
-			<Text style={styles.text}>
+			<RobotoText
+				type='Regular'
+				size='r1'
+				style={styles.text}
+			>
 				{header}
-			</Text>
+			</RobotoText>
 		</TouchableOpacity>
 	);
 };

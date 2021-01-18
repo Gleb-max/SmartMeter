@@ -25,28 +25,48 @@ export const NextButton: React.FC<NextButtonProps> = ({
 }) => {
 	return (
 		<TouchableOpacity
-			style={(withMarker) ? [styles.container, style] : [styles.containerWithoutMarker, style] }
 			onPress={onPress}
+			style={(withMarker)
+				? [styles.container, style]
+				: [styles.containerWithoutMarker, style]
+			}
 		>
-			<View style={(withMarker) ? (isPaid) ? styles.blueMarker : styles.redMarker : null } />
+			<View
+				style={(withMarker)
+					? (isPaid)
+						? styles.blueMarker
+						: styles.redMarker
+					: null
+				} />
 
 			<HeadlineText
 				type='Medium'
-				style={(withMarker) ? styles.header : styles.withoutMarkerText}
+				style={(withMarker)
+					? styles.header
+					: styles.withoutMarkerText
+				}
 				size='h3'
 			>
 				{text}
 			</HeadlineText>
 
 			<Text style={styles.text}>
-				{(withMarker) ? (isPaid) ? 'Оплачено' : 'Неоплачено' : null}
+				{(withMarker)
+					? (isPaid)
+						? 'Оплачено'
+						: 'Неоплачено'
+					: null
+				}
 			</Text>
 
 			<SMIcons
 				name = 'ic_arrow_right'
 				size = {15}
-				color = '#747474'
-				style = {(withMarker) ? styles.icon : styles.iconWithoutMarker} />
+				color = {'#747474'}
+				style = {(withMarker)
+					? styles.icon
+					: styles.iconWithoutMarker
+				} />
 		</TouchableOpacity>
 	);
 };

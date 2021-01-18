@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
-import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 
-//components
+//other deps
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 
 //styles
 import styles from './MapCard.styles';

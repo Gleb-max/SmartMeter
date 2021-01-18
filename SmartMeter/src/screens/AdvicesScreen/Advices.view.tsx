@@ -50,6 +50,7 @@ export const AdvicesView: React.FC<AdvicesProps> = ({
 			</>
 		);
 	}, []);
+
 	return (
 		<View style={ styles.container }>
 			<FlatList

@@ -1,58 +1,53 @@
-import React, {useState} from 'react';
-import { Text, View, SafeAreaView, ViewStyle } from 'react-native';
-
-//components
-import { Loader } from 'library/components/atoms';
+import React, { useState } from 'react';
+import { Text, View, ViewStyle, StyleProp } from 'react-native';
 
 //styles
 import styles from './ConfirmationField.styles';
 
 import {
-  CodeField,
-  Cursor,
-  useBlurOnFulfill,
-  useClearByFocusCell,
+	CodeField,
+	Cursor,
+	useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
 
 type ConfirmationFieldProps = {
     cellCount: number;
-    containerStyle?: ViewStyle;
+    containerStyle?: StyleProp<ViewStyle>;
     onSubmit: () => void;
 };
 
 export const ConfirmationField: React.FC<ConfirmationFieldProps> = ({
-    cellCount,
-    containerStyle,
-    onSubmit,
+	cellCount,
+	containerStyle,
+	onSubmit,
 }) => {
-    const [value, setValue] = useState('');
-    // const ref = useBlurOnFulfill({value, cellCount: cellCount});
-    const [props, getCellOnLayoutHandler] = useClearByFocusCell({
-        value,
-        setValue,
-      });
+	//state
+	const [value, setValue] = useState('');
+	const [props, getCellOnLayoutHandler] = useClearByFocusCell({
+		value,
+		setValue,
+	});
 	return (
-      <CodeField
-        // ref={ref}
-        blurOnSubmit
-        {...props}
-        value={value}
-        onChangeText={setValue}
-        cellCount={cellCount}
-        rootStyle={[containerStyle, styles.codeFieldRoot]}
-        keyboardType="number-pad"
-        textContentType="oneTimeCode"
-        onSubmitEditing={onSubmit}
-        renderCell={({index, symbol, isFocused}) => (
-          <View
-            onLayout={getCellOnLayoutHandler(index)}
-            key={index}
-            style={[styles.cellRootEmpty, (symbol != '') && styles.cellRoot, isFocused && styles.focusCell]}>
-            <Text style={styles.cellText}>
-              {symbol || (isFocused ? <Cursor /> : null)}
-            </Text>
-          </View>
-        )}
-      />
+		<CodeField
+			blurOnSubmit
+			{...props}
+			value={value}
+			onChangeText={setValue}
+			cellCount={cellCount}
+			rootStyle={[containerStyle, styles.codeFieldRoot]}
+			keyboardType='number-pad'
+			textContentType='oneTimeCode'
+			onSubmitEditing={onSubmit}
+			renderCell={({ index, symbol, isFocused }) => (
+				<View
+					onLayout={getCellOnLayoutHandler(index)}
+					key={index}
+					style={[styles.cellRootEmpty, (symbol !== '') && styles.cellRoot, isFocused && styles.focusCell]}
+				>
+					<Text style={styles.cellText}>
+						{symbol || (isFocused ? <Cursor /> : null)}
+					</Text>
+				</View>
+			)} />
 	);
 };

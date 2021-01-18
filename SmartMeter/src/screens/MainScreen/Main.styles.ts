@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
 		color: '#747474',
 	},
 	announcementsText: {
-		
+
 	},
 	receiptsText: {
 		fontStyle: 'normal',
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: '#FFFFFF',
 		borderRadius: 17,
-		...Helpers.boxShadow('rgba(0, 0, 0, 0.04)', { x: 10, y: 20 }, 100, 0.1, 6),
+		...Helpers.boxShadow('rgba(0, 0, 0, 0.04)', { x: 10, y: 20 }, 100, 0.1, 4),
 		paddingHorizontal: 21,
 		paddingTop: 10,
 		marginTop: 33,
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
 	},
 	switchButtonStyle: {
 		borderRadius: 13,
-		height: 36.72
+		height: 36.72,
 	},
 	lastMeterContainer: {
 		flex: 1,
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
 		marginBottom: 19,
 	},
 	lastMeterContentContainer: {
-		flex: 1, 
+		flex: 1,
 		marginTop: -66,
 		justifyContent: 'center',
 		alignContent: 'center',

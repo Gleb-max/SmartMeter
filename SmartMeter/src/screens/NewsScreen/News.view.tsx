@@ -3,7 +3,11 @@ import { View, FlatList } from 'react-native';
 
 //components
 import { GilroyText } from 'library/components/atoms';
-import { PressableIcon, NextButton, InfoItemCard } from 'library/components/molecules';
+import {
+	PressableIcon,
+	NextButton,
+	InfoItemCard,
+} from 'library/components/molecules';
 
 //styles
 import styles from './News.styles';
