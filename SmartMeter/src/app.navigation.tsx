@@ -16,7 +16,7 @@ import { NewsNavigation } from 'screens/NewsScreen';
 import { InformationNavigation } from 'screens/InformationScreen';
 import { DevicesNavigation } from 'screens/DevicesScreen';
 import { NewDeviceNavigation } from 'screens/NewDeviceScreen';
-import { SuccessNewDeviceNavigation } from 'screens/SuccessNewDeviceScreen';
+import { ContactsNavigation } from 'screens/ContactsScreen';
 
 //native-powered screen containers
 //run before any navigation stacks render
@@ -26,6 +26,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<SuccessNewDeviceNavigation />
+		<ContactsNavigation />
 	);
 };

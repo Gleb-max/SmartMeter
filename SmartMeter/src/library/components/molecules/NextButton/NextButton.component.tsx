@@ -15,6 +15,8 @@ type NextButtonProps = {
 	style?: StyleProp<ViewStyle>;
 	styleText?: StyleProp<TextStyle>;
 	withMarker?: boolean;
+	contact?: boolean;
+	number?: string;
 }
 
 export const NextButton: React.FC<NextButtonProps> = ({
@@ -24,6 +26,8 @@ export const NextButton: React.FC<NextButtonProps> = ({
 	style,
 	styleText,
 	withMarker = true,
+	contact,
+	number,
 }) => {
 	return (
 		<TouchableOpacity
@@ -43,10 +47,10 @@ export const NextButton: React.FC<NextButtonProps> = ({
 
 			<HeadlineText
 				type='Medium'
-				style={(withMarker) 
-            ? [styles.header, styleText] 
-            : [styles.withoutMarkerText, styleText]
-          }
+				style={(withMarker)
+					? [styles.header, styleText]
+					: [styles.withoutMarkerText, styleText]
+				}
 
 				size='h3'
 			>
@@ -56,7 +60,7 @@ export const NextButton: React.FC<NextButtonProps> = ({
 			<Text style={styles.text}>
 				{(withMarker)
 					? (isPaid)
-						? 'Оплачено'
+						? (contact) ? number : 'Оплачено'
 						: 'Неоплачено'
 					: null
 				}
