@@ -36,6 +36,7 @@ export const MainScreen: React.FC<MainScreenProps> = ({
 			onNotifications={() => { }}
 			onNotify={() => { }}
 			onReceipts={() => { }}
+			onMasterCall={() => { }}
 			analytics={{
 				period: 'ноябрь',
 				total: 8642.12,

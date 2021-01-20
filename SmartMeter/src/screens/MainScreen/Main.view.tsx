@@ -33,6 +33,7 @@ type MainViewProps = {
 	onAnalytics: () => void;
 	onNotifications: () => void;
 	onReceipts: () => void;
+	onMasterCall: () => void;
 };
 
 export const MainView: React.FC<MainViewProps> = ({
@@ -45,6 +46,7 @@ export const MainView: React.FC<MainViewProps> = ({
 	onReceipts,
 	onAnalytics,
 	onNotifications,
+	onMasterCall,
 }) => {
 	//state
 	const [place, setPlace] = React.useState<string>('Кухня');
@@ -200,7 +202,7 @@ export const MainView: React.FC<MainViewProps> = ({
 						onPress={onNotifications}
 						style={styles.cardContainer}
 					>
-						<View style={[styles.cardIconContainer, { backgroundColor: '#FAFFBA' }]}>
+						<View style={[styles.cardIconContainer, { backgroundColor: '#887EFF' }]}>
 							<SMIcons
 								name='ic_announcements'
 								size={24}
@@ -288,6 +290,27 @@ export const MainView: React.FC<MainViewProps> = ({
 								</Text>
 							)}
 						</View>
+					</TouchableOpacity>
+
+					{/* master call */}
+					<TouchableOpacity
+						onPress={onMasterCall}
+						style={styles.cardContainer} >
+						<View style={[styles.cardIconContainer, { backgroundColor: '#98FF7F' }]}>
+							<SMIcons
+								name='ic_master_call'
+								size={24}
+								color='#FFFFFF'
+								width={24}
+								height={24} />
+						</View>
+
+						<GilroyText
+							styleText={styles.cardTitleText}
+							type='Medium'
+							size='g4'
+							children='Вызов мастера' />
+
 					</TouchableOpacity>
 				</ScrollView>
 			</View>

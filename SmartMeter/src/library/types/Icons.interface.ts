@@ -13,7 +13,8 @@ export type CommonIconName =
 	'ic_analytics' |
 	'ic_announcements' |
 	'ic_receipts' |
-	'ic_options';
+	'ic_options' |
+	'ic_master_call';
 
 export type TabBarIconName =
 	'ic_tabbar_profile' |
