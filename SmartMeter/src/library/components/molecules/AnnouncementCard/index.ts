@@ -1,1 +1,1 @@
-export {AnnouncementCard} from "./AnnouncementCard.component";
+export { AnnouncementCard } from './AnnouncementCard.component';

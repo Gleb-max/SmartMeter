@@ -35,7 +35,6 @@ type AuthViewProps = {
 
 //images
 import logo from '@assets/images/authLogo_c.png';
-import flowersBackgroundImage from '@assets/images/flowersBackground_c.png';
 
 //contants
 var initialIndex = 0;
@@ -333,7 +332,6 @@ export const AuthView: React.FC<AuthViewProps> = ({
 						Изменить номер
 					</RobotoText>
 				</TouchableOpacity>
-
 				<View style={{ flex: 1, paddingTop: 20 }}>
 					<ConfirmationField
 						cellCount={4}
@@ -395,7 +393,6 @@ export const AuthView: React.FC<AuthViewProps> = ({
 					itemWidth={DimensionsManager.getScreenWidth()}
 					data={data.carouselItems}
 					renderItem={renderItem}
-					// onSnapToItem={(index: number) => goTo(index)}
 					scrollEnabled={false} />
 			</View>
 		</SafeAreaView>

@@ -14,6 +14,8 @@ import { ReceiptsNavigation } from 'screens/ReceiptsScreen';
 import { AdviceItemNavigation } from 'screens/AdviceItemScreen';
 import { NewsNavigation } from 'screens/NewsScreen';
 import { InformationNavigation } from 'screens/InformationScreen';
+import { DevicesNavigation } from 'screens/DevicesScreen';
+import { NewDeviceNavigation } from 'screens/NewDeviceScreen';
 
 //native-powered screen containers
 //run before any navigation stacks render
@@ -23,6 +25,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<TestNavigation />
+		<DevicesNavigation />
 	);
 };

@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
 		height: DimensionsManager.horizontalScale(40),
 		backgroundColor: '#ffffff',
 		...Helpers.boxShadow('rgb(223, 227, 229)', { x: 0, y: 4 }, 50, 0.3, 0.7),
+		justifyContent: 'center',
 	},
 	header: {
 		color: '#000000',
@@ -47,7 +48,6 @@ const styles = StyleSheet.create({
 		position: 'absolute',
 	},
 	withoutMarkerText: {
-		marginTop: 12,
 		color: '#000000',
 		fontFamily: 'Montserrat-Medium',
 		fontSize: 14,

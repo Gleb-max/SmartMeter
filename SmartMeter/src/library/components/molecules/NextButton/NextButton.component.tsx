@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, View, ViewStyle, StyleProp } from 'react-native';
+import { TouchableOpacity, Text, View, ViewStyle, StyleProp, TextStyle } from 'react-native';
 
 //styles
 import styles from './NextButton.styles';
@@ -13,6 +13,7 @@ type NextButtonProps = {
 	isPaid?: boolean;
 	text: string;
 	style?: StyleProp<ViewStyle>;
+	styleText?: StyleProp<TextStyle>;
 	withMarker?: boolean;
 }
 
@@ -21,6 +22,7 @@ export const NextButton: React.FC<NextButtonProps> = ({
 	text,
 	onPress,
 	style,
+	styleText,
 	withMarker = true,
 }) => {
 	return (
@@ -41,10 +43,11 @@ export const NextButton: React.FC<NextButtonProps> = ({
 
 			<HeadlineText
 				type='Medium'
-				style={(withMarker)
-					? styles.header
-					: styles.withoutMarkerText
-				}
+				style={(withMarker) 
+            ? [styles.header, styleText] 
+            : [styles.withoutMarkerText, styleText]
+          }
+
 				size='h3'
 			>
 				{text}
@@ -61,7 +64,7 @@ export const NextButton: React.FC<NextButtonProps> = ({
 
 			<SMIcons
 				name = 'ic_arrow_right'
-				size = {15}
+				size = {17}
 				color = {'#747474'}
 				style = {(withMarker)
 					? styles.icon
