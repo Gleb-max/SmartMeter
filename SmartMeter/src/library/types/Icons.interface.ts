@@ -12,7 +12,8 @@ export type CommonIconName =
 	'ic_arrow_down' |
 	'ic_analytics' |
 	'ic_announcements' |
-	'ic_receipts';
+	'ic_receipts' |
+	'ic_options';
 
 export type TabBarIconName =
 	'ic_tabbar_profile' |

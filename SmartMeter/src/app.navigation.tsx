@@ -14,6 +14,7 @@ import { ReceiptsNavigation } from 'screens/ReceiptsScreen';
 import { AdviceItemNavigation } from 'screens/AdviceItemScreen';
 import { NewsNavigation } from 'screens/NewsScreen';
 import { InformationNavigation } from 'screens/InformationScreen';
+import { AnalyticsNavigation } from 'screens/AnalyticsScreen';
 import { DevicesNavigation } from 'screens/DevicesScreen';
 import { NewDeviceNavigation } from 'screens/NewDeviceScreen';
 import { ContactsNavigation } from 'screens/ContactsScreen';
@@ -26,6 +27,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<ContactsNavigation />
+		<AnalyticsNavigation />
 	);
 };

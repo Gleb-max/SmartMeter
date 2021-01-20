@@ -56,18 +56,6 @@ export const MainView: React.FC<MainViewProps> = ({
 		hot,
 	} = indexData[place];
 
-	// const createCard = (title: string) => {
-	// 	return (
-	// 		<View style={styles.cardContainer}>
-	// 			<GilroyText
-	// 				styleText={styles.cardTitleText}
-	// 				type='Semibold'
-	// 				size='g4'
-	// 				children={title} />
-	// 		</View>
-	// 	);
-	// };
-
 	const activeTextColor = () => {
 		return switchItem === 'hot' ? '#FF5B5B' : '#005670';
 	};
@@ -176,10 +164,10 @@ export const MainView: React.FC<MainViewProps> = ({
 						<View style={[styles.cardIconContainer, { backgroundColor: '#A6EAFF' }]}>
 							<SMIcons
 								name='ic_analytics'
-								size={23}
+								size={24}
 								color='#FFFFFF'
-								width={23}
-								height={19} />
+								width={24}
+								height={24} />
 						</View>
 
 						<GilroyText
@@ -207,7 +195,7 @@ export const MainView: React.FC<MainViewProps> = ({
 						</View>
 					</TouchableOpacity>
 
-					{/* notifications */}
+					{/* announcements */}
 					<TouchableOpacity
 						onPress={onNotifications}
 						style={styles.cardContainer}
@@ -215,10 +203,10 @@ export const MainView: React.FC<MainViewProps> = ({
 						<View style={[styles.cardIconContainer, { backgroundColor: '#FAFFBA' }]}>
 							<SMIcons
 								name='ic_announcements'
-								size={23}
+								size={24}
 								color='#FFFFFF'
-								width={23}
-								height={19} />
+								width={24}
+								height={24} />
 						</View>
 
 						<GilroyText

@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 10,
 	},
 	dropdownContainer: {
-		alignSelf: 'stretch',
+		// alignSelf: 'stretch',
 		height: 39,
 	},
 	button: {
