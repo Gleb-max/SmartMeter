@@ -6,7 +6,7 @@ type GilroyTextProps = {
 	type: 'Medium' | 'Semibold' | 'Regular';
 	size: 'g1' | 'g2' | 'g3' | 'g4' | 'g5' | 'g6' | 'g7' | 'g8' | 'g9' | 'g10';
 	styleText?: StyleProp<TextStyle>;
-	style?: StyleProp<ViewStyle>;
+	style?: StyleProp<TextStyle>;
 	children: React.ReactNode;
 };
 
@@ -55,8 +55,7 @@ export const GilroyText: React.FC<GilroyTextProps> = ({
 
 	return (
 		<Text
-			style={[{ fontFamily: `Gilroy-${type}`, fontSize: fontSize }, style, styleText]}
-		>
+			style={[{ fontFamily: `Gilroy-${type}`, fontSize: fontSize }, style, styleText]}>
 			{children}
 		</Text>
 	);

@@ -18,6 +18,7 @@ import { AnalyticsNavigation } from 'screens/AnalyticsScreen';
 import { DevicesNavigation } from 'screens/DevicesScreen';
 import { NewDeviceNavigation } from 'screens/NewDeviceScreen';
 import { ContactsNavigation } from 'screens/ContactsScreen';
+import { RequestDetailsNavigation } from 'screens/RequestDetailsScreen'
 
 //native-powered screen containers
 //run before any navigation stacks render
@@ -27,6 +28,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<AnalyticsNavigation />
+		<RequestDetailsNavigation />
 	);
 };
