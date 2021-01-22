@@ -3,7 +3,6 @@ export { PressableIcon } from './PressableIcon';
 export { CustomTextInput } from './TextInput';
 export { CustomDropDown } from './DropDown';
 export { LoaderOverlay } from './LoaderOverlay';
-export { ScenarioItemButton } from './ScenarioItemButton';
 export { ConfirmationField } from './ConfirmationField';
 export { VolumeIndicator } from './VolumeIndicator';
 export { NextButton } from './NextButton';
@@ -11,4 +10,5 @@ export { InfoItemCard } from './InfoItemCard';
 export { InfoTitle } from './InfoTitle';
 export { MapCard } from './MapCard';
 export { AdviceCard } from './AdviceCard';
+export { ProfileSettingsItem } from './ProfileSettingsItem';
 export { SupportChatItem } from './SupportChatItem'

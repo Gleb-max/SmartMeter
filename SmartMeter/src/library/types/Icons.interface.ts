@@ -15,6 +15,8 @@ export type CommonIconName =
 	'ic_receipts' |
 	'ic_options' |
 	'ic_master_call' |
+	'ic_key' |
+	'ic_fire' |
 	'ic_send_message';
 
 export type TabBarIconName =
