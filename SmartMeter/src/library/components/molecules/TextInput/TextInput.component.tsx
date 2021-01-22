@@ -36,6 +36,6 @@ export const CustomTextInput: React.FC<CustomTextInputProps> = ({
 			tintColor='#005670'
 			blurOnSubmit={isPassword}
 			underlineColorAndroid='transparent'
-			containerStyle={[style, styles.container]} />
+			containerStyle={[styles.container, style]} />
 	);
 };

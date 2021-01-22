@@ -41,10 +41,13 @@ export const CustomDropDown: React.FC<CustomDropDownProp> = ({
 			containerStyle={[styles.container, containerStyle]}
 			style={[styles.dropdown, style]}
 			dropDownStyle={[styles.list, listStyle]}
-			placeholderStyle={{color: '#000'}}
-			selectedLabelStyle={[styles.textStyle, {marginLeft: 0}]}
-			labelStyle={[styles.textStyle]}
-			arrowStyle={{marginRight: -2.5}}
+			placeholder={'Enter value'}
+			placeholderStyle={{ color: '#000' }}
+			labelStyle={{ color: '#000' }}
+// 			placeholderStyle={{color: '#000'}}
+// 			selectedLabelStyle={[styles.textStyle, {marginLeft: 0}]}
+// 			labelStyle={[styles.textStyle]}
+// 			arrowStyle={{marginRight: -2.5}}
 			itemStyle={[styles.itemStyle]} />
 	);
 };

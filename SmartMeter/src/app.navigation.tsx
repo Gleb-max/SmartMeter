@@ -18,6 +18,7 @@ import { AnalyticsNavigation } from 'screens/AnalyticsScreen';
 import { DevicesNavigation } from 'screens/DevicesScreen';
 import { NewDeviceNavigation } from 'screens/NewDeviceScreen';
 import { ContactsNavigation } from 'screens/ContactsScreen';
+import { RegistarionRequestNavigation } from 'screens/RegistrationRequest';
 import { ProfileNavigation } from 'screens/ProfileScreen';
 import { SupportNavigation } from 'screens/SupportScreen';
 import { RequestDetailsNavigation } from 'screens/RequestDetailsScreen'
@@ -30,6 +31,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<ProfileNavigation />
+		<RegistarionRequestNavigation />
 	);
 };
