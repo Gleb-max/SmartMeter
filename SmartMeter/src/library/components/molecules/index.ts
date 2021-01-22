@@ -6,9 +6,9 @@ export { LoaderOverlay } from './LoaderOverlay';
 export { ScenarioItemButton } from './ScenarioItemButton';
 export { ConfirmationField } from './ConfirmationField';
 export { VolumeIndicator } from './VolumeIndicator';
-export { ScenarioItemButton } from './ScenarioItemButton';
 export { NextButton } from './NextButton';
 export { InfoItemCard } from './InfoItemCard';
 export { InfoTitle } from './InfoTitle';
 export { MapCard } from './MapCard';
 export { AdviceCard } from './AdviceCard';
+export { SupportChatItem } from './SupportChatItem'

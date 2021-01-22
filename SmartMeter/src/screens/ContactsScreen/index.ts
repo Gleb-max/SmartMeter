@@ -1,1 +1,1 @@
-export { ContactsNavigation } from './Contacts.navigation.tsx';
+export { ContactsNavigation } from './Contacts.navigation';

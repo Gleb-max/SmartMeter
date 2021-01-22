@@ -1,10 +1,10 @@
 import React from 'react';
-import { Text, TextStyle, StyleProp, ViewStyle } from 'react-native';
+import { Text, TextStyle, StyleProp } from 'react-native';
 
 //types
 type GilroyTextProps = {
 	type: 'Medium' | 'Semibold' | 'Regular';
-	size: 'g1' | 'g2' | 'g3' | 'g4' | 'g5' | 'g6' | 'g7' | 'g8' | 'g9' | 'g10';
+	size: 'g1' | 'g2' | 'g3' | 'g4' | 'g5' | 'g6' | 'g7' | 'g8' | 'g9' | 'g10' | 'g11' | 'g12';
 	styleText?: StyleProp<TextStyle>;
 	style?: StyleProp<TextStyle>;
 	children: React.ReactNode;
@@ -48,6 +48,12 @@ export const GilroyText: React.FC<GilroyTextProps> = ({
 			break;
 		case 'g10':
 			fontSize = 17;
+			break;
+		case 'g11':
+			fontSize = 14;
+			break;
+		case 'g12':
+			fontSize = 15;
 			break;
 		default:
 			break;
