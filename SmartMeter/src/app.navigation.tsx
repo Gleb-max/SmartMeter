@@ -18,6 +18,7 @@ import { AnalyticsNavigation } from 'screens/AnalyticsScreen';
 import { DevicesNavigation } from 'screens/DevicesScreen';
 import { NewDeviceNavigation } from 'screens/NewDeviceScreen';
 import { ContactsNavigation } from 'screens/ContactsScreen';
+import { CallingMasterNavigation } from 'screens/CallingMasterScreen';
 import { MeterSettingsNavigation } from 'screens/MeterSettingsScreen';
 import { RegistarionRequestNavigation } from 'screens/RegistrationRequest';
 import { ProfileNavigation } from 'screens/ProfileScreen';
@@ -34,6 +35,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<NotificationsNavigation />
+		<CallingMasterNavigation />
 	);
 };

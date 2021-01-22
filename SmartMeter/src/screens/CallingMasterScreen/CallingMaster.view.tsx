@@ -9,21 +9,32 @@ import styles from './CallingMaster.styles';
 
 //types
 type CallingMasterViewProps = {
-
+	onPressReg: () => void;
+	onPressHistory:() => void;
 };
 
 export const CallingMasterView: React.FC<CallingMasterViewProps> = ({
-
+	onPressHistory,
+	onPressReg,
 }) => {
 	return (
 		<View style={styles.container}>
-			<GilroyText size='g1' type = 'Semibold'>
+
+			<GilroyText size='g1' type = 'Semibold' style = {styles.header}>
 				Вызов мастера
 			</GilroyText>
 
-			<NextButton >
-				
-			</NextButton>
+			<NextButton
+				onPress={onPressReg}
+				text = 'Оформить заявку'
+				withMarker={false}
+				style={styles.button} />
+
+			<NextButton
+				onPress={onPressHistory}
+				text='История'
+				withMarker={false}
+				style={styles.button} />
 		</View>
 	);
 };
