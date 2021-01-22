@@ -2,13 +2,14 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 	container: {
-		padding: 30,
+		// padding: 30,
 		flex: 1,
 		backgroundColor: '#FFFFFF',
 	},
 	title: {
 		marginTop: 47,
 		marginBottom: 37,
+		marginLeft: 30,
 	},
 	button: {
 		borderRadius: 10,

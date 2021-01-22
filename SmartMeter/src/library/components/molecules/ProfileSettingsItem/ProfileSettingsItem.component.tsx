@@ -24,23 +24,27 @@ export const ProfileSettingsItem: React.FC<ProfileSettingsItemProps> = ({
 }) => {
 	return (
 		<View style={[styles.container, containerStyle]}>
-
 			<TouchableOpacity style={styles.touchable}>
-
-				<GilroyText 
-					size="g10" 
-					type="Medium" 
+				<GilroyText
+					size='g10'
+					type='Medium'
 					styleText={styles.header}
 				>
 					{header}
 				</GilroyText>
 
-				<SMIcons name={iconName} size={20} color={iconColor} style={styles.cardIcon} />
+				<SMIcons
+					name={iconName}
+					size={20}
+					color={iconColor}
+					style={styles.cardIcon} />
 
-				<SMIcons name="ic_arrow_right" size={20} color="#000000" style={styles.rightIcon} />
-
+				<SMIcons
+					name='ic_arrow_right'
+					size={20}
+					color={'#000000'}
+					style={styles.rightIcon} />
 			</TouchableOpacity>
-
 		</View>
 	);
 };

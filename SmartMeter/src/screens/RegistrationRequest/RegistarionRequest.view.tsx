@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 
 //components
 import { GilroyText, Button } from 'library/components/atoms';
@@ -21,7 +21,10 @@ export const RegistarionRequestView: React.FC<RegistarionRequestViewProps> = ({
 	const [selectedMaster, setSelectedMaster] = React.useState('');
 
 	return (
-		<View style={styles.container}>
+		<ScrollView
+			style={styles.container}
+			contentContainerStyle={styles.contentContainer}
+		>
 			<GilroyText
 				size = 'g1'
 				type = 'Semibold'
@@ -98,6 +101,6 @@ export const RegistarionRequestView: React.FC<RegistarionRequestViewProps> = ({
 				header ='Отправить заявку'
 				onPress = {()=>{}}
 				style = {styles.button} />
-		</View>
+		</ScrollView>
 	);
 };

@@ -17,7 +17,8 @@ export type CommonIconName =
 	'ic_master_call' |
 	'ic_key' |
 	'ic_fire' |
-	'ic_send_message';
+	'ic_send_message' |
+	'ic_plus';
 
 export type TabBarIconName =
 	'ic_tabbar_profile' |

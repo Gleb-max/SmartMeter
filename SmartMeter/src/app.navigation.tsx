@@ -21,7 +21,7 @@ import { ContactsNavigation } from 'screens/ContactsScreen';
 import { RegistarionRequestNavigation } from 'screens/RegistrationRequest';
 import { ProfileNavigation } from 'screens/ProfileScreen';
 import { SupportNavigation } from 'screens/SupportScreen';
-import { RequestDetailsNavigation } from 'screens/RequestDetailsScreen'
+import { RequestDetailsNavigation } from 'screens/RequestDetailsScreen';
 
 //native-powered screen containers
 //run before any navigation stacks render
@@ -31,6 +31,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<RegistarionRequestNavigation />
+		<InformationNavigation />
 	);
 };

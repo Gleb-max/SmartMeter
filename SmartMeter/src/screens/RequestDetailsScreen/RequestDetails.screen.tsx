@@ -9,16 +9,12 @@ type RequestDetailsScreenProps = {
 };
 
 //constats
-const requestDate = '12.12.20'
-
-const masterName = "Евгений"
-const masterPhone = "+79223456798"
-
-const requestName = "Ремонт трубы"
-
-const qrContent = "Smart Meter is the best team!!!"
-
-const logoUri = {uri: "https://dl.dropboxusercontent.com/s/f578n91ebmoo440/robot.png"}
+const requestDate = '12.12.20';
+const masterName = 'Евгений';
+const masterPhone = '+79223456798';
+const requestName = 'Ремонт трубы';
+const qrContent = 'Smart Meter is the best team!!!';
+const logoUri = { uri: 'https://dl.dropboxusercontent.com/s/f578n91ebmoo440/robot.png' };
 
 export const RequestDetailsScreen: React.FC<RequestDetailsScreenProps> = ({
 

@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
 		alignSelf: 'flex-start',
 	},
 	dropdown: {
-        backgroundColor: '#FFFFFF',
+		backgroundColor: '#FFFFFF',
 		borderWidth: 0,
 		alignSelf: 'baseline',
 		...Helpers.boxShadow('rgb(223, 227, 229)', { x: 0, y: 4 }, 50, 0.3, 3),
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 		transform: [{ rotate: '180deg' }],
 	},
 	itemStyle: {
-        backgroundColor: '#FFFFFF',
+		backgroundColor: '#FFFFFF',
 		justifyContent: 'flex-start',
 	},
 	textStyle: {

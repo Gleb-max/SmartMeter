@@ -4,13 +4,13 @@ import { Helpers } from 'library/theme';
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-        backgroundColor: '#FDFDFD',
-        paddingTop: 41,
-        paddingHorizontal: 29,
+		backgroundColor: '#FDFDFD',
+		paddingTop: 41,
+		paddingHorizontal: 29,
 	},
 	header: {
-        fontWeight: '600',
-        fontStyle: "normal",
+		fontWeight: '600',
+		fontStyle: 'normal',
 		lineHeight: 38,
 		marginBottom: 37,
 	},
@@ -31,7 +31,12 @@ const styles = StyleSheet.create({
 		lineHeight: 29.11,
 		fontWeight: '500',
 		fontStyle: 'normal',
-		color: "#000000"
+		color: '#000000',
+	},
+	review: {
+		marginBottom: 40,
+		width: '100%',
+		height: 50,
 	},
 	masterInfoContainer: {
 		flexDirection: 'row',
@@ -43,9 +48,9 @@ const styles = StyleSheet.create({
 		marginRight: 15,
 	},
 	qrButton: {
+		marginTop: 50,
 		borderRadius: 15,
-		marginTop: 'auto',
-		marginBottom: 141,
+		width: '100%',
 	},
 	ratingContainer: {
 		flex: 1,
@@ -56,23 +61,23 @@ const styles = StyleSheet.create({
 		fontWeight: '400',
 		fontStyle: 'normal',
 		lineHeight: 21.09,
-		color: "#747474",
+		color: '#747474',
 		marginBottom: 17,
 	},
 	ratingStar: {
 		marginHorizontal: 6,
 	},
 	modalContainer: {
-        flex: 1,
+		flex: 1,
 	},
 	qrOpacity: {
-        flex: 1, 
-        justifyContent: 'center', 
-        alignContent: 'center', 
-        alignItems: 'center', 
-        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+		flex: 1,
+		justifyContent: 'center',
+		alignContent: 'center',
+		alignItems: 'center',
+		backgroundColor: 'rgba(0, 0, 0, 0.4)',
 	},
-	
+
 });
 
 export default styles;

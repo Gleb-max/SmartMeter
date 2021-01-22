@@ -2,7 +2,7 @@ import React from 'react';
 import { View, ScrollView, TouchableOpacity } from 'react-native';
 
 //components
-import { GilroyText } from 'library/components/atoms';
+import { GilroyText, SMIcons } from 'library/components/atoms';
 import { PressableIcon, NextButton } from 'library/components/molecules';
 
 //styles
@@ -46,6 +46,7 @@ export const DevicesView: React.FC<DevicesViewProps> = ({
 				iconName='ic_notification'
 				onPress={onPressNotif}
 				size={29}
+				style={{ marginLeft: 30 }}
 				color='black' />
 
 			<GilroyText
@@ -56,13 +57,24 @@ export const DevicesView: React.FC<DevicesViewProps> = ({
 				Устройства
 			</GilroyText>
 
-			<ScrollView showsVerticalScrollIndicator = {false}>
+			<ScrollView
+				contentContainerStyle={{ paddingHorizontal: 30 }}
+				showsVerticalScrollIndicator={false}
+			>
 				{_renderItem()}
 			</ScrollView>
 
 			<TouchableOpacity
 				onPress={onPressPlus}
-				style={styles.plus} />
+				style={styles.plus}
+			>
+				<SMIcons
+					size={26}
+					height={26}
+					width={26}
+					color='#FFF'
+					name='ic_plus' />
+			</TouchableOpacity>
 		</View>
 	);
 };
