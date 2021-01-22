@@ -1,12 +1,13 @@
 import React from 'react';
-import { Text, TextStyle, StyleProp } from 'react-native';
+import { Text, TextStyle, StyleProp, ViewStyle } from 'react-native';
 
 //types
 type RobotoTextProps = {
 	children: React.ReactNode;
-  type: 'Light' | 'Regular' | 'Medium';
+	type: 'Light' | 'Regular' | 'Medium';
 	size: 'r1' | 'r2' | 'r3' | 'r4' | 'r5';
-	style: StyleProp<TextStyle>;
+	styleText?: StyleProp<TextStyle>;
+	style?: StyleProp<ViewStyle>;
 };
 
 export const RobotoText: React.FC<RobotoTextProps> = ({
@@ -14,6 +15,7 @@ export const RobotoText: React.FC<RobotoTextProps> = ({
 	type = 'Regular',
 	size,
 	style,
+	styleText,
 }) => {
 	let fontSize;
 	switch (size) {
@@ -36,7 +38,7 @@ export const RobotoText: React.FC<RobotoTextProps> = ({
 			break;
 	}
 	return (
-		<Text style={[{ fontFamily: `Roboto-${type}`, fontSize: fontSize }, style]}>
+		<Text style={[{ fontFamily: `Roboto-${type}`, fontSize: fontSize }, styleText, style]}>
 			{children}
 		</Text>
 	);

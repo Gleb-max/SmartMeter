@@ -41,7 +41,6 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
 					{' '}
 					{userData.surname}
 				</GilroyText>
-
 			</View>
 
 			<ProfileSettingsItem
@@ -56,18 +55,18 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
 				header='Экстренные контакты'
 				containerStyle={styles.settingsItem} />
 
-			<ProfileSettingsItem
-				iconName='ic_send_message'
-				iconColor='#5C258D'
-				header='Поддержка'
-				containerStyle={styles.settingsItem} />
+			<ProfileSettingsItem 
+				iconName="ic_send_message"
+				iconColor="#5C258D"
+				header="Поддержка" 
+				containerStyle={styles.settingsItem} 
+			/>
 
 			<ProfileSettingsItem
 				iconName='ic_master_call'
 				iconColor='#ACBB78'
 				header='Вызов мастера'
 				containerStyle={styles.settingsItem} />
-
 		</View>
 	);
 };

@@ -1,13 +1,14 @@
 export { SMIcons, Button, GilroyText, RobotoText, HeadlineText, Loader } from './atoms';
-export {
-	AnnouncementCard,
-	PressableIcon,
-	CustomTextInput,
-	CustomDropDown,
-	ConfirmationField,
-	LoaderOverlay,
-	SupportChatItem,
-	VolumeIndicator,
-	// ScenarioItemButton,
-	ProfileSettingsItem,
+export { 
+  AnnouncementCard, 
+  PressableIcon, 
+  CustomTextInput, 
+  CustomDropDown, 
+  ConfirmationField, 
+  LoaderOverlay, 
+  SupportChatItem, 
+  VolumeIndicator, 
+  ScenarioItemButton,
+  ProfileSettingsItem,
+  ProfileHead,
 } from './molecules';

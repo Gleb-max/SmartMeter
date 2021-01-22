@@ -47,6 +47,8 @@ export const InfoItemCard: React.FC<InfoItemCardProps> = ({
 				<View
 					style={[styles.mark, {
 						width: (type === 'notification') ? 10 : 11,
+						borderTopLeftRadius: (type === 'notification') ? 8 : 0,
+						borderBottomLeftRadius: (type === 'notification') ? 8 : 0,
 						height: markHeight(),
 					}]} />
 

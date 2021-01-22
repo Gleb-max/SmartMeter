@@ -10,5 +10,7 @@ export { InfoItemCard } from './InfoItemCard';
 export { InfoTitle } from './InfoTitle';
 export { MapCard } from './MapCard';
 export { AdviceCard } from './AdviceCard';
+export { ProfileHead } from './ProfileHead';
 export { ProfileSettingsItem } from './ProfileSettingsItem';
-export { SupportChatItem } from './SupportChatItem'
+export { SupportChatItem } from './SupportChatItem';
+export { Header } from './Header';

@@ -18,10 +18,13 @@ import { AnalyticsNavigation } from 'screens/AnalyticsScreen';
 import { DevicesNavigation } from 'screens/DevicesScreen';
 import { NewDeviceNavigation } from 'screens/NewDeviceScreen';
 import { ContactsNavigation } from 'screens/ContactsScreen';
+import { MeterSettingsNavigation } from 'screens/MeterSettingsScreen';
 import { RegistarionRequestNavigation } from 'screens/RegistrationRequest';
 import { ProfileNavigation } from 'screens/ProfileScreen';
 import { SupportNavigation } from 'screens/SupportScreen';
 import { RequestDetailsNavigation } from 'screens/RequestDetailsScreen';
+import { MeterPhotoNavigation } from 'screens/MeterPhotoScreen';
+import { NotificationsNavigation } from 'screens/NotificationsScreen';
 
 //native-powered screen containers
 //run before any navigation stacks render
@@ -31,6 +34,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<InformationNavigation />
+		<NotificationsNavigation />
 	);
 };
