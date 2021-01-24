@@ -21,12 +21,16 @@ export type CommonIconName =
 	'ic_plus';
 
 export type TabBarIconName =
-	'ic_tabbar_profile' |
-	'ic_tabbar_profile_outline' |
 	'ic_tabbar_home' |
-	'ic_tabbar_list' |
+	'ic_tabbar_home_active' |
+	'ic_tabbar_uk' |
+	'ic_tabbar_uk_active' |
 	'ic_tabbar_graphics' |
-	'ic_tabbar_adrop' |
-	'ic_tabbar_account';
+	'ic_tabbar_graphics_active' |
+	'ic_tabbar_drop' |
+	'ic_tabbar_drop_active' |
+	'ic_tabbar_account' |
+	'ic_tabbar_account_active' |
+	'ic_tabbar_cursor';
 
 export type SMIconsName = CommonIconName | TabBarIconName;
