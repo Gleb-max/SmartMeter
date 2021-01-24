@@ -4,13 +4,13 @@ import { DimensionsManager } from 'library/modules/DimensionsManager';
 
 const styles = StyleSheet.create({
 	container: {
-		width: '100%',
+		alignSelf: 'stretch',
 		height: DimensionsManager.horizontalScale(60),
 		backgroundColor: '#ffffff',
 		...Helpers.boxShadow('rgb(223, 227, 229)', { x: 0, y: 4 }, 50, 0.3, 0.7),
 	},
 	containerWithoutMarker: {
-		width: 320,
+		alignSelf: 'stretch',
 		height: DimensionsManager.horizontalScale(40),
 		backgroundColor: '#ffffff',
 		...Helpers.boxShadow('rgb(223, 227, 229)', { x: 0, y: 4 }, 50, 0.3, 0.7),

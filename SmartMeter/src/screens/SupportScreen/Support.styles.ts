@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	sendContainer: {
-		height: 70,
+		height: 70, //51
 		backgroundColor: '#F1F1F1',
 		flexDirection: 'row',
 		alignItems: 'center',
