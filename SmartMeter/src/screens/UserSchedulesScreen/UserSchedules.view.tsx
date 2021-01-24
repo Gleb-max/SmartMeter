@@ -29,76 +29,59 @@ type UserSchedulesViewProps = {
 };
 
 export const UserSchedulesView: React.FC<UserSchedulesViewProps> = ({
-    userData,
-    schedules,
+	userData,
+	schedules,
 }) => {
-    const _renderChatMessage = (itemInfo: ListRenderItemInfo<UserSchedule>): React.ReactNode => {
-        const schedule = itemInfo.item
-        return (
-            <NextButton 
-                text={schedule.name} 
-                withMarker={false} 
-                style={[styles.itemContainer, itemInfo.index == 0 && {marginTop: 37}]}
-                onPress={() => console.log(schedule.name)}
-            />
-        );
-    }
+	const _renderChatMessage = (itemInfo: ListRenderItemInfo<UserSchedule>): React.ReactNode => {
+		const schedule = itemInfo.item;
+		return (
+			<NextButton
+				text={schedule.name}
+				withMarker={false}
+				style={[styles.itemContainer, itemInfo.index == 0 && { marginTop: 37 }]}
+				onPress={() => console.log(schedule.name)} />
+		);
+	};
 
 	return (
 		<View style={styles.container}>
-
 			<ProfileHead userData={userData} />
 
-            <GilroyText 
-                type="Semibold"
-                size="g1"
-                styleText={styles.header}
-            >
-                Пользовательский
-            </GilroyText>
+			<GilroyText
+				type='Semibold'
+				size='g1'
+				styleText={styles.header}
+			>
+				Пользовательский
+			</GilroyText>
 
-            {schedules.length > 0 ? (
+			{schedules.length > 0 ? (
+				<SafeAreaView style={styles.schedulesContainer}>
+					<FlatList<UserSchedule>
+						data={schedules}
+						renderItem={_renderChatMessage}
+						keyExtractor={(item) => item.id.toString()}
+						showsVerticalScrollIndicator={false}
+						style={styles.schedulesList} />
+				</SafeAreaView>
+			) : (
+				<View style={styles.emptyListContainer} >
+					<Text style={styles.emptyListText}>
+						У вас нет расписания
+					</Text>
+				</View>
+			)}
 
-                <SafeAreaView style={styles.schedulesContainer}>
-
-                    <FlatList<UserSchedule>
-                        data={schedules}
-                        renderItem={_renderChatMessage}
-                        keyExtractor={(item) => item.id.toString()}
-                        showsVerticalScrollIndicator={false}
-                        style={styles.schedulesList} />
-
-                </SafeAreaView> 
-
-                ) : (
-
-                    <View style={styles.emptyListContainer} >
-
-                        <Text style={styles.emptyListText}>У вас нет расписания</Text>
-
-                    </View>
-
-                )
-            }
-
-            <View 
-                style={styles.addButtonContaier}
-            >
-                
-                <TouchableOpacity style={styles.addButtonOpacity} >
-
-                    <SMIcons 
-                        name="ic_plus" 
-                        width={28} 
-                        height={28} 
-                        size={28} 
-                        color="#FDFDFD" 
-                    />
-
-                </TouchableOpacity>
-
-            </View>
-
+			<View style={styles.addButtonContaier}>
+				<TouchableOpacity style={styles.addButtonOpacity}>
+					<SMIcons
+						name='ic_plus'
+						width={28}
+						height={28}
+						size={28}
+						color='#FDFDFD' />
+				</TouchableOpacity>
+			</View>
 		</View>
 	);
 };

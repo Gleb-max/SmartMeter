@@ -12,6 +12,6 @@ export const NewDeviceScreen: React.FC<NewDeviceScreenProps> = ({
 
 }) => {
 	return (
-		<NewDeviceView />
+		<NewDeviceView onPress={() => {}} />
 	);
 };

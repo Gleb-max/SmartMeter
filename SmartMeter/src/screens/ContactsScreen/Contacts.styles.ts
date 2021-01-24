@@ -3,12 +3,12 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		paddingHorizontal: 30,
 		backgroundColor: '#FFFFFF',
 	},
 	header: {
 		marginTop: 47,
 		marginBottom: 10,
+		marginLeft: 30,
 	},
 	description: {
 		marginTop: 79,
@@ -19,17 +19,16 @@ const styles = StyleSheet.create({
 	addButton: {
 		marginTop: 32,
 	},
-	addButtonContainer: {
+	addButtonContaier: {
 		position: 'absolute',
-		bottom: 90,
-		right: 30,
 		width: 66,
 		height: 66,
 		borderRadius: 33,
+		bottom: 90,
+		right: 30,
 		backgroundColor: '#005670',
 		justifyContent: 'center',
 		alignItems: 'center',
-		elevation: 10,
 	},
 });
 

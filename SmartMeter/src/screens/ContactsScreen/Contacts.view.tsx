@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 
 //components
-import { GilroyText, HeadlineText } from 'library/components/atoms';
+import { GilroyText, HeadlineText, SMIcons } from 'library/components/atoms';
 import { NextButton } from 'library/components/molecules';
 
 //styles
@@ -45,15 +45,18 @@ export const ContactsView: React.FC<ContactsViewProps> = ({
 	return (
 		<View style={styles.container} >
 			<GilroyText
-				size = 'g1'
-				style = {styles.header}
-				type = 'Semibold'
+				size={'g1'}
+				style={styles.header}
+				type={'Semibold'}
 			>
 				Экстренные контакты
 			</GilroyText>
 
 			{contactsList.length !== 0 && (
-				<ScrollView showsVerticalScrollIndicator = {false}>
+				<ScrollView
+					contentContainerStyle={{ paddingHorizontal: 30 }}
+					showsVerticalScrollIndicator={false}
+				>
 					{_renderItem()}
 				</ScrollView>
 			)}
@@ -70,7 +73,15 @@ export const ContactsView: React.FC<ContactsViewProps> = ({
 
 			<TouchableOpacity
 				onPress={onPressPlus}
-				style={styles.addButtonContainer} />
+				style={styles.addButtonContaier}
+			>
+				<SMIcons
+					name='ic_plus'
+					width={28}
+					height={28}
+					size={28}
+					color={'#FDFDFD'} />
+			</TouchableOpacity>
 		</View>
 	);
 };

@@ -1,15 +1,12 @@
 import React, { ReactNode } from 'react';
-import { SafeAreaView, View, FlatList, ScrollView, Image, TouchableOpacity, Text, ListRenderItemInfo, ListRenderItem, TextInput } from 'react-native';
-
-//other deps
-import { isAfter } from 'date-fns';
+import { SafeAreaView, View, FlatList, TouchableOpacity, ListRenderItemInfo, TextInput } from 'react-native';
 
 //components
 import { SupportChatItem, PressableIcon } from 'library/components';
+import { GilroyText } from 'library/components/atoms';
 
 //styles
 import styles from './Support.styles';
-import { GilroyText, SMIcons } from 'library/components/atoms';
 
 //types
 type SupportViewProps = {

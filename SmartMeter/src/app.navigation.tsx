@@ -23,11 +23,9 @@ import { MeterSettingsNavigation } from 'screens/MeterSettingsScreen';
 import { RegistarionRequestNavigation } from 'screens/RegistrationRequest';
 import { ProfileNavigation } from 'screens/ProfileScreen';
 import { SupportNavigation } from 'screens/SupportScreen';
-import { RequestDetailsNavigation } from 'screens/RequestDetailsScreen'
-import { MeterPhotoNavigation } from 'screens/MeterPhotoScreen';
-import { UserSchedulesNavigation } from 'screens/UserSchedulesScreen';
 import { RequestDetailsNavigation } from 'screens/RequestDetailsScreen';
 import { MeterPhotoNavigation } from 'screens/MeterPhotoScreen';
+import { UserSchedulesNavigation } from 'screens/UserSchedulesScreen';
 import { NotificationsNavigation } from 'screens/NotificationsScreen';
 
 //native-powered screen containers
@@ -38,6 +36,6 @@ export const AppNavigation: React.FC = ({
 
 }) => {
 	return (
-		<UserSchedulesNavigation />
+		<AnnouncementsNavigation />
 	);
 };
