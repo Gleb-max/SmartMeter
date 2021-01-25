@@ -23,7 +23,7 @@ import { AnalyticsNavigation } from 'screens/AnalyticsScreen';
 import { DevicesNavigation } from 'screens/DevicesScreen';
 import { NewDeviceNavigation } from 'screens/NewDeviceScreen';
 import { ContactsNavigation } from 'screens/ContactsScreen';
-import { MainNavigation } from 'screens/main';
+import { HomeNavigation } from 'screens/main';
 import { CallingMasterNavigation } from 'screens/CallingMasterScreen';
 import { MeterSettingsNavigation } from 'screens/MeterSettingsScreen';
 import { RegistarionRequestNavigation } from 'screens/RegistrationRequest';
@@ -65,5 +65,5 @@ export const AppNavigation: React.FC = ({
 		return 	<AuthNavigation />;
 
 	else
-		return <MainNavigation />;
+		return <HomeNavigation />;
 };

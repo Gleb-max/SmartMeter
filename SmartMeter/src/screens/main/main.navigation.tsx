@@ -3,15 +3,17 @@ import React from 'react';
 //navigation
 import {
 	createBottomTabNavigator,
+
 	BottomTabBarOptions,
 	BottomTabBarProps,
 } from '@react-navigation/bottom-tabs';
 
 //tab screens
-import { MainScreen } from 'screens/MainScreen/Main.screen';
-import { InformationScreen } from 'screens/InformationScreen/Information.screen';
+import { MainNavigation } from 'screens/MainScreen';
+import { NewsNavigation } from 'screens/NewsScreen';
 import { AnalyticsScreen } from 'screens/AnalyticsScreen/Analytics.screen';
 import { AdvicesNavigation } from 'screens/AdvicesScreen';
+import { ProfileNavigation } from 'screens/ProfileScreen';
 
 //features navigators
 import { NotificationsNavigation } from 'screens/NotificationsScreen';
@@ -24,7 +26,7 @@ import { TabBarContainer } from 'library/components/molecules';
 import { Navigation as NavigationTypes } from 'library/types';
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
-type MainNavigationProps = {
+type HomeNavigationProps = {
 	notifications?: Record<string, number>;
 }
 
@@ -54,18 +56,17 @@ const mapRouteNameToData: NavigationTypes.TabBarRouteMap = {
 		route: 'main/account',
 		label: 'Account',
 		iconName: 'ic_tabbar_account',
-		disabled: true,
 	},
 };
 
 const routes: NavigationTypes.TabBarRouteConfig[] = [
 	{
 		...mapRouteNameToData['main/home'],
-		screen: MainScreen,
+		screen: MainNavigation,
 	},
 	{
 		...mapRouteNameToData['main/uk'],
-		screen: InformationScreen,
+		screen: NewsNavigation,
 	},
 	{
 		...mapRouteNameToData['main/graphics'],
@@ -77,14 +78,14 @@ const routes: NavigationTypes.TabBarRouteConfig[] = [
 	},
 	{
 		...mapRouteNameToData['main/account'],
-		screen: AdvicesNavigation,
+		screen: ProfileNavigation,
 	},
 ];
 
-const MainNativeStack = createNativeStackNavigator();
-const MainTabs = createBottomTabNavigator();
+const HomeNativeStack = createNativeStackNavigator();
+const HomeTabs = createBottomTabNavigator();
 
-export const MainNavigation: React.FC<MainNavigationProps> = ({
+export const HomeNavigation: React.FC<HomeNavigationProps> = ({
 	notifications = {
 		'main/home': 0,
 		'main/uk': 0,
@@ -113,7 +114,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
 
 	const _renderPages = React.useCallback(() => {
 		return routes.map(({ route, screen }) => (
-			<MainTabs.Screen
+			<HomeTabs.Screen
 				name={route}
 				component={screen}
 				key={route} />
@@ -122,29 +123,29 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
 
 	const _renderBottomTabBar = React.useCallback(() => {
 		return (
-			<MainTabs.Navigator
+			<HomeTabs.Navigator
 				tabBar={_renderTabBar}
 			>
 				{_renderPages()}
-			</MainTabs.Navigator>
+			</HomeTabs.Navigator>
 		);
 	}, [_renderPages, _renderTabBar]);
 
 	return (
-		<MainNativeStack.Navigator
+		<HomeNativeStack.Navigator
 			screenOptions={{ headerShown: false, stackAnimation: 'default' }}
 		>
-			<MainNativeStack.Screen
+			<HomeNativeStack.Screen
 				name='main'
 				component={_renderBottomTabBar} />
 
-			<MainNativeStack.Screen
+			<HomeNativeStack.Screen
 				name='notifications'
 				component={NotificationsNavigation} />
 
-			<MainNativeStack.Screen
+			<HomeNativeStack.Screen
 				name='analytics'
 				component={AnalyticsNavigation} />
-		</MainNativeStack.Navigator>
+		</HomeNativeStack.Navigator>
 	);
 };

@@ -3,12 +3,19 @@ import { View } from 'react-native';
 
 //components
 import { GilroyText, HeadlineText } from 'library/components/atoms';
-import { PressableIcon, InfoTitle, MapCard } from 'library/components/molecules';
+import { InfoTitle, MapCard, ProfileHead } from 'library/components/molecules';
+
 //styles
 import styles from './Information.styles';
 
 //types
 type InformationViewProps = {
+	userData: {
+		name: string;
+		surname: string;
+        photo: string;
+        address: string;
+    };
 	maplat?: number;
 	maplon?: number;
 	markerlat?: number;
@@ -21,6 +28,7 @@ type InformationViewProps = {
 };
 
 export const InformationView: React.FC<InformationViewProps> = ({
+	userData,
 	maplat,
 	maplon,
 	markerlat,
@@ -54,12 +62,8 @@ export const InformationView: React.FC<InformationViewProps> = ({
 
 	return (
 		<View style = {styles.container} >
-			<PressableIcon
-				iconName='ic_notification'
-				size={29}
-				color='black'
-				withNotif={true}
-				onPress={() => {}} />
+
+			<ProfileHead userData={userData} />
 
 			<GilroyText
 				style = {styles.header}

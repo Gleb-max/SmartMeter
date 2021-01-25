@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingHorizontal: 30,
         paddingTop: 28,
+        backgroundColor: '#FDFDFD',
     },
     headContainer: {
         flexDirection: 'row',
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
         fontSize: 31,
         lineHeight: 38,
         marginBottom: 12.5,
+        marginTop: 37,
     },
     nameText: {
         fontFamily: 'Gilroy-Semibold',

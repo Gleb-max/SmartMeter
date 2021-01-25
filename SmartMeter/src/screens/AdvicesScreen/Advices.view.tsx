@@ -2,7 +2,7 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 
 //components
-import { AdviceCard, PressableIcon } from 'library/components/molecules';
+import { AdviceCard, PressableIcon, ProfileHead } from 'library/components/molecules';
 import { GilroyText } from 'library/components/atoms';
 
 //styles
@@ -10,11 +10,18 @@ import styles from './Advices.styles';
 
 //types
 type AdvicesProps = {
+	userData: {
+		name: string;
+			surname: string;
+			photo: string;
+			address: string;
+	};
 	advicesList: string[];
 	onSelectAdvice: (adviceIndex: number) => void;
 };
 
 export const AdvicesView: React.FC<AdvicesProps> = ({
+	userData,
 	advicesList,
 	onSelectAdvice,
 }) => {
@@ -29,34 +36,23 @@ export const AdvicesView: React.FC<AdvicesProps> = ({
 		);
 	}, [advicesList, onSelectAdvice]);
 
-	const _renderHeader = React.useCallback(() => {
-		return (
-			<>
-				<PressableIcon
-					iconName='ic_notification'
-					onPress={() => { }}
-					size={29}
-					color='black'
-					withNotif={true}
-					style={styles.icon} />
-
-				<GilroyText
-					type='Semibold'
-					size='g1'
-					style={styles.header}
-				>
-					Полезные советы
-				</GilroyText>
-			</>
-		);
-	}, []);
-
 	return (
 		<View style={ styles.container }>
+
+			<ProfileHead 
+				userData={userData} />
+
+			<GilroyText
+				style = {styles.header}
+				type = 'Semibold'
+				size = 'g1'
+			>
+				Полезные советы
+			</GilroyText>
+
 			<FlatList
 				data={advicesList}
 				renderItem={_renderListItem}
-				ListHeaderComponent={_renderHeader}
 				numColumns={2}
 				columnWrapperStyle={styles.flatList}
 				keyExtractor={(item: string, index: number) => item + index}

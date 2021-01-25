@@ -27,7 +27,7 @@ interface State {
 
 let deque: number [] = [];
 let lastIndex: number | undefined;
-let secondsLeft: number = 30;
+let secondsLeft: number = 61;
 
 type AuthViewProps = {
 	onSendCode: () => void;

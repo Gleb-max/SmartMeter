@@ -8,20 +8,20 @@ import { MainScreen } from './Main.screen';
 import { AnalyticsNavigation } from '../AnalyticsScreen';
 
 // const ShowcaseStack = createNativeStackNavigator();
-const ShowcaseStack = createStackNavigator();
+const MainScreenStack = createStackNavigator();
 
-export const ShowcaseNavigation: React.FC = ({
+export const MainNavigation: React.FC = ({
 
 }) => {
 	return (
-		<ShowcaseStack.Navigator screenOptions={{ headerShown: false }}>
-			<ShowcaseStack.Screen
+		<MainScreenStack.Navigator screenOptions={{ headerShown: false }}>
+			<MainScreenStack.Screen
 				name='main'
 				component={MainScreen} />
 
-			<ShowcaseStack.Screen
+			<MainScreenStack.Screen
 				name='analytics'
 				component={AnalyticsNavigation} />
-		</ShowcaseStack.Navigator>
+		</MainScreenStack.Navigator>
 	);
 };

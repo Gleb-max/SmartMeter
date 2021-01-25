@@ -4,24 +4,21 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#FFFFFF',
-	},
-	icon: {
-		marginTop: 30,
-		width: 30,
+		paddingHorizontal: 30,
+		paddingTop: 28,
 	},
 	header: {
-		marginTop: 47,
+		marginTop: 37,
 		marginBottom: 9,
 	},
 	flatListContainer: {
-		paddingHorizontal: 30,
 	},
 	component: {
 		marginBottom: 2,
 		flexDirection: 'row',
 	},
 	flatList: {
-		justifyContent: 'space-between',
+		justifyContent: 'space-around',
 	},
 	adviceCard: {
 		marginTop: 24,
