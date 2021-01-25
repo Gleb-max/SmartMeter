@@ -18,6 +18,9 @@ const styles = StyleSheet.create({
 		borderRadius: 1.27,
 		alignSelf: 'center',
 	},
+	unfocusedIcon: {
+		marginTop: 5,
+	}
 });
 
 export default styles;

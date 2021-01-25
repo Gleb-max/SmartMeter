@@ -33,9 +33,13 @@ export const TabBarItem: React.FC<TabBarItemProps> = ({
 			style = {styles.button}
 		>
 			<SMIcons
-				size={30}
+				size={isFocused ? 24.55 : 21}
+				// size={24}
+				// width={isFocused ? 24.55 : 18.41}
+				// height={isFocused ? 22.54 : 16.91}
 				color={contentColor}
-				style={[style, {}]}
+				// style={[style, {}]}
+				style={[style, !isFocused && styles.unfocusedIcon]}
 				name={_iconName} />
 		</Pressable>
 	);

@@ -140,9 +140,8 @@ const styles = StyleSheet.create({
         marginVertical: 5,
     },
     optionsModalStyle: {
-        // paddingTop: 10,
         paddingHorizontal: 14,
-        maxHeight: 50,
+        paddingBottom: 100,
     },
     calendarModalStyle: {
         backgroundColor: 'red',

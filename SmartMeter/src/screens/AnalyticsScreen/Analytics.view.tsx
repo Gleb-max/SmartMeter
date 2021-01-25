@@ -417,8 +417,7 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
           panGestureComponentEnabled
           threshold={50}
           handlePosition="outside"
-          adjustToContentHeight
-          // modalHeight={301}
+          modalHeight={400}
           panGestureEnabled
           useNativeDriver
           flatListProps={{
