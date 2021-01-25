@@ -25,6 +25,7 @@ export const CustomTextInput: React.FC<CustomTextInputProps> = ({
 }) => {
 	return (
 		<TextField
+			onFocus={() => {}}
 			value={value}
 			onChangeText={onChange}
 			label={placeholder}
