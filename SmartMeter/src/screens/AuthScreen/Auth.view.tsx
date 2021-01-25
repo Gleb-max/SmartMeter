@@ -27,10 +27,10 @@ interface State {
 
 let deque: number [] = [];
 let lastIndex: number | undefined;
-let secondsLeft: number = 2;
+let secondsLeft: number = 30;
 
 type AuthViewProps = {
-
+	onSendCode: () => void;
 }
 
 //images
@@ -40,7 +40,7 @@ import logo from '@assets/images/authLogo_c.png';
 var initialIndex = 0;
 
 export const AuthView: React.FC<AuthViewProps> = ({
-
+	onSendCode,
 }) => {
 	const generateCarouselData = (activeIndex: number | undefined) => {
 		const result = {
@@ -327,7 +327,7 @@ export const AuthView: React.FC<AuthViewProps> = ({
 					<RobotoText
 						type='Light'
 						size={'r2'}
-						style={styles.changeNumText}
+						styleText={styles.changeNumText}
 					>
 						Изменить номер
 					</RobotoText>
@@ -336,10 +336,15 @@ export const AuthView: React.FC<AuthViewProps> = ({
 					<ConfirmationField
 						cellCount={4}
 						containerStyle={{ marginTop: 10 }}
-						onSubmit={() => {
-							console.log(isCodeScreen);
-						}} />
+						onSubmit={() => {}} />
 				</View>
+
+				<Button
+					header='Подтвердить'
+					onPress={() => {
+						onSendCode();
+					}}
+					style={[{ marginHorizontal: 30 }, styles.sendCode]} />
 
 				{(!isTimerTextDisable)
 					? (
@@ -354,7 +359,7 @@ export const AuthView: React.FC<AuthViewProps> = ({
 							<RobotoText
 								type='Light'
 								size={'r2'}
-								style={styles.getCodeText}
+								styleText={styles.getCodeText}
 							>
 								Получить новый код через
 							</RobotoText>

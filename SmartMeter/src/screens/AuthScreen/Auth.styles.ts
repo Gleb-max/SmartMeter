@@ -94,8 +94,11 @@ const styles = StyleSheet.create({
 		fontWeight: '500',
 		marginTop: 7,
 	},
+	sendCode: {
+		marginBottom: 10,
+	},
 	newCode: {
-		marginBottom: 96,
+		marginBottom: 20,
 	},
 });
 

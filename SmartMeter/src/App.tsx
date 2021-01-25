@@ -4,13 +4,18 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { AppNavigation } from './app.navigation';
 
+//modules
+import { Auth } from 'library/modules';
+
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
 	return (
-		<NavigationContainer>
-			<AppNavigation />
-		</NavigationContainer>
+		<Auth.AuthProvider>
+			<NavigationContainer>
+				<AppNavigation />
+			</NavigationContainer>
+		</Auth.AuthProvider>
 	);
 };
 

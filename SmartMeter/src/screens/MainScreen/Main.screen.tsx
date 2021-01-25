@@ -1,5 +1,8 @@
 import React from 'react';
 
+//navigation
+import { useNavigation } from '@react-navigation/native';
+
 //views
 import { MainView } from './Main.view';
 
@@ -30,6 +33,14 @@ const _dummyData = {
 export const MainScreen: React.FC<MainScreenProps> = ({
 
 }) => {
+	//navigation
+	const navigation = useNavigation();
+
+	//callbacks
+	const _onNotifications = React.useCallback(() => {
+		navigation.navigate('');
+	}, [navigation]);
+
 	return (
 		<MainView
 			onAnalytics={() => {}}

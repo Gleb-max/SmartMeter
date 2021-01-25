@@ -10,6 +10,7 @@ target 'SmartMeter' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+
   target 'SmartMeterTests' do
     inherit! :complete
     # Pods for testing

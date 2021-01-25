@@ -1,3 +1,4 @@
+//react-navigation lib dependency
 import 'react-native-gesture-handler';
 
 import { AppRegistry } from 'react-native';

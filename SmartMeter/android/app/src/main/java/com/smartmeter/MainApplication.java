@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -39,9 +40,10 @@ public class MainApplication extends Application implements ReactApplication {
           return "index";
         }
 
-		 @Override
+		//react-native-reanimated
+		@Override
       	protected JSIModulePackage getJSIModulePackage() {
-        	return new ReanimatedJSIModulePackage(); // <- add
+        	return new ReanimatedJSIModulePackage();
       	}
       };
 
