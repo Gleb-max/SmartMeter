@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
 //styles
 import styles from './TextInput.styles';
@@ -11,8 +11,10 @@ type CustomTextInputProps = {
     placeholder?: string;
     keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone-pad' | 'number-pad' | 'decimal-pad';
     isPassword?: boolean;
-    onChange?: () => void;
-    style?: StyleProp<ViewStyle>;
+    onChange?: (text: string) => void;
+	style?: StyleProp<ViewStyle>;
+	labelTextStyle?: StyleProp<TextStyle>;
+	onSubmitEditing?: () => void;
 }
 
 export const CustomTextInput: React.FC<CustomTextInputProps> = ({
@@ -22,6 +24,8 @@ export const CustomTextInput: React.FC<CustomTextInputProps> = ({
 	keyboardType = 'default',
 	isPassword = false,
 	style,
+	labelTextStyle,
+	onSubmitEditing,
 }) => {
 	return (
 		<TextField
@@ -33,10 +37,12 @@ export const CustomTextInput: React.FC<CustomTextInputProps> = ({
 			textColor='#747474'
 			labelFontSize={17}
 			fontSize={18}
-			labelTextStyle={styles.labelText}
+			labelTextStyle={[styles.labelText, labelTextStyle]}
 			tintColor='#005670'
+			onSubmitEditing={onSubmitEditing}
 			blurOnSubmit={isPassword}
 			underlineColorAndroid='transparent'
+			lineWidth={1}
 			containerStyle={[styles.container, style]} />
 	);
 };
