@@ -38,13 +38,13 @@ export const MainScreen: React.FC<MainScreenProps> = ({
 
 	//callbacks
 	const _onNotifications = React.useCallback(() => {
-		navigation.navigate('');
+		navigation.navigate('analytics');
 	}, [navigation]);
 
 	return (
 		<MainView
-			onAnalytics={() => {}}
-			onNotifications={() => { }}
+			onAnalytics={_onNotifications}
+			onNotifications={_onNotifications}
 			onNotify={() => { }}
 			onReceipts={() => { }}
 			onMasterCall={() => { }}

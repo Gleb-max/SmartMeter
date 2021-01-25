@@ -1,5 +1,21 @@
 import React from 'react';
 
-import { AnalyticsScreen } from './Analytics.screen'
+//navigation
+import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
-export const AnalyticsNavigation: React.FC = () => <AnalyticsScreen />;
+//screens
+import { AnalyticsScreen } from './Analytics.screen';
+
+const AnalyticsNativeStack = createNativeStackNavigator();
+
+export const AnalyticsNavigation: React.FC = ({
+}) => {
+	return (
+		<AnalyticsNativeStack.Navigator screenOptions={{ headerShown: false }}>
+			<AnalyticsNativeStack.Screen
+				name='analytics'
+				component={AnalyticsScreen} />
+		</AnalyticsNativeStack.Navigator>
+	);
+};
+

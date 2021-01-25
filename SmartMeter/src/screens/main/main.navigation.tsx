@@ -14,6 +14,8 @@ import { AnalyticsScreen } from 'screens/AnalyticsScreen/Analytics.screen';
 import { AdvicesNavigation } from 'screens/AdvicesScreen';
 
 //features navigators
+import { NotificationsNavigation } from 'screens/NotificationsScreen';
+import { AnalyticsNavigation } from 'screens/AnalyticsScreen';
 
 //components
 import { TabBarContainer } from 'library/components/molecules';
@@ -135,6 +137,14 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
 			<MainNativeStack.Screen
 				name='main'
 				component={_renderBottomTabBar} />
+
+			<MainNativeStack.Screen
+				name='notifications'
+				component={NotificationsNavigation} />
+
+			<MainNativeStack.Screen
+				name='analytics'
+				component={AnalyticsNavigation} />
 		</MainNativeStack.Navigator>
 	);
 };
