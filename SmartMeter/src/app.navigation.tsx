@@ -32,6 +32,7 @@ import { SupportNavigation } from 'screens/SupportScreen';
 import { RequestDetailsNavigation } from 'screens/RequestDetailsScreen';
 import { MeterPhotoNavigation } from 'screens/MeterPhotoScreen';
 import { UserSchedulesNavigation } from 'screens/UserSchedulesScreen';
+import { AccountNavigation } from 'screens/AccountScreen';
 import { NotificationsNavigation } from 'screens/NotificationsScreen';
 
 //native-powered screen containers
@@ -65,5 +66,5 @@ export const AppNavigation: React.FC = ({
 		return 	<AuthNavigation />;
 
 	else
-		return <HomeNavigation />;
+		return <AccountNavigation />;
 };

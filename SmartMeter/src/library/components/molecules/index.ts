@@ -25,3 +25,4 @@ export { ProfileHead } from './ProfileHead';
 export { ProfileSettingsItem } from './ProfileSettingsItem';
 export { SupportChatItem } from './SupportChatItem';
 export { Header } from './Header';
+export { AccountCard } from './AccountCard';
