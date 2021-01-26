@@ -30,6 +30,8 @@ type ScheduleSettingsViewProps = {
         address: string;
 		photo: string;
     };
+    onNotifications: () => void;
+	onProfile: () => void;
     scheduleName: string;
     interval?: number;
     activeDays?: number[];
@@ -40,6 +42,8 @@ export const ScheduleSettingsView: React.FC<ScheduleSettingsViewProps> = ({
     scheduleName,
     interval = 2,
     activeDays = [],
+    onNotifications,
+	onProfile,
 }) => {
     //state
     const [_interval, _setInterval] = React.useState(interval)
@@ -105,7 +109,11 @@ export const ScheduleSettingsView: React.FC<ScheduleSettingsViewProps> = ({
         <>
             <View style={styles.container}>
 
-                <ProfileHead userData={userData} />
+                <ProfileHead 
+                    userData={userData}
+                    onNotifications={onNotifications}
+                    onProfile={onProfile}
+                />
 
                 <GilroyText 
                     type="Semibold"

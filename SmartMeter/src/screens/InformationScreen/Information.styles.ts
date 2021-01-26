@@ -5,10 +5,12 @@ const styles = StyleSheet.create({
 		flex: 1,
 		paddingTop: 28,
 		paddingHorizontal: 30,
+		paddingBottom: 72,
 		backgroundColor: '#ffffff',
 	},
 	header: {
-		marginTop: 37,
+		marginBottom: 12.5,
+        marginTop: 37,
 	},
 	addressTitle: {
 		marginTop: 12,

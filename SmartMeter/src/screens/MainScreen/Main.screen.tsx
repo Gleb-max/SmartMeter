@@ -38,16 +38,37 @@ export const MainScreen: React.FC<MainScreenProps> = ({
 
 	//callbacks
 	const _onNotifications = React.useCallback(() => {
+		navigation.navigate('notifications');
+	}, [navigation]);
+
+	const _onProfile = React.useCallback(() => {
+		navigation.navigate('profile');
+	}, [navigation]);
+
+	const _onAnalytics = React.useCallback(() => {
 		navigation.navigate('analytics');
+	}, [navigation]);
+
+	const _onAnnouncements = React.useCallback(() => {
+		navigation.navigate('announcements');
+	}, [navigation]);
+
+	const _onReceipts = React.useCallback(() => {
+		navigation.navigate('receipts');
+	}, [navigation]);
+
+	const _onMasterCall = React.useCallback(() => {
+		navigation.navigate('mastercall');
 	}, [navigation]);
 
 	return (
 		<MainView
-			onAnalytics={_onNotifications}
+			onAnalytics={_onAnalytics}
+			onAnnouncements={_onAnnouncements}
 			onNotifications={_onNotifications}
-			onNotify={() => { }}
-			onReceipts={() => { }}
-			onMasterCall={() => { }}
+			onReceipts={_onReceipts}
+			onMasterCall={_onMasterCall}
+			onProfile={_onProfile}
 			analytics={{
 				period: 'ноябрь',
 				total: 8642.12,

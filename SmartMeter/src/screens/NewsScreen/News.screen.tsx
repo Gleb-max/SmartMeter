@@ -36,6 +36,14 @@ export const NewsScreen: React.FC<NewsScreenProps> = ({
 	const navigation = useNavigation();
 
 	//callbacks
+	const _onNotifications = React.useCallback(() => {
+		navigation.navigate('notifications');
+	}, [navigation]);
+
+	const _onProfile = React.useCallback(() => {
+		navigation.navigate('profile');
+    }, [navigation]);
+
 	const _onInfo = React.useCallback(() => {
 		navigation.navigate('info');
 	}, [navigation]);
@@ -47,6 +55,8 @@ export const NewsScreen: React.FC<NewsScreenProps> = ({
 
 		<NewsView
 			userData={userData}
+			onNotifications={_onNotifications}
+			onProfile={_onProfile}
 			datesList={_datesList}
 			newsContentList={_newsContentList}
 			onPressNotify={_onPressNotify}

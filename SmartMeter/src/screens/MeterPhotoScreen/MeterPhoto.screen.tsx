@@ -1,5 +1,8 @@
 import React from 'react';
 
+//navigation
+import { useNavigation } from '@react-navigation/native';
+
 //views
 import { MeterPhotoView } from './MeterPhoto.view';
 
@@ -18,10 +21,23 @@ const userData = {
 export const MeterPhotoScreen: React.FC<MeterPhotoScreenProps> = ({
 
 }) => {
-	return (
+	//navigation
+	const navigation = useNavigation();
 
+	//callbacks
+	const _onNotifications = React.useCallback(() => {
+		navigation.navigate('notifications');
+	}, [navigation]);
+
+	const _onProfile = React.useCallback(() => {
+		navigation.navigate('profile');
+	}, [navigation]);
+
+	return (
 		<MeterPhotoView 
 			userData={userData} 
+			onNotifications={_onNotifications}
+			onProfile={_onProfile}
 			photo="https://www.vodomer.ru/upload/iblock/bfa/bfa9e1247831366bc45754c13013058b.jpg" 
 		/>
 	);

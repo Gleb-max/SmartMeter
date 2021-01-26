@@ -16,17 +16,21 @@ type ProfileHeadProps = {
 		photo: string;
     };
     withNotif?: boolean;
+    onNotifications?: () => void;
+    onProfile: () => void;
 }
 
 export const ProfileHead: React.FC<ProfileHeadProps> = ({
     userData,
     withNotif,
+    onNotifications = () => {},
+    onProfile,
 }) => {
 	return (
 		<View style={styles.container}>
             <PressableIcon
                 iconName='ic_notification'
-                onPress={() => { }}
+                onPress={onNotifications}
                 size={22}
                 color='#000000'
                 width={20}
@@ -40,7 +44,7 @@ export const ProfileHead: React.FC<ProfileHeadProps> = ({
                     <Text style={styles.addressText}>{userData.address}</Text>
                 </View>
 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={onProfile}>
                     <Image 
                         source={{
                             uri: userData.photo

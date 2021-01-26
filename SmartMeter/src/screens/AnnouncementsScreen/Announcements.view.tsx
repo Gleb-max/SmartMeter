@@ -1,65 +1,79 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, FlatList } from 'react-native';
 
 //styles
 import styles from './Announcements.styles';
 
 //components
+//components
 import { GilroyText } from 'library/components/atoms';
 import {
+	ProfileHead,
+	NextButton,
 	InfoItemCard,
-	AnnouncementCard,
-	PressableIcon,
-	CustomDropDown,
 } from 'library/components/molecules';
 
+//types
+export type Announcement = {
+	date: string;
+	content: string;
+	type: 'announcement' | 'notification' | 'news';
+}
+
 export type AnnouncementsViewProps = {
-	data: {
-		date: string;
-		content: string;
-		type: 'announcement' | 'notification' | 'news';
-	}[];
+	userData: {
+		name: string;
+		surname: string;
+        photo: string;
+        address: string;
+	};
+	onNotifications: () => void;
+	onProfile: () => void;
+	data: Announcement[];
 	onPressNotify?: () => void;
 }
 
 export const AnnouncementsView: React.FC<AnnouncementsViewProps> = ({
+	userData,
 	data,
+	onNotifications,
+	onProfile,
 	onPressNotify,
 }) => {
 	//renders
-	const _renderAnnouncementItem = React.useCallback(() => {
-		return data.map((item, index) => {
-			return (
-				<InfoItemCard
-					date={item.date}
-					content={item.content}
-					type={item.type}
-					key={index} />
-			);
-		});
+	const _renderListItem = React.useCallback(({ item, index }) => {
+		return (
+			<InfoItemCard
+				date={item.date}
+				content={item.content}
+				type={item.type}
+				key={index} />
+		);
 	}, [data]);
 
 	return (
-		<ScrollView>
-			<View style={styles.container}>
-				<PressableIcon
-					iconName='ic_notification'
-					onPress={() => onPressNotify}
-					size={29}
-					color='black'
-					withNotif={false}
-					style={styles.icon} />
+		<View style = {styles.container}>
+			
+			<ProfileHead 
+				userData={userData} 
+				onNotifications={onNotifications}
+				onProfile={onProfile}
+			/>
 
-				<GilroyText
-					size = 'g1'
-					type = 'Semibold'
-					style = {styles.header}
-				>
-					Объявления
-				</GilroyText>
+			<GilroyText
+				size = 'g1'
+				type = 'Semibold'
+				style = {styles.header}
+			>
+				Объявления
+			</GilroyText>
 
-				{ _renderAnnouncementItem() }
-			</View>
-		</ScrollView>
+			<FlatList<Announcement>
+				data={data}
+				renderItem={_renderListItem}
+				keyExtractor={(item: Announcement, index: number) => item.date + index}
+				showsVerticalScrollIndicator={false}
+				style={styles.flatListContainer} />
+		</View>
 	);
 };

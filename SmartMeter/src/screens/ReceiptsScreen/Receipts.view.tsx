@@ -3,13 +3,21 @@ import { View, FlatList } from 'react-native';
 
 //components
 import { GilroyText } from 'library/components/atoms';
-import { PressableIcon, NextButton } from 'library/components/molecules';
+import { NextButton, ProfileHead } from 'library/components/molecules';
 
 //styles
 import styles from './Receipts.styles';
 
 //types
 type ReceiptsProps = {
+	userData: {
+		name: string;
+		surname: string;
+        photo: string;
+        address: string;
+	};
+	onNotifications: () => void;
+	onProfile: () => void;
 	datesList: string[];
 	paidList: boolean[];
 	onSelectReceipt: (receiptIndex: number) => void;
@@ -17,10 +25,13 @@ type ReceiptsProps = {
 };
 
 export const ReceiptsView: React.FC<ReceiptsProps> = ({
+	userData,
 	datesList,
 	paidList,
 	onSelectReceipt,
 	onPressNotify,
+	onNotifications,
+	onProfile,
 }) => {
 	//renders
 	const _renderListItem = React.useCallback(({ index }) => {
@@ -28,39 +39,31 @@ export const ReceiptsView: React.FC<ReceiptsProps> = ({
 			<NextButton
 				text={datesList[index]}
 				isPaid={paidList[index]}
-				style={{ marginTop: 21 }}
+				style={{ margin: 5, marginTop: 21 }}
 				onPress={() => onSelectReceipt(index)} />
 		);
 	}, [datesList, onSelectReceipt, paidList]);
 
-	const _renderHeader = React.useCallback(() => {
-		return (
-			<>
-				<PressableIcon
-					iconName='ic_notification'
-					onPress={() => onPressNotify}
-					size={29}
-					color='black'
-					withNotif={true}
-					style={styles.icon} />
-
-				<GilroyText
-					type='Semibold'
-					size='g1'
-					style={styles.header}
-				>
-					Квитанции
-				</GilroyText>
-			</>
-		);
-	}, [onPressNotify]);
-
 	return (
 		<View style={styles.container}>
+
+			<ProfileHead 
+				userData={userData} 
+				onNotifications={onNotifications}
+				onProfile={onProfile}
+			/>
+
+			<GilroyText
+				size = 'g1'
+				type = 'Semibold'
+				style = {styles.header}
+			>
+				Квитанции
+			</GilroyText>
+
 			<FlatList
 				data={datesList}
 				renderItem={_renderListItem}
-				ListHeaderComponent={_renderHeader}
 				keyExtractor={(item: string, index: number) => item + index}
 				showsVerticalScrollIndicator={false}
 				contentContainerStyle={styles.flatListContainer} />

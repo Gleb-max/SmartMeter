@@ -7,13 +7,13 @@ const styles = StyleSheet.create({
 		alignSelf: 'stretch',
 		height: DimensionsManager.horizontalScale(60),
 		backgroundColor: '#ffffff',
-		...Helpers.boxShadow('rgb(223, 227, 229)', { x: 0, y: 4 }, 50, 0.3, 0.7),
+		...Helpers.boxShadow('rgba(0, 0, 0, 0.04)', { x: 10, y: 20 }, 100, 0.1, 4),
 	},
 	containerWithoutMarker: {
 		alignSelf: 'stretch',
 		height: DimensionsManager.horizontalScale(40),
 		backgroundColor: '#ffffff',
-		...Helpers.boxShadow('rgb(223, 227, 229)', { x: 0, y: 4 }, 50, 0.3, 0.7),
+		...Helpers.boxShadow('rgba(0, 0, 0, 0.04)', { x: 10, y: 20 }, 100, 0.1, 4),
 		justifyContent: 'center',
 	},
 	header: {

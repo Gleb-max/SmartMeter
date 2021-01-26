@@ -1,64 +1,95 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { View, FlatList } from 'react-native';
 
 //components
 import { GilroyText } from 'library/components/atoms';
-import { InfoItemCard, Header } from 'library/components/molecules';
+import { InfoItemCard, ProfileHead } from 'library/components/molecules';
 
 //styles
 import styles from './Notifications.styles';
 
 //types
+type Notification = {
+	date: string;
+	content: string;
+}
+
 type NotificationsViewProps = {
-	data: {
-		date: string;
-		content: string;
-	}[];
+	userData: {
+		name: string;
+		surname: string;
+        photo: string;
+        address: string;
+    };
+	data: Notification[];
 	profilePhoto: string;
 	name: string;
 	onPressNotify: () => void;
 	address: string;
+	onProfile: () => void;
 };
 
 export const NotificationsView: React.FC<NotificationsViewProps> = ({
+	userData,
 	data,
 	name,
 	address,
 	onPressNotify,
 	profilePhoto,
+	onProfile,
 }) => {
 	//renders
-	const _renderNotifications = React.useCallback(() => {
-		return data.map((item, index) => {
-			return (
-				<InfoItemCard
-					date={item.date}
-					content={item.content}
-					type='notification'
-					style={styles.card}
-					key={index} />
-			);
-		});
+	const _renderListItem = React.useCallback(({ item, index }) => {
+		return (
+			<InfoItemCard
+				date={item.date}
+				content={item.content}
+				type='notification'
+				style={styles.card}
+				key={index} />
+		);
 	}, [data]);
 
 	return (
-		<ScrollView style={styles.container} >
-			<Header
-				onPressNotify={onPressNotify}
-				style={styles.header}
-				name={name}
-				address={address}
-				profilePhoto = {profilePhoto} />
+		<View style = {styles.container}>
+			
+			<ProfileHead
+				userData={userData}
+				onProfile={onProfile}
+			/>
 
 			<GilroyText
-				type='Semibold'
-				size='g1'
-				style={styles.title}
+				size = 'g1'
+				type = 'Semibold'
+				style = {styles.header}
 			>
 				Уведомления
 			</GilroyText>
 
-			{_renderNotifications()}
-		</ScrollView>
+			<FlatList<Notification>
+				data={data}
+				renderItem={_renderListItem}
+				keyExtractor={(item: Notification, index: number) => item.date + index}
+				showsVerticalScrollIndicator={false}
+				style={styles.flatListContainer} />
+		</View>
+		// <ScrollView style={styles.container} >
+		// 	<Header
+		// 		onPressNotify={onPressNotify}
+		// 		style={styles.header}
+		// 		name={name}
+		// 		address={address}
+		// 		profilePhoto = {profilePhoto} />
+
+		// 	<GilroyText
+		// 		type='Semibold'
+		// 		size='g1'
+		// 		style={styles.title}
+		// 	>
+		// 		Уведомления
+		// 	</GilroyText>
+
+		// 	{_renderNotifications()}
+		// </ScrollView>
 	);
 };

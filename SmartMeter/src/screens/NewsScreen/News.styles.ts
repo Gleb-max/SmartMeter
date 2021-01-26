@@ -7,12 +7,14 @@ const styles = StyleSheet.create({
 		backgroundColor: '#FFFFFF',
 		paddingHorizontal: 30,
 		paddingTop: 28,
+		paddingBottom: 72,
 	},
 	header: {
-		paddingTop: 47,
+		marginBottom: 12.5,
+        marginTop: 37,
 	},
 	button: {
-		marginVertical: 25,
+		marginBottom: 25,
 		...Helpers.boxShadow('rgba(0, 0, 0, 0.04)', { x: 10, y: 20 }, 100, 0.1, 3),
 		width: '100%',
 	},

@@ -1,5 +1,8 @@
 import React from 'react';
 
+//navigation
+import { useNavigation } from '@react-navigation/native';
+
 //views
 import { AdvicesView } from './Advices.view';
 
@@ -26,13 +29,27 @@ const userData = {
 export const AdvicesScreen: React.FC<AdvicesScreenProps> = ({
 
 }) => {
+	//navigation
+	const navigation = useNavigation();
+
 	//callbacks
+	const _onNotifications = React.useCallback(() => {
+		navigation.navigate('notifications');
+	}, [navigation]);
+
+	const _onProfile = React.useCallback(() => {
+		navigation.navigate('profile');
+	}, [navigation]);
+
 	const _onSelectAdvice = React.useCallback((adviceIndex: number) => {
 		console.log(_advicesList[adviceIndex]);
 	}, []);
+
 	return (
 		<AdvicesView
 			userData={userData}
+			onNotifications={_onNotifications}
+			onProfile={_onProfile}
 			advicesList={_advicesList}
 			onSelectAdvice={_onSelectAdvice} />
 	);

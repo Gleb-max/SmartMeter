@@ -19,6 +19,8 @@ type AnalyticsViewProps = {
         photo: string;
         address: string;
   };
+  onNotifications: () => void;
+	onProfile: () => void;
 };
 
 type OptionsItem = {
@@ -131,6 +133,8 @@ const data: BarData = {
 
 export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
   userData,
+  onNotifications,
+	onProfile,
 }) => {
 	// set Russian in calendar
 	LocaleConfig.locales.ru = calendarLocale;
@@ -283,7 +287,11 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
     <Host>
       <View style={styles.container}>
 
-        <ProfileHead userData={userData} />
+        <ProfileHead 
+          userData={userData}
+          onNotifications={onNotifications}
+				  onProfile={onProfile}
+        />
 
         <Text style={styles.headText}>Аналитика</Text>
 

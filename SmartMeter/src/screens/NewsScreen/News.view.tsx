@@ -19,7 +19,9 @@ type NewsViewProps = {
 		surname: string;
         photo: string;
         address: string;
-    };
+	};
+	onNotifications: () => void;
+	onProfile: () => void;
 	datesList: string[];
 	newsContentList: string[];
 	header: string;
@@ -34,6 +36,8 @@ export const NewsView: React.FC<NewsViewProps> = ({
 	onPressNotify,
 	onInfo,
 	header,
+	onNotifications,
+	onProfile,
 }) => {
 	//renders
 	const _renderListItem = React.useCallback(({ index }) => {
@@ -48,7 +52,11 @@ export const NewsView: React.FC<NewsViewProps> = ({
 	return (
 		<View style = {styles.container}>
 			
-			<ProfileHead userData={userData} />
+			<ProfileHead 
+				userData={userData}
+				onNotifications={onNotifications}
+				onProfile={onProfile}
+			/>
 
 			<GilroyText
 				size = 'g1'

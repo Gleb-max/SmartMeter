@@ -6,7 +6,6 @@ import { ProfileHead, GilroyText, SMIcons } from 'library/components';
 
 //styles
 import styles from './UserSchedules.styles';
-import { Button } from 'library/components';
 import { NextButton } from 'library/components/molecules';
 
 //types
@@ -14,7 +13,6 @@ type UserSchedule = {
     id: number;
     name: string;
     days: number [];
-    intervalType: 'day' | 'hour';
     intervalValue: number;
 }
 
@@ -24,12 +22,16 @@ type UserSchedulesViewProps = {
 		surname: string;
         photo: string;
         address: string;
-    };
+	};
+	onNotifications: () => void;
+	onProfile: () => void;
     schedules: UserSchedule [];
 };
 
 export const UserSchedulesView: React.FC<UserSchedulesViewProps> = ({
 	userData,
+	onNotifications,
+	onProfile,
 	schedules,
 }) => {
 	const _renderChatMessage = (itemInfo: ListRenderItemInfo<UserSchedule>): React.ReactNode => {
@@ -45,7 +47,11 @@ export const UserSchedulesView: React.FC<UserSchedulesViewProps> = ({
 
 	return (
 		<View style={styles.container}>
-			<ProfileHead userData={userData} />
+			<ProfileHead 
+				userData={userData}
+				onNotifications={onNotifications}
+				onProfile={onProfile}
+			/>
 
 			<GilroyText
 				type='Semibold'

@@ -1,5 +1,8 @@
 import React from 'react';
 
+//navigation
+import { useNavigation } from '@react-navigation/native';
+
 //views
 import { AnalyticsView } from './Analytics.view';
 
@@ -18,7 +21,23 @@ type AnalyticsScreenProps = {
 export const AnalyticsScreen: React.FC<AnalyticsScreenProps> = ({
 
 }) => {
+    //navigation
+	const navigation = useNavigation();
+
+	//callbacks
+	const _onNotifications = React.useCallback(() => {
+		navigation.navigate('notifications');
+	}, [navigation]);
+
+	const _onProfile = React.useCallback(() => {
+		navigation.navigate('profile');
+    }, [navigation]);
+
 	return (
-		<AnalyticsView userData={userData} />
+        <AnalyticsView 
+            userData={userData} 
+			onNotifications={_onNotifications}
+			onProfile={_onProfile}
+        />
 	);
 };

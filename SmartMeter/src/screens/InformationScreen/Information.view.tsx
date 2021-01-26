@@ -15,7 +15,9 @@ type InformationViewProps = {
 		surname: string;
         photo: string;
         address: string;
-    };
+	};
+	onNotifications: () => void;
+	onProfile: () => void;
 	maplat?: number;
 	maplon?: number;
 	markerlat?: number;
@@ -35,6 +37,8 @@ export const InformationView: React.FC<InformationViewProps> = ({
 	markerlon,
 	address,
 	workingHours,
+	onNotifications,
+	onProfile,
 }) => {
 	//renders
 	const _renderItem = React.useCallback(()=>{
@@ -63,7 +67,11 @@ export const InformationView: React.FC<InformationViewProps> = ({
 	return (
 		<View style = {styles.container} >
 
-			<ProfileHead userData={userData} />
+			<ProfileHead 
+				userData={userData}
+				onNotifications={onNotifications}
+				onProfile={onProfile}
+			/>
 
 			<GilroyText
 				style = {styles.header}

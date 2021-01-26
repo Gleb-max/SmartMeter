@@ -4,20 +4,19 @@ const styles = StyleSheet.create({
 	container: {
 		backgroundColor: '#FFFFFF',
 		flex: 1,
-		paddingBottom: 35,
-	},
-	icon: {
-		marginTop: 31,
-		marginLeft: 30,
-		width: 30,
+		paddingHorizontal: 30,
+		paddingTop: 28,
+		paddingBottom: 72,
 	},
 	header: {
-		marginTop: 47,
-		marginLeft: 30,
-		marginBottom: 19,
+		marginBottom: 12.5,
+        marginTop: 37,
 		alignItems: 'center',
 		justifyContent: 'flex-start',
 	},
+	flatListContainer: {
+		marginHorizontal: -30,
+	}
 });
 
 export default styles;

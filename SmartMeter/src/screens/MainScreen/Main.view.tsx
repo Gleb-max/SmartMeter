@@ -29,11 +29,12 @@ type MainViewProps = {
 	}
 	notificationCount: number;
 	receiptAmount: number;
-	onNotify: () => void;
 	onAnalytics: () => void;
 	onNotifications: () => void;
 	onReceipts: () => void;
 	onMasterCall: () => void;
+	onAnnouncements: () => void;
+	onProfile: () => void;
 };
 
 export const MainView: React.FC<MainViewProps> = ({
@@ -42,11 +43,12 @@ export const MainView: React.FC<MainViewProps> = ({
 	analytics,
 	indexData,
 	notificationCount,
-	onNotify,
+	onNotifications,
 	onReceipts,
 	onAnalytics,
-	onNotifications,
 	onMasterCall,
+	onAnnouncements,
+	onProfile,
 }) => {
 	//state
 	const [place, setPlace] = React.useState<string>('Кухня');
@@ -84,7 +86,7 @@ export const MainView: React.FC<MainViewProps> = ({
 					<View style={styles.notifIconandPhotoContainer}>
 						<PressableIcon
 							iconName='ic_notification'
-							onPress={() => onNotify}
+							onPress={onNotifications}
 							size={25}
 							color='#000000'
 							width={25}
@@ -92,7 +94,8 @@ export const MainView: React.FC<MainViewProps> = ({
 							style={{ alignSelf: 'center' }}
 							withNotif={true} />
 
-						<TouchableOpacity>
+						<TouchableOpacity 
+							onPress={onProfile} >
 							<Image
 								source={{ uri: userData.photo }}
 								style={styles.profilePhoto} />
@@ -199,7 +202,7 @@ export const MainView: React.FC<MainViewProps> = ({
 
 					{/* announcements */}
 					<TouchableOpacity
-						onPress={onNotifications}
+						onPress={onAnnouncements}
 						style={styles.cardContainer}
 					>
 						<View style={[styles.cardIconContainer, { backgroundColor: '#887EFF' }]}>

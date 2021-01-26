@@ -12,10 +12,12 @@ import styles from './Advices.styles';
 type AdvicesProps = {
 	userData: {
 		name: string;
-			surname: string;
-			photo: string;
-			address: string;
+		surname: string;
+		photo: string;
+		address: string;
 	};
+	onNotifications: () => void;
+	onProfile: () => void;
 	advicesList: string[];
 	onSelectAdvice: (adviceIndex: number) => void;
 };
@@ -24,6 +26,8 @@ export const AdvicesView: React.FC<AdvicesProps> = ({
 	userData,
 	advicesList,
 	onSelectAdvice,
+	onNotifications,
+	onProfile,
 }) => {
 	//renders
 	const _renderListItem = React.useCallback(({ index }) => {
@@ -40,7 +44,10 @@ export const AdvicesView: React.FC<AdvicesProps> = ({
 		<View style={ styles.container }>
 
 			<ProfileHead 
-				userData={userData} />
+				userData={userData} 
+				onNotifications={onNotifications}
+				onProfile={onProfile}
+			/>
 
 			<GilroyText
 				style = {styles.header}

@@ -1,5 +1,8 @@
 import React from 'react';
 
+//navigation
+import { useNavigation } from '@react-navigation/native';
+
 //views
 import { MeterSettingsView } from './MeterSettings.view';
 
@@ -18,9 +21,23 @@ const userData = {
 export const MeterSettingsScreen: React.FC<MeterSettingsScreenProps> = ({
 
 }) => {
+    //navigation
+	const navigation = useNavigation();
+
+	//callbacks
+	const _onNotifications = React.useCallback(() => {
+		navigation.navigate('notifications');
+	}, [navigation]);
+
+	const _onProfile = React.useCallback(() => {
+		navigation.navigate('profile');
+    }, [navigation]);
+
 	return (
         <MeterSettingsView 
-            userData={userData} 
+            userData={userData}
+            onNotifications={_onNotifications}
+			onProfile={_onProfile} 
             place="Кухня"
             scenario="Стандартный"
             isWaterManagement

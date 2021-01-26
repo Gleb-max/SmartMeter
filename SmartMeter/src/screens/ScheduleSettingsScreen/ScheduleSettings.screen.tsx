@@ -1,5 +1,8 @@
 import React from 'react';
 
+//navigation
+import { useNavigation } from '@react-navigation/native';
+
 //views
 import { ScheduleSettingsView } from './ScheduleSettings.view';
 
@@ -18,6 +21,18 @@ const userData = {
 export const ScheduleSettingsScreen: React.FC<ScheduleSettingsScreenProps> = ({
 
 }) => {
+    //navigation
+	const navigation = useNavigation();
+
+	//callbacks
+	const _onNotifications = React.useCallback(() => {
+		navigation.navigate('notifications');
+	}, [navigation]);
+
+	const _onProfile = React.useCallback(() => {
+		navigation.navigate('profile');
+    }, [navigation]);
+
 	return (
         <ScheduleSettingsView 
             userData={userData}

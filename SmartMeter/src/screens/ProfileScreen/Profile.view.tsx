@@ -18,6 +18,8 @@ type ProfileViewProps = {
 		surname: string;
 		photo: string;
 	};
+	onNotifications: () => void;
+	onProfile: () => void;
 };
 
 export const ProfileView: React.FC<ProfileViewProps> = ({

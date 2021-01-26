@@ -1,5 +1,8 @@
 import React from 'react';
 
+//navigation
+import { useNavigation } from '@react-navigation/native';
+
 //views
 import { UserSchedulesView } from './UserSchedules.view';
 
@@ -90,14 +93,12 @@ const schedules = [
         id: 10,
         name: 'Расписание 11',
         days: [1, 2],
-        intervalType: 'day',
         intervalValue: 1,
     },
     {
         id: 11,
         name: 'Расписание 12',
         days: [1, 2],
-        intervalType: 'day',
         intervalValue: 1,
     },
 ]
@@ -105,9 +106,23 @@ const schedules = [
 export const UserSchedulesScreen: React.FC<UserSchedulesScreenProps> = ({
 
 }) => {
+    //navigation
+	const navigation = useNavigation();
+
+	//callbacks
+	const _onNotifications = React.useCallback(() => {
+		navigation.navigate('notifications');
+	}, [navigation]);
+
+	const _onProfile = React.useCallback(() => {
+		navigation.navigate('profile');
+    }, [navigation]);
+
 	return (
         <UserSchedulesView 
             userData={userData}
+            onNotifications={_onNotifications}
+            onProfile={_onProfile}
             schedules={schedules}
         />
 	);

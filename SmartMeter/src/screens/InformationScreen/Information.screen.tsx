@@ -1,5 +1,8 @@
 import React from 'react';
 
+//navigation
+import { useNavigation } from '@react-navigation/native';
+
 //views
 import { InformationView } from './Information.view';
 
@@ -7,6 +10,7 @@ import { InformationView } from './Information.view';
 type InformationScreenProps = {
 
 };
+
 //constants
 const _data = [{
 	date: 'ПН-СР',
@@ -34,9 +38,23 @@ const _address = '620109 Свердловская обл, г Екатеринб�
 export const InformationScreen: React.FC<InformationScreenProps> = ({
 
 }) => {
+	//navigation
+	const navigation = useNavigation();
+
+	//callbacks
+	const _onNotifications = React.useCallback(() => {
+		navigation.navigate('notifications');
+	}, [navigation]);
+
+	const _onProfile = React.useCallback(() => {
+		navigation.navigate('profile');
+	}, [navigation]);
+
 	return (
 		<InformationView
 			userData={userData}
+			onNotifications={_onNotifications}
+			onProfile={_onProfile}
 			workingHours={_data}
 			address={_address} />
 	);

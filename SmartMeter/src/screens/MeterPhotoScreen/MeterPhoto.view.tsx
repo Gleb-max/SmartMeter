@@ -16,17 +16,25 @@ type MeterPhotoViewProps = {
         address: string;
 		photo: string;
     };
+    onNotifications: () => void;
+	onProfile: () => void;
     photo: string;
 };
 
 export const MeterPhotoView: React.FC<MeterPhotoViewProps> = ({
     userData,
     photo,
+    onNotifications,
+	onProfile,
 }) => {
 	return (
 		<View style = {styles.container}>
 
-            <ProfileHead userData={userData} />
+            <ProfileHead 
+                userData={userData}
+                onNotifications={onNotifications}
+				onProfile={onProfile} 
+            />
 
             <GilroyText 
                 type="Semibold"

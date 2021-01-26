@@ -17,6 +17,8 @@ type MeterSettingsViewProps = {
         address: string;
 		photo: string;
     };
+    onNotifications: () => void;
+	onProfile: () => void;
     place: string;
     scenario: string;
     isWaterManagement: boolean;
@@ -35,7 +37,11 @@ export const MeterSettingsView: React.FC<MeterSettingsViewProps> = ({
 	return (
 		<View style = {styles.container} >
 
-            <ProfileHead userData={userData} />
+            <ProfileHead 
+                userData={userData} 
+                onNotifications={onNotifications}
+				onProfile={onProfile}
+            />
 
             <GilroyText 
                 type="Semibold"

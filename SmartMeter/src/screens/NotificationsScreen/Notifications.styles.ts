@@ -4,6 +4,9 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#FFFFFF',
+		paddingHorizontal: 30,
+		paddingTop: 28,
+		paddingBottom: 72,
 	},
 	title: {
 		marginLeft: 30,
@@ -11,11 +14,15 @@ const styles = StyleSheet.create({
 		marginBottom: 27,
 	},
 	header: {
-		marginTop: 28,
+		marginBottom: 12.5,
+        marginTop: 37,
 	},
 	card: {
 		marginBottom: 5,
 	},
+	flatListContainer: {
+		marginHorizontal: -30,
+	}
 });
 
 export default styles;

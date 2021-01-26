@@ -11,13 +11,13 @@ import {
 //tab screens
 import { MainNavigation } from 'screens/MainScreen';
 import { NewsNavigation } from 'screens/NewsScreen';
-import { AnalyticsScreen } from 'screens/AnalyticsScreen/Analytics.screen';
+import { AnalyticsNavigation } from 'screens/AnalyticsScreen';
 import { AdvicesNavigation } from 'screens/AdvicesScreen';
 import { ProfileNavigation } from 'screens/ProfileScreen';
 
 //features navigators
 import { NotificationsNavigation } from 'screens/NotificationsScreen';
-import { AnalyticsNavigation } from 'screens/AnalyticsScreen';
+// import { AnalyticsNavigation } from 'screens/AnalyticsScreen';
 
 //components
 import { TabBarContainer } from 'library/components/molecules';
@@ -70,7 +70,7 @@ const routes: NavigationTypes.TabBarRouteConfig[] = [
 	},
 	{
 		...mapRouteNameToData['main/graphics'],
-		screen: AnalyticsScreen,
+		screen: AnalyticsNavigation,
 	},
 	{
 		...mapRouteNameToData['main/drop'],
