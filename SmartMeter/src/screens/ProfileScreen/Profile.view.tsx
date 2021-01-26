@@ -18,12 +18,18 @@ type ProfileViewProps = {
 		surname: string;
 		photo: string;
 	};
-	onNotifications: () => void;
-	onProfile: () => void;
+	onAccount: () => void;
+	onContacts: () => void;
+	onSupport: () => void;
+	onMasterCall: () => void;
 };
 
 export const ProfileView: React.FC<ProfileViewProps> = ({
 	userData,
+	onAccount,
+	onContacts,
+	onSupport,
+	onMasterCall,
 }) => {
 	return (
 		<View style={styles.container}>
@@ -49,24 +55,29 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
 				iconName='ic_key'
 				iconColor='#1D4350'
 				header='Аккаунт'
+				onPress={onAccount}
 				containerStyle={styles.settingsItem} />
 
 			<ProfileSettingsItem
 				iconName='ic_fire'
 				iconColor='#FF512F'
 				header='Экстренные контакты'
+				onPress={onContacts}
 				containerStyle={styles.settingsItem} />
 
 			<ProfileSettingsItem
 				iconName='ic_send_message'
 				iconColor='#5C258D'
 				header='Поддержка'
-				containerStyle={styles.settingsItem} />
+				onPress={onSupport}
+				containerStyle={styles.settingsItem}
+			/>
 
 			<ProfileSettingsItem
 				iconName='ic_master_call'
 				iconColor='#ACBB78'
 				header='Вызов мастера'
+				onPress={onMasterCall}
 				containerStyle={styles.settingsItem} />
 		</View>
 	);

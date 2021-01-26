@@ -2,24 +2,31 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 	container: {
-		padding: 30,
+		flex: 1,
+		paddingTop: 28,
+		paddingHorizontal: 30,
+		backgroundColor: '#FDFDFD',
+	},
+	scrollContainer: {
+		marginTop: 20,
 	},
 	contentContainer: {
-		paddingBottom: 50,
+		paddingBottom: 20,
+		paddingTop: 20,
 	},
 	titleText: {
 		marginBottom: 28,
+		alignItems: 'center',
+		justifyContent: 'flex-start',
+		fontSize: 28,
 	},
 	subtitleText: {
 		marginTop: 24,
 		marginBottom: 3,
 	},
-
 	text: {
-		width: 330,
-	},
-	icon: {
-		marginBottom: 50,
+		fontWeight: '500',
+		color: '#000000',
 	},
 });
 

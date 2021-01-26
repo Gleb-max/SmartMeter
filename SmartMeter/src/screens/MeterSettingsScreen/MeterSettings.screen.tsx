@@ -30,7 +30,7 @@ export const MeterSettingsScreen: React.FC<MeterSettingsScreenProps> = ({
 	}, [navigation]);
 
 	const _onProfile = React.useCallback(() => {
-		navigation.navigate('profile');
+		navigation.navigate('main/account');
     }, [navigation]);
 
 	return (

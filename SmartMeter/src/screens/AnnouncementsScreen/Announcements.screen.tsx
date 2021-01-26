@@ -68,7 +68,7 @@ export const AnnouncementsScreen: React.FC<AnnouncementsScreenProps> = ({
 	}, [navigation]);
 
 	const _onProfile = React.useCallback(() => {
-		navigation.navigate('profile');
+		navigation.navigate('main/account');
 	}, [navigation]);
 
 	return (

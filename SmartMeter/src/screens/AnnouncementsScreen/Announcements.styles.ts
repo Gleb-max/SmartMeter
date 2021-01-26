@@ -6,17 +6,16 @@ const styles = StyleSheet.create({
 		flex: 1,
 		paddingHorizontal: 30,
 		paddingTop: 28,
-		paddingBottom: 72,
 	},
 	header: {
 		marginBottom: 12.5,
-        marginTop: 37,
+		marginTop: 37,
 		alignItems: 'center',
 		justifyContent: 'flex-start',
 	},
 	flatListContainer: {
 		marginHorizontal: -30,
-	}
+	},
 });
 
 export default styles;

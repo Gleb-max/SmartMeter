@@ -6,14 +6,13 @@ const styles = StyleSheet.create({
 		backgroundColor: '#FFFFFF',
 		paddingHorizontal: 30,
 		paddingTop: 28,
-		paddingBottom: 72,
 	},
 	header: {
 		marginBottom: 12.5,
-        marginTop: 37,
+		marginTop: 37,
 	},
 	flatListContainer: {
-		// marginHorizontal: 5,
+		paddingTop: 10,
 	},
 });
 

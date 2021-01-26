@@ -77,7 +77,21 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: 'rgba(0, 0, 0, 0.4)',
 	},
-
+	qrAdvice: {
+		fontWeight: '500',
+		fontStyle: 'normal',
+		lineHeight: 21,
+		color: '#000000',
+		alignSelf: 'center',
+		textAlign: 'center',
+		marginTop: 177,
+	},
+	qrView: {
+		// width: '100%',
+		// height: '100%',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
 });
 
 export default styles;

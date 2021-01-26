@@ -71,6 +71,8 @@ export const ContactsScreen: React.FC<ContactsScreenProps> = ({
 
 }) => {
 	return (
-		<ContactsView contactsList={_contactsList} />
+		<ContactsView
+			contactsList={_contactsList}
+			onPressPlus={() => { }} />
 	);
 };

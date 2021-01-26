@@ -37,7 +37,7 @@ export const ReceiptsView: React.FC<ReceiptsProps> = ({
 			<NextButton
 				text={datesList[index]}
 				isPaid={paidList[index]}
-				style={{ margin: 5, marginTop: 21 }}
+				style={{ margin: 5, marginBottom: 21 }}
 				onPress={() => onSelectReceipt(index)} />
 		);
 	}, [datesList, onSelectReceipt, paidList]);

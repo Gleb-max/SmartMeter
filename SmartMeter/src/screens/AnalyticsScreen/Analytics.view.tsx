@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction } from 'react';
 import { View, ScrollView, Text, TouchableOpacity, Image, processColor, ListRenderItemInfo, Modal, TouchableWithoutFeedback } from 'react-native';
 
 //components
-import { ProfileHead } from 'library/components'
+import { ProfileHead } from 'library/components';
 
 //other deps
 import moment from 'moment';
@@ -132,8 +132,8 @@ const data: BarData = {
 };
 
 export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
-  userData,
-  onNotifications,
+    userData,
+    onNotifications,
 	onProfile,
 }) => {
 	// set Russian in calendar
@@ -146,18 +146,18 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
     optionsModalizeRef.current?.open();
 	};
 
-  const changeCustomPeriodText = (text: string) => {
-    optionsData[optionsData.length - 1].values[optionsData[optionsData.length - 1].values.length - 1] = text;
-  }
-
-  const applyCustomPeriod = () => {
-    const prettyStartDate = moment(startDate).format('DD.MM.YYYY')
-    const prettyEndDate = moment(endDate).format('DD.MM.YYYY')
-    if (prettyStartDate == "Invalid date") return 
-    changeCustomPeriodText(`${prettyStartDate} - ${prettyEndDate}`)
-    setCalendarModalVisible(false)
-    setActivePeriodOption(3)
-  }
+    const changeCustomPeriodText = (text: string) => {
+        optionsData[optionsData.length - 1].values[optionsData[optionsData.length - 1].values.length - 1] = text;
+    };
+    
+    const applyCustomPeriod = () => {
+        const prettyStartDate = moment(startDate).format('DD.MM.YYYY')
+        const prettyEndDate = moment(endDate).format('DD.MM.YYYY')
+        if (prettyStartDate === "Invalid date") return 
+        changeCustomPeriodText(`${prettyStartDate} - ${prettyEndDate}`)
+        setCalendarModalVisible(false)
+        setActivePeriodOption(3)
+    }
 
   const createFilterGroup = (item: ListRenderItemInfo<OptionsItem>) => {
     const curItem = item.item;
@@ -169,10 +169,10 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
         <View style={styles.filterChipsContainer}>
           {curItem.values.map((val, index) => {
             return (
-              <View style={[styles.chipContainer, curItem.activeItemIndex == index && {backgroundColor: '#96B4BD'}]}>
+              <View key={index} style={[styles.chipContainer, curItem.activeItemIndex === index && {backgroundColor: '#96B4BD'}]}>
                 <TouchableOpacity onPress={() => {
-                  if (item.index == 3){
-                    if (index == 3){
+                  if (item.index === 3){
+                    if (index === 3){
                       setCalendarModalVisible(true);
                     }
                     else {
@@ -182,7 +182,7 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
                   }
                   else curItem.setActiveItemIndex?.(index);
                 }}>
-                  <Text style={[styles.chipText, curItem.activeItemIndex == index && {color: '#005670'}]}>{val}</Text>
+                  <Text style={[styles.chipText, curItem.activeItemIndex === index && {color: '#005670'}]}>{val}</Text>
                 </TouchableOpacity>
               </View>
             )
@@ -192,23 +192,23 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
     )
   }
 
-  const [calendarModalVisible, setCalendarModalVisible] = React.useState(false)
+  const [calendarModalVisible, setCalendarModalVisible] = React.useState(false);
 
-  const [activeRateOption, setActiveRateOption] = React.useState(0)
-  const [activeMeasureOption, setActiveMeasureOption] = React.useState(0)
-  const [activeChartOption, setActiveChartOption] = React.useState(0)
-  const [activePeriodOption, setActivePeriodOption] = React.useState(0)
+  const [activeRateOption, setActiveRateOption] = React.useState(0);
+  const [activeMeasureOption, setActiveMeasureOption] = React.useState(0);
+  const [activeChartOption, setActiveChartOption] = React.useState(0);
+  const [activePeriodOption, setActivePeriodOption] = React.useState(0);
 
   optionsData.map((element, index) => {
-    if (index == 0) {
+    if (index === 0) {
       element.activeItemIndex = activeRateOption;
       element.setActiveItemIndex = setActiveRateOption;
     }
-    else if (index == 1) {
+    else if (index === 1) {
       element.activeItemIndex = activeMeasureOption;
       element.setActiveItemIndex = setActiveMeasureOption;
     }
-    else if (index == 2) {
+    else if (index === 2) {
       element.activeItemIndex = activeChartOption;
       element.setActiveItemIndex = setActiveChartOption;
     }
@@ -218,11 +218,11 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
     }
   })
 
-  const [markedDates, setMarkedDates] = React.useState({})
-  const [isStartDatePicked, setIsStartDatePicked] = React.useState(false)
-  const [isEndDatePicked, setIsEndDatePicked] = React.useState(false)
-  const [startDate, setStartDate] = React.useState("")
-  const [endDate, setEndDate] = React.useState("")
+  const [markedDates, setMarkedDates] = React.useState({});
+  const [isStartDatePicked, setIsStartDatePicked] = React.useState(false);
+  const [isEndDatePicked, setIsEndDatePicked] = React.useState(false);
+  const [startDate, setStartDate] = React.useState("");
+  const [endDate, setEndDate] = React.useState("");
 
   const onDayPress: DateCallbackHandler = (day: DateObject) => {
     if (!isStartDatePicked) {
@@ -238,7 +238,7 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
       let mStartDate = moment(startDate);
       let mEndDate = moment(day.dateString);
       let range = mEndDate.diff(mStartDate, 'days')
-      if (range == 0) {
+      if (range === 0) {
         setMarkedDates({})
         setIsStartDatePicked(false)
         setIsEndDatePicked(false)
@@ -263,7 +263,7 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
       } 
       else {
         mDates[day.dateString] = {...mDates[startDate], startingDay: true}
-        mEndDate = [mStartDate, mStartDate = mEndDate][0];    //swap values
+        mEndDate = [mStartDate, mStartDate = mEndDate][0]; //swap values
         range = -range
         for (let i = 1; i <= range; i++) {
           let mTempDate: Moment = mStartDate.add(1, 'day');
@@ -375,7 +375,7 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
                 // }}
                 markingType="period"
                 style={styles.calendarContainer} />
-                
+
               <View style={styles.applyPeriodButtonContainer}>
 
                 <Button header="Применить" onPress={() => applyCustomPeriod()} style={styles.applyPeriodButton} />
@@ -388,7 +388,7 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
 
         </TouchableOpacity>
 
-      </Modal> 
+      </Modal>
 
       <Portal>
         <Modalize 
@@ -408,7 +408,7 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
             renderItem: createFilterGroup,
             keyExtractor: (item: OptionsItem) => item.title,
             showsVerticalScrollIndicator: false,
-          }} > 
+          }} >
 
         </Modalize>
       </Portal>

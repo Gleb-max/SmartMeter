@@ -42,11 +42,11 @@ export const MainScreen: React.FC<MainScreenProps> = ({
 	}, [navigation]);
 
 	const _onProfile = React.useCallback(() => {
-		navigation.navigate('profile');
+		navigation.navigate('main/account');
 	}, [navigation]);
 
 	const _onAnalytics = React.useCallback(() => {
-		navigation.navigate('analytics');
+		navigation.navigate('main/graphics');
 	}, [navigation]);
 
 	const _onAnnouncements = React.useCallback(() => {

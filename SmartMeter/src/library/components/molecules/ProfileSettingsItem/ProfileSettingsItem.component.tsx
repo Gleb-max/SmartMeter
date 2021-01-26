@@ -14,6 +14,7 @@ type ProfileSettingsItemProps = {
 	iconName: Icons.SMIconsName;
 	iconColor: string;
 	containerStyle?: StyleProp<ViewStyle>;
+	onPress: () => void;
 }
 
 export const ProfileSettingsItem: React.FC<ProfileSettingsItemProps> = ({
@@ -21,10 +22,15 @@ export const ProfileSettingsItem: React.FC<ProfileSettingsItemProps> = ({
 	iconName,
 	iconColor,
 	containerStyle,
+	onPress,
 }) => {
 	return (
 		<View style={[styles.container, containerStyle]}>
-			<TouchableOpacity style={styles.touchable}>
+			<TouchableOpacity
+				style={styles.touchable}
+				onPress={onPress}
+			>
+
 				<GilroyText
 					size='g10'
 					type='Medium'

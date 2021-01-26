@@ -3,49 +3,45 @@ import { View, ScrollView } from 'react-native';
 
 //components
 import { GilroyText, HeadlineText } from 'library/components/atoms';
-import { PressableIcon } from 'library/components/molecules';
+import { ProfileHead } from 'library/components/molecules';
 
 //styles
 import styles from './AdviceItem.styles';
 
 //types
-type AdvceItemProps = {
-	title?: string;
-	subtitle?: string;
-	text: string;
-}
+import { Advice } from '../AdvicesScreen/Advices.view';
 
 type AdviceItemViewProps = {
-	advices: AdvceItemProps[]
+	userData: {
+		name: string;
+		surname: string;
+		photo: string;
+		address: string;
+	};
+	advice: Advice;
+	onNotifications: () => void;
+	onProfile: () => void;
 };
 
 export const AdviceItemView: React.FC<AdviceItemViewProps> = ({
-	advices,
+	userData,
+	advice,
+	onNotifications,
+	onProfile,
 }) => {
 	//renders
-	const _renderItem = React.useCallback(() => {
-		return advices.map((item, index) => {
+	const _renderAdviceContent = React.useCallback(() => {
+		return advice.content.map((item, index) => {
 			return (
-				<View key = {index}>
-					{(item.title) && (
-						<GilroyText
-							style={styles.titleText}
-							size='g5'
-							type='Semibold'
-						>
-							{item.title}
-						</GilroyText>
-					)}
+				<View key={index}>
 
-					{(item.subtitle) && (
-						<HeadlineText
-							size='h3'
-							type='Semibold'
-							style={styles.subtitleText}
-						>
-							{item.subtitle}
-						</HeadlineText>
-					)}
+					<HeadlineText
+						size='h3'
+						type='Semibold'
+						style={styles.subtitleText}
+					>
+						{item.subtitle}
+					</HeadlineText>
 
 					<HeadlineText
 						size='h3'
@@ -54,24 +50,53 @@ export const AdviceItemView: React.FC<AdviceItemViewProps> = ({
 					>
 						{item.text}
 					</HeadlineText>
+
 				</View>
 			);
 		});
-	}, [advices]);
-	return (
-		<ScrollView
-			style={styles.container}
-			contentContainerStyle={styles.contentContainer}
-		>
-			<PressableIcon
-				iconName='ic_notification'
-				onPress={() => { }}
-				size={29}
-				color='black'
-				withNotif={true}
-				style={styles.icon} />
+	}, [advice.content]);
 
-			{_renderItem()}
-		</ScrollView>
+	const _renderAdvice = React.useCallback(() => {
+		return (
+			<View style={styles.contentContainer}>
+				<GilroyText
+					style={styles.titleText}
+					size='g1'
+					type='Semibold'
+				>
+					{advice.title}
+				</GilroyText>
+
+				<HeadlineText
+					size='h3'
+					type='Medium'
+					style={styles.text}
+				>
+					{advice.text}
+				</HeadlineText>
+
+				{_renderAdviceContent()}
+
+			</View>
+		);
+	}, [advice, _renderAdviceContent]);
+
+	return (
+		<View
+			style={styles.container}
+		>
+			<ProfileHead
+				userData={userData}
+				onNotifications={onNotifications}
+				onProfile={onProfile} />
+
+			<ScrollView
+				style={styles.scrollContainer}
+				showsVerticalScrollIndicator={false}
+			>
+				{_renderAdvice()}
+			</ScrollView>
+
+		</View>
 	);
 };

@@ -53,12 +53,11 @@ export const AnnouncementsView: React.FC<AnnouncementsViewProps> = ({
 
 	return (
 		<View style = {styles.container}>
-			
-			<ProfileHead 
-				userData={userData} 
+
+			<ProfileHead
+				userData={userData}
 				onNotifications={onNotifications}
-				onProfile={onProfile}
-			/>
+				onProfile={onProfile} />
 
 			<GilroyText
 				size = 'g1'

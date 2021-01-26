@@ -1,5 +1,8 @@
 import React from 'react';
 
+//navigation
+import { useNavigation } from '@react-navigation/native';
+
 //views
 import { ProfileView } from './Profile.view';
 
@@ -18,6 +21,37 @@ type ProfileScreenProps = {
 export const ProfileScreen: React.FC<ProfileScreenProps> = ({
 
 }) => {
+	//navigation
+	const navigation = useNavigation();
+
+	//callbacks
+	// const _onAccount = React.useCallback(() => {
+	// 	navigation.navigate('account');
+	// }, [navigation]);
+	const _onAccount = React.useCallback(() => {
+		console.log("Account");
+	}, []);
+
+	const _onContacts = React.useCallback(() => {
+		navigation.navigate('contacts');
+	}, [navigation]);
+
+	const _onSupport = React.useCallback(() => {
+		navigation.navigate('support');
+	}, [navigation]);
+
+	const _onMasterCall = React.useCallback(() => {
+		navigation.navigate('mastercall');
+	}, [navigation]);
+
+	return (
+		<ProfileView
+			userData={userData}
+			onAccount={_onAccount}
+			onContacts={_onContacts}
+			onSupport={_onSupport}
+			onMasterCall={_onMasterCall} />
+{/*    
 	//callbacks
 	const _onNotifications = React.useCallback(() => {
 
@@ -32,5 +66,6 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
 			onNotifications={_onNotifications}
 			onProfile={_onProfile}
 			userData={userData} />
+*/}      
 	);
 };

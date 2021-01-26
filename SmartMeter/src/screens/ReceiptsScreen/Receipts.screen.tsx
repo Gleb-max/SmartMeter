@@ -46,7 +46,7 @@ export const ReceiptsScreen: React.FC<ReceiptsScreenProps> = ({
 	}, [navigation]);
 
 	const _onProfile = React.useCallback(() => {
-		navigation.navigate('profile');
+		navigation.navigate('main/account');
 	}, [navigation]);
 
 	const _onSelectReceipt = React.useCallback(() => {
@@ -57,6 +57,8 @@ export const ReceiptsScreen: React.FC<ReceiptsScreenProps> = ({
 	return (
 		<ReceiptsView
 			userData={userData}
+			onNotifications={_onNotifications}
+			onProfile={_onProfile}
 			datesList={_datesList}
 			paidList={_paidList}
 			onSelectReceipt={_onSelectReceipt}

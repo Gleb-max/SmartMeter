@@ -30,7 +30,7 @@ export const ScheduleSettingsScreen: React.FC<ScheduleSettingsScreenProps> = ({
 	}, [navigation]);
 
 	const _onProfile = React.useCallback(() => {
-		navigation.navigate('profile');
+		navigation.navigate('main/account');
     }, [navigation]);
 
 	return (

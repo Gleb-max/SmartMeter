@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
 		backgroundColor: '#FFFFFF',
 		paddingHorizontal: 30,
 		paddingTop: 28,
-		paddingBottom: 72,
 	},
 	title: {
 		marginLeft: 30,
@@ -15,14 +14,14 @@ const styles = StyleSheet.create({
 	},
 	header: {
 		marginBottom: 12.5,
-        marginTop: 37,
+		marginTop: 37,
 	},
 	card: {
 		marginBottom: 5,
 	},
 	flatListContainer: {
 		marginHorizontal: -30,
-	}
+	},
 });
 
 export default styles;

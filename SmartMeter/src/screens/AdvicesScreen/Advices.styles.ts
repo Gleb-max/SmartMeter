@@ -18,11 +18,14 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 	},
 	flatList: {
-		justifyContent: 'space-around',
+		justifyContent: 'space-evenly',
 	},
 	adviceCard: {
 		marginTop: 24,
 		marginBottom: 2,
+	},
+	flatListStyle: {
+		marginHorizontal: -30,
 	},
 });
 

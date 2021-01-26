@@ -16,7 +16,7 @@ type ContactsViewProps = {
 		number: string;
 		onPress: () => void;
 	}[];
-	onPressPlus: ()=>void;
+	onPressPlus: () => void;
 };
 
 export const ContactsView: React.FC<ContactsViewProps> = ({
@@ -54,7 +54,7 @@ export const ContactsView: React.FC<ContactsViewProps> = ({
 
 			{contactsList.length !== 0 && (
 				<ScrollView
-					contentContainerStyle={{ paddingHorizontal: 30 }}
+					contentContainerStyle={{ paddingHorizontal: 30, paddingBottom: 10 }}
 					showsVerticalScrollIndicator={false}
 				>
 					{_renderItem()}

@@ -15,20 +15,16 @@ import styles from './RequestDetails.styles';
 import { DimensionsManager } from 'library/modules';
 
 //types
+import { Request } from 'screens/RequestHistoryScreen/RequestHistory.view';
+
 type RequestDetailsProps = {
-    requestName: string;
-    requestDate: string;
-    masterName: string;
-    masterPhone: string;
+	request: Request;
     qrContent: string;
     logoUri: ImageSourcePropType;
 };
 
 export const RequestDetailsView: React.FC<RequestDetailsProps> = ({
-	requestName,
-	requestDate,
-	masterName,
-	masterPhone,
+	request,
 	qrContent,
 	logoUri,
 }) => {
@@ -42,7 +38,7 @@ export const RequestDetailsView: React.FC<RequestDetailsProps> = ({
 	};
 
 	return (
-		<KeyboardAwareScrollView>
+		<KeyboardAwareScrollView style={{ flex: 1, backgroundColor: '#FDFDFD' }}>
 			<View style={styles.container}>
 				<GilroyText
 					type='Semibold'
@@ -51,7 +47,7 @@ export const RequestDetailsView: React.FC<RequestDetailsProps> = ({
 				>
 					Заявка от
 					{' '}
-					{requestDate}
+					{request.date}
 				</GilroyText>
 
 				<View style={styles.cardContainer}>
@@ -68,17 +64,19 @@ export const RequestDetailsView: React.FC<RequestDetailsProps> = ({
 							type='Medium'
 							size='g2'
 							style={styles.cardText}
-						>
-							{masterName}
-						</GilroyText>
+							children={request.masterName} />
+						//>
+							//{masterName}
+						//</GilroyText>
 
 						<GilroyText
 							type='Medium'
 							size='g3'
 							style={styles.phoneText}
-						>
-							{masterPhone}
-						</GilroyText>
+							children={request.masterPhone} />
+						//>
+							//{masterPhone}
+						//</GilroyText>
 					</View>
 				</View>
 
@@ -95,9 +93,10 @@ export const RequestDetailsView: React.FC<RequestDetailsProps> = ({
 						type='Medium'
 						size='g2'
 						style={styles.cardText}
-					>
-						{requestName}
-					</GilroyText>
+						children={request.name} />
+					//>
+						//{requestName}
+					//</GilroyText>
 				</View>
 
 				<CustomTextInput
@@ -145,7 +144,7 @@ export const RequestDetailsView: React.FC<RequestDetailsProps> = ({
 					}}
 				>
 					<TouchableWithoutFeedback>
-						<View>
+						<View style={styles.qrView}>
 							<QRCode
 								value={qrContent}
 								color='#005670'
@@ -155,6 +154,15 @@ export const RequestDetailsView: React.FC<RequestDetailsProps> = ({
 								quietZone={10}
 								logo={logoUri}
 								size={DimensionsManager.getScreenWidth() - 100} />
+
+							<RobotoText
+								size='r1'
+								type='Medium'
+								style={styles.qrAdvice}
+							>
+								Покажите этот QR-код вашему мастеру
+							</RobotoText>
+
 						</View>
 					</TouchableWithoutFeedback>
 				</TouchableOpacity>

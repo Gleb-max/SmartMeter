@@ -3,7 +3,6 @@ import React from 'react';
 //navigation
 import {
 	createBottomTabNavigator,
-
 	BottomTabBarOptions,
 	BottomTabBarProps,
 } from '@react-navigation/bottom-tabs';
@@ -17,7 +16,16 @@ import { ProfileNavigation } from 'screens/ProfileScreen';
 
 //features navigators
 import { NotificationsNavigation } from 'screens/NotificationsScreen';
-// import { AnalyticsNavigation } from 'screens/AnalyticsScreen';
+import { AnnouncementsNavigation } from 'screens/AnnouncementsScreen';
+import { ReceiptsNavigation } from 'screens/ReceiptsScreen';
+import { CallingMasterNavigation } from 'screens/CallingMasterScreen';
+import { SupportNavigation } from 'screens/SupportScreen';
+import { ContactsNavigation } from 'screens/ContactsScreen';
+import { RegistarionRequestNavigation } from 'screens/RegistrationRequest';
+import { RequestHistoryNavigation } from 'screens/RequestHistoryScreen';
+import { RequestDetailsNavigation } from 'screens/RequestDetailsScreen';
+import { AdviceItemNavigation } from 'screens/AdviceItemScreen';
+import { InformationNavigation } from 'screens/InformationScreen';
 
 //components
 import { TabBarContainer } from 'library/components/molecules';
@@ -144,8 +152,49 @@ export const HomeNavigation: React.FC<HomeNavigationProps> = ({
 				component={NotificationsNavigation} />
 
 			<HomeNativeStack.Screen
-				name='analytics'
-				component={AnalyticsNavigation} />
+				name='announcements'
+				component={AnnouncementsNavigation} />
+
+			<HomeNativeStack.Screen
+				name='receipts'
+				component={ReceiptsNavigation} />
+
+			<HomeNativeStack.Screen
+				name='mastercall'
+				component={CallingMasterNavigation} />
+
+			{/* <HomeNativeStack.Screen
+				name='account'
+				component={CallingMasterNavigation} /> */}
+
+			<HomeNativeStack.Screen
+				name='support'
+				component={SupportNavigation} />
+
+			<HomeNativeStack.Screen
+				name='contacts'
+				component={ContactsNavigation} />
+
+			<HomeNativeStack.Screen
+				name='reqregister'
+				component={RegistarionRequestNavigation} />
+
+			<HomeNativeStack.Screen
+				name='reqhistory'
+				component={RequestHistoryNavigation} />
+
+			<HomeNativeStack.Screen
+				name='reqdetails'
+				component={RequestDetailsNavigation} />
+
+			<HomeNativeStack.Screen
+				name='adviceitem'
+				component={AdviceItemNavigation} />
+
+			<HomeNativeStack.Screen
+				name='info'
+				component={InformationNavigation} />
+
 		</HomeNativeStack.Navigator>
 	);
 };

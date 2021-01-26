@@ -10,15 +10,21 @@ import styles from './RegistarionRequest.styles';
 
 //types
 type RegistarionRequestViewProps = {
-
+	onPressRegister: () => void;
 };
 
 export const RegistarionRequestView: React.FC<RegistarionRequestViewProps> = ({
-
+	onPressRegister,
 }) => {
 	//state
 	const [selectedReason, setSelectedReason] = React.useState('');
 	const [selectedMaster, setSelectedMaster] = React.useState('');
+
+	//handlers
+	const createRequest = () => {
+		//creating...
+		onPressRegister();
+	};
 
 	return (
 		<ScrollView
@@ -99,7 +105,7 @@ export const RegistarionRequestView: React.FC<RegistarionRequestViewProps> = ({
 
 			<Button
 				header ='Отправить заявку'
-				onPress = {()=>{}}
+				onPress = {createRequest}
 				style = {styles.button} />
 		</ScrollView>
 	);

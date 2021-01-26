@@ -9,6 +9,17 @@ import { GilroyText } from 'library/components/atoms';
 import styles from './Advices.styles';
 
 //types
+type AdviceContent = {
+	subtitle: string;
+	text: string;
+}
+
+export type Advice = {
+	title: string;
+	text: string;
+	content: AdviceContent[];
+}
+
 type AdvicesProps = {
 	userData: {
 		name: string;
@@ -18,8 +29,8 @@ type AdvicesProps = {
 	};
 	onNotifications: () => void;
 	onProfile: () => void;
-	advicesList: string[];
-	onSelectAdvice: (adviceIndex: number) => void;
+	advicesList: Advice[];
+	onSelectAdvice: (adviceItem: Advice) => void;
 };
 
 export const AdvicesView: React.FC<AdvicesProps> = ({
@@ -30,12 +41,12 @@ export const AdvicesView: React.FC<AdvicesProps> = ({
 	onProfile,
 }) => {
 	//renders
-	const _renderListItem = React.useCallback(({ index }) => {
+	const _renderListItem = React.useCallback(({ item, index }) => {
 		return (
 			<AdviceCard
-				text={advicesList[index]}
+				text={item.title}
 				style={styles.adviceCard}
-				onPress={() => onSelectAdvice(index)}
+				onPress={() => onSelectAdvice(item)}
 				key={index} />
 		);
 	}, [advicesList, onSelectAdvice]);
@@ -43,11 +54,10 @@ export const AdvicesView: React.FC<AdvicesProps> = ({
 	return (
 		<View style={ styles.container }>
 
-			<ProfileHead 
-				userData={userData} 
+			<ProfileHead
+				userData={userData}
 				onNotifications={onNotifications}
-				onProfile={onProfile}
-			/>
+				onProfile={onProfile} />
 
 			<GilroyText
 				style = {styles.header}
@@ -57,13 +67,13 @@ export const AdvicesView: React.FC<AdvicesProps> = ({
 				Полезные советы
 			</GilroyText>
 
-			<FlatList
+			<FlatList<Advice>
 				data={advicesList}
 				renderItem={_renderListItem}
 				numColumns={2}
 				columnWrapperStyle={styles.flatList}
-				keyExtractor={(item: string, index: number) => item + index}
-				style={{ }}
+				keyExtractor={(item: Advice, index: number) => item.title + index}
+				style={styles.flatListStyle}
 				showsVerticalScrollIndicator={false}
 				contentContainerStyle={styles.flatListContainer} />
 		</View>
