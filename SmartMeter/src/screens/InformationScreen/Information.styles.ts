@@ -2,15 +2,16 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
 		paddingTop: 28,
-		paddingHorizontal: 30,
-		paddingBottom: 72,
 		backgroundColor: '#ffffff',
+	},
+	contentContainer: {
+		paddingBottom: 120,
+		paddingHorizontal: 30,
 	},
 	header: {
 		marginBottom: 12.5,
-        marginTop: 37,
+		marginTop: 37,
 	},
 	addressTitle: {
 		marginTop: 12,

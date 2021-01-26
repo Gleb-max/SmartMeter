@@ -25,7 +25,6 @@ type NewsViewProps = {
 	datesList: string[];
 	newsContentList: string[];
 	header: string;
-	onPressNotify: () => void;
 	onInfo: () => void;
 };
 
@@ -33,7 +32,6 @@ export const NewsView: React.FC<NewsViewProps> = ({
 	userData,
 	datesList,
 	newsContentList,
-	onPressNotify,
 	onInfo,
 	header,
 	onNotifications,
@@ -51,12 +49,11 @@ export const NewsView: React.FC<NewsViewProps> = ({
 
 	return (
 		<View style = {styles.container}>
-			
-			<ProfileHead 
+
+			<ProfileHead
 				userData={userData}
 				onNotifications={onNotifications}
-				onProfile={onProfile}
-			/>
+				onProfile={onProfile} />
 
 			<GilroyText
 				size = 'g1'
@@ -71,7 +68,7 @@ export const NewsView: React.FC<NewsViewProps> = ({
 				withMarker = {false}
 				onPress = {onInfo}
 				style = {styles.button} />
-			
+
 			<GilroyText
 				type='Semibold'
 				size='g2'

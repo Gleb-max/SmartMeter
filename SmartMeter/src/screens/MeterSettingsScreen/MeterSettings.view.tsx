@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, TouchableOpacity, Image, Text } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 
 //components
-import { GilroyText, HeadlineText } from 'library/components/atoms';
+import { GilroyText } from 'library/components/atoms';
 import { ProfileHead } from 'library/components/molecules';
 //styles
 import styles from './MeterSettings.styles';
@@ -27,207 +27,208 @@ type MeterSettingsViewProps = {
 };
 
 export const MeterSettingsView: React.FC<MeterSettingsViewProps> = ({
-    userData,
-    place,
-    scenario,
-    isWaterManagement,
-    rate,
-    limit,
+	userData,
+	place,
+	scenario,
+	isWaterManagement,
+	rate,
+	limit,
+	onNotifications,
+	onProfile,
 }) => {
 	return (
 		<View style = {styles.container} >
 
-            <ProfileHead 
-                userData={userData} 
-                onNotifications={onNotifications}
-				onProfile={onProfile}
-            />
+			<ProfileHead
+				userData={userData}
+				onNotifications={onNotifications}
+				onProfile={onProfile} />
 
-            <GilroyText 
-                type="Semibold"
-                size="g1"
-                styleText={styles.header}
-            >
-                {place}
-            </GilroyText>
+			<GilroyText
+				type='Semibold'
+				size='g1'
+				styleText={styles.header}
+			>
+				{place}
+			</GilroyText>
 
-            <SafeAreaView>
+			<SafeAreaView>
 
-                <ScrollView showsVerticalScrollIndicator={false}>
+				<ScrollView showsVerticalScrollIndicator={false}>
 
-                    {/* photo */}
+					{/* photo */}
 
-                    <View style={[styles.cardContainer, {marginTop: 10}]}>
+					<View style={[styles.cardContainer, { marginTop: 10 }]}>
 
-                        <TouchableOpacity>
-                            <GilroyText 
-                                size="g2" 
-                                type="Medium" 
-                                styleText={styles.photoCardHeader} 
-                            >
-                                Фото счетчика
-                            </GilroyText>
-                        </TouchableOpacity>
+						<TouchableOpacity>
+							<GilroyText
+								size='g2'
+								type='Medium'
+								styleText={styles.photoCardHeader}
+							>
+								Фото счетчика
+							</GilroyText>
+						</TouchableOpacity>
 
-                    </View>
+					</View>
 
-                    {/* scenario */}
+					{/* scenario */}
 
-                    <View style={styles.cardContainer}>
+					<View style={styles.cardContainer}>
 
-                        <GilroyText 
-                            size="g2" 
-                            type="Medium" 
-                            styleText={styles.cardHeader} 
-                        >
-                            Сценарий
-                        </GilroyText>
+						<GilroyText
+							size='g2'
+							type='Medium'
+							styleText={styles.cardHeader}
+						>
+							Сценарий
+						</GilroyText>
 
-                        <View style={styles.cardEditableContantContainer}>
+						<View style={styles.cardEditableContantContainer}>
 
-                            <GilroyText 
-                                size="g2" 
-                                type="Medium" 
-                                styleText={styles.scenarioType} 
-                            >
-                                {scenario}
-                            </GilroyText>
+							<GilroyText
+								size='g2'
+								type='Medium'
+								styleText={styles.scenarioType}
+							>
+								{scenario}
+							</GilroyText>
 
-                            <TouchableOpacity style={styles.changeContainer}>
+							<TouchableOpacity style={styles.changeContainer}>
 
-                                <GilroyText 
-                                    size="g3" 
-                                    type="Medium" 
-                                    styleText={styles.changeText} 
-                                >
-                                    Изменить
-                                </GilroyText>
+								<GilroyText
+									size='g3'
+									type='Medium'
+									styleText={styles.changeText}
+								>
+									Изменить
+								</GilroyText>
 
-                            </TouchableOpacity>
+							</TouchableOpacity>
 
-                        </View>
+						</View>
 
-                    </View>
+					</View>
 
-                    {/* water management */}
+					{/* water management */}
 
-                    <View style={styles.cardContainer}>
+					<View style={styles.cardContainer}>
 
-                        <GilroyText 
-                            size="g2" 
-                            type="Medium" 
-                            styleText={styles.cardHeader} 
-                        >
-                            Управление водой
-                        </GilroyText>
+						<GilroyText
+							size='g2'
+							type='Medium'
+							styleText={styles.cardHeader}
+						>
+							Управление водой
+						</GilroyText>
 
-                        <View style={styles.cardEditableContantContainer}>
+						<View style={styles.cardEditableContantContainer}>
 
-                            <GilroyText 
-                                size="g2" 
-                                type="Medium" 
-                                styleText={styles.scenarioType} 
-                            >
-                                {isWaterManagement ? "Включено" : "Выключено"}
-                            </GilroyText>
+							<GilroyText
+								size='g2'
+								type='Medium'
+								styleText={styles.scenarioType}
+							>
+								{isWaterManagement ? 'Включено' : 'Выключено'}
+							</GilroyText>
 
-                            <TouchableOpacity style={styles.changeContainer}>
+							<TouchableOpacity style={styles.changeContainer}>
 
-                                <GilroyText 
-                                    size="g3" 
-                                    type="Medium" 
-                                    styleText={[styles.changeText, {color: '#FF5B5B'}]} 
-                                >
-                                    {isWaterManagement ? "Выключить" : "Включить"}
-                                </GilroyText>
+								<GilroyText
+									size='g3'
+									type='Medium'
+									styleText={[styles.changeText, { color: '#FF5B5B' }]}
+								>
+									{isWaterManagement ? 'Выключить' : 'Включить'}
+								</GilroyText>
 
-                            </TouchableOpacity>
+							</TouchableOpacity>
 
-                        </View>
+						</View>
 
-                    </View>
+					</View>
 
-                    {/* rate */}
+					{/* rate */}
 
-                    <View style={styles.cardContainer}>
+					<View style={styles.cardContainer}>
 
-                        <GilroyText 
-                            size="g2" 
-                            type="Medium" 
-                            styleText={styles.cardHeader} 
-                        >
-                            Тариф
-                        </GilroyText>
+						<GilroyText
+							size='g2'
+							type='Medium'
+							styleText={styles.cardHeader}
+						>
+							Тариф
+						</GilroyText>
 
-                        <View style={styles.cardEditableContantContainer}>
+						<View style={styles.cardEditableContantContainer}>
 
-                            <GilroyText 
-                                size="g2" 
-                                type="Medium" 
-                                styleText={styles.scenarioType} 
-                            >
-                                {rate}
-                            </GilroyText>
+							<GilroyText
+								size='g2'
+								type='Medium'
+								styleText={styles.scenarioType}
+							>
+								{rate}
+							</GilroyText>
 
-                            <TouchableOpacity style={styles.changeContainer}>
+							<TouchableOpacity style={styles.changeContainer}>
 
-                                <GilroyText 
-                                    size="g3" 
-                                    type="Medium" 
-                                    styleText={styles.changeText} 
-                                >
-                                    Изменить
+								<GilroyText
+									size='g3'
+									type='Medium'
+									styleText={styles.changeText}
+								>
+									Изменить
 
-                                </GilroyText>
+								</GilroyText>
 
-                            </TouchableOpacity>
+							</TouchableOpacity>
 
-                        </View>
+						</View>
 
-                    </View>
+					</View>
 
-                    {/* limit */}
+					{/* limit */}
 
-                    <View style={styles.cardContainer}>
+					<View style={styles.cardContainer}>
 
-                        <GilroyText 
-                            size="g2" 
-                            type="Medium" 
-                            styleText={styles.cardHeader} 
-                        >
-                            Лимит
-                        </GilroyText>
+						<GilroyText
+							size='g2'
+							type='Medium'
+							styleText={styles.cardHeader}
+						>
+							Лимит
+						</GilroyText>
 
-                        <View style={styles.cardEditableContantContainer}>
+						<View style={styles.cardEditableContantContainer}>
 
-                            <GilroyText 
-                                size="g2" 
-                                type="Medium" 
-                                styleText={styles.scenarioType} 
-                            >
-                                {limit}
-                            </GilroyText>
+							<GilroyText
+								size='g2'
+								type='Medium'
+								styleText={styles.scenarioType}
+							>
+								{limit}
+							</GilroyText>
 
-                            <TouchableOpacity style={styles.changeContainer}>
+							<TouchableOpacity style={styles.changeContainer}>
 
-                                <GilroyText 
-                                    size="g3" 
-                                    type="Medium" 
-                                    styleText={styles.changeText} 
-                                >
-                                    Изменить
+								<GilroyText
+									size='g3'
+									type='Medium'
+									styleText={styles.changeText}
+								>
+									Изменить
 
-                                </GilroyText>
+								</GilroyText>
 
-                            </TouchableOpacity>
+							</TouchableOpacity>
 
-                        </View>
+						</View>
 
-                    </View>
+					</View>
 
-                </ScrollView>
+				</ScrollView>
 
-            </SafeAreaView>
+			</SafeAreaView>
 
 		</View>
 	);

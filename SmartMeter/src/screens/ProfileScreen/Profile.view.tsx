@@ -57,12 +57,11 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
 				header='Экстренные контакты'
 				containerStyle={styles.settingsItem} />
 
-			<ProfileSettingsItem 
-				iconName="ic_send_message"
-				iconColor="#5C258D"
-				header="Поддержка" 
-				containerStyle={styles.settingsItem} 
-			/>
+			<ProfileSettingsItem
+				iconName='ic_send_message'
+				iconColor='#5C258D'
+				header='Поддержка'
+				containerStyle={styles.settingsItem} />
 
 			<ProfileSettingsItem
 				iconName='ic_master_call'

@@ -1,5 +1,4 @@
 import React from 'react';
-import { once } from 'ramda';
 
 //views
 import { NewDeviceView } from './NewDevice.view';

@@ -3,7 +3,7 @@ import { View, ScrollView, TouchableOpacity } from 'react-native';
 
 //components
 import { GilroyText, SMIcons } from 'library/components/atoms';
-import { PressableIcon, NextButton } from 'library/components/molecules';
+import { ProfileHead, NextButton } from 'library/components/molecules';
 
 //styles
 import styles from './Devices.styles';
@@ -14,14 +14,23 @@ type DevicesViewProps = {
 		title: string;
 		onPress: () => void;
 	}[];
-	onPressNotif: () => void;
+	userData: {
+		name: string;
+		surname: string;
+		photo: string;
+		address: string;
+	};
+	onNotifications: () => void;
+	onProfile: () => void;
 	onPressPlus: () => void;
 };
 
 export const DevicesView: React.FC<DevicesViewProps> = ({
 	headerList,
-	onPressNotif,
 	onPressPlus,
+	onNotifications,
+	onProfile,
+	userData,
 }) => {
 	//renders
 	const _renderItem = React.useCallback(() => {
@@ -42,12 +51,10 @@ export const DevicesView: React.FC<DevicesViewProps> = ({
 
 	return (
 		<View style = {styles.container} >
-			<PressableIcon
-				iconName='ic_notification'
-				onPress={onPressNotif}
-				size={29}
-				style={{ marginLeft: 30 }}
-				color='black' />
+			<ProfileHead
+				userData={userData}
+				onNotifications={onNotifications}
+				onProfile={onProfile} />
 
 			<GilroyText
 				type = 'Semibold'
@@ -58,7 +65,6 @@ export const DevicesView: React.FC<DevicesViewProps> = ({
 			</GilroyText>
 
 			<ScrollView
-				contentContainerStyle={{ paddingHorizontal: 30 }}
 				showsVerticalScrollIndicator={false}
 			>
 				{_renderItem()}

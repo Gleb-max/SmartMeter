@@ -59,20 +59,26 @@ export const RequestDetailsView: React.FC<RequestDetailsProps> = ({
 						type='Semibold'
 						size='g3'
 						style={styles.cardHeader}
-						children='Мастер' />
+					>
+						Мастер
+					</GilroyText>
 
 					<View style={styles.masterInfoContainer}>
 						<GilroyText
 							type='Medium'
 							size='g2'
 							style={styles.cardText}
-							children={masterName} />
+						>
+							{masterName}
+						</GilroyText>
 
 						<GilroyText
 							type='Medium'
 							size='g3'
 							style={styles.phoneText}
-							children={masterPhone} />
+						>
+							{masterPhone}
+						</GilroyText>
 					</View>
 				</View>
 
@@ -81,13 +87,17 @@ export const RequestDetailsView: React.FC<RequestDetailsProps> = ({
 						type='Semibold'
 						size='g3'
 						style={styles.cardHeader}
-						children='Услуга' />
+					>
+						Услуга
+					</GilroyText>
 
 					<GilroyText
 						type='Medium'
 						size='g2'
 						style={styles.cardText}
-						children={requestName} />
+					>
+						{requestName}
+					</GilroyText>
 				</View>
 
 				<CustomTextInput
@@ -99,7 +109,9 @@ export const RequestDetailsView: React.FC<RequestDetailsProps> = ({
 						style={styles.ratingText}
 						type='Regular'
 						size='r1'
-						children='Оцените работу' />
+					>
+						Оцените работу
+					</RobotoText>
 
 					<StarRating
 						starStyle={styles.ratingStar}

@@ -22,20 +22,13 @@ type NotificationsViewProps = {
         address: string;
     };
 	data: Notification[];
-	profilePhoto: string;
-	name: string;
-	onPressNotify: () => void;
-	address: string;
+
 	onProfile: () => void;
 };
 
 export const NotificationsView: React.FC<NotificationsViewProps> = ({
 	userData,
 	data,
-	name,
-	address,
-	onPressNotify,
-	profilePhoto,
 	onProfile,
 }) => {
 	//renders
@@ -48,15 +41,14 @@ export const NotificationsView: React.FC<NotificationsViewProps> = ({
 				style={styles.card}
 				key={index} />
 		);
-	}, [data]);
+	}, []);
 
 	return (
 		<View style = {styles.container}>
-			
+
 			<ProfileHead
 				userData={userData}
-				onProfile={onProfile}
-			/>
+				onProfile={onProfile} />
 
 			<GilroyText
 				size = 'g1'
@@ -81,15 +73,15 @@ export const NotificationsView: React.FC<NotificationsViewProps> = ({
 		// 		address={address}
 		// 		profilePhoto = {profilePhoto} />
 
-		// 	<GilroyText
-		// 		type='Semibold'
-		// 		size='g1'
-		// 		style={styles.title}
-		// 	>
-		// 		Уведомления
-		// 	</GilroyText>
+	// 	<GilroyText
+	// 		type='Semibold'
+	// 		size='g1'
+	// 		style={styles.title}
+	// 	>
+	// 		Уведомления
+	// 	</GilroyText>
 
-		// 	{_renderNotifications()}
-		// </ScrollView>
+	// 	{_renderNotifications()}
+	// </ScrollView>
 	);
 };

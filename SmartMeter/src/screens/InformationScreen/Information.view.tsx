@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
 //components
 import { GilroyText, HeadlineText } from 'library/components/atoms';
@@ -65,13 +65,15 @@ export const InformationView: React.FC<InformationViewProps> = ({
 	}, [workingHours]);
 
 	return (
-		<View style = {styles.container} >
+		<ScrollView
+			style = {styles.container}
+			contentContainerStyle = {styles.contentContainer}
+		>
 
-			<ProfileHead 
+			<ProfileHead
 				userData={userData}
 				onNotifications={onNotifications}
-				onProfile={onProfile}
-			/>
+				onProfile={onProfile} />
 
 			<GilroyText
 				style = {styles.header}
@@ -106,6 +108,6 @@ export const InformationView: React.FC<InformationViewProps> = ({
 
 			{_renderItem()}
 
-		</View>
+		</ScrollView>
 	);
 };

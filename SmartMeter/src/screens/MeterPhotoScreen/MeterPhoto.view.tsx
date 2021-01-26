@@ -22,31 +22,30 @@ type MeterPhotoViewProps = {
 };
 
 export const MeterPhotoView: React.FC<MeterPhotoViewProps> = ({
-    userData,
-    photo,
-    onNotifications,
+	userData,
+	photo,
+	onNotifications,
 	onProfile,
 }) => {
 	return (
 		<View style = {styles.container}>
 
-            <ProfileHead 
-                userData={userData}
-                onNotifications={onNotifications}
-				onProfile={onProfile} 
-            />
+			<ProfileHead
+				userData={userData}
+				onNotifications={onNotifications}
+				onProfile={onProfile} />
 
-            <GilroyText 
-                type="Semibold"
-                size="g1"
-                styleText={styles.header}
-            >
-                Фото счетчика
-            </GilroyText>
+			<GilroyText
+				type='Semibold'
+				size='g1'
+				styleText={styles.header}
+			>
+				Фото счетчика
+			</GilroyText>
 
-            <Image 
-                style={styles.photo}
-                source={{uri: photo}} />
+			<Image
+				style={styles.photo}
+				source={{ uri: photo }} />
 
 		</View>
 	);

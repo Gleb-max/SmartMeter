@@ -21,7 +21,6 @@ type ReceiptsProps = {
 	datesList: string[];
 	paidList: boolean[];
 	onSelectReceipt: (receiptIndex: number) => void;
-	onPressNotify: () => void;
 };
 
 export const ReceiptsView: React.FC<ReceiptsProps> = ({
@@ -29,7 +28,6 @@ export const ReceiptsView: React.FC<ReceiptsProps> = ({
 	datesList,
 	paidList,
 	onSelectReceipt,
-	onPressNotify,
 	onNotifications,
 	onProfile,
 }) => {
@@ -47,11 +45,10 @@ export const ReceiptsView: React.FC<ReceiptsProps> = ({
 	return (
 		<View style={styles.container}>
 
-			<ProfileHead 
-				userData={userData} 
+			<ProfileHead
+				userData={userData}
 				onNotifications={onNotifications}
-				onProfile={onProfile}
-			/>
+				onProfile={onProfile} />
 
 			<GilroyText
 				size = 'g1'
