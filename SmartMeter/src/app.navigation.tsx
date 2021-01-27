@@ -12,18 +12,6 @@ import { enableScreens } from 'react-native-screens';
 //navigators
 import { HomeNavigation } from 'screens/main';
 import { AuthNavigation } from 'screens/AuthScreen';
-import { CallingMasterNavigation } from 'screens/CallingMasterScreen';
-import { MeterSettingsNavigation } from 'screens/MeterSettingsScreen';
-import { RegistarionRequestNavigation } from 'screens/RegistrationRequest';
-import { ProfileNavigation } from 'screens/ProfileScreen';
-import { SupportNavigation } from 'screens/SupportScreen';
-import { RequestDetailsNavigation } from 'screens/RequestDetailsScreen';
-import { MeterPhotoNavigation } from 'screens/MeterPhotoScreen';
-import { UserSchedulesNavigation } from 'screens/UserSchedulesScreen';
-import { AccountNavigation } from 'screens/AccountScreen';
-import { NotificationsNavigation } from 'screens/NotificationsScreen';
-import { NewNumberNavigation } from 'screens/NewNumberScreen';
-import { DeleteNumberNavigation } from 'screens/DeleteNumberScreen';
 
 //native-powered screen containers
 //run before any navigation stacks render
