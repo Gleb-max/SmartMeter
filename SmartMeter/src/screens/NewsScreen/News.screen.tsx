@@ -42,9 +42,7 @@ export const NewsScreen: React.FC<NewsScreenProps> = ({
 
 	const _onProfile = React.useCallback(() => {
 		navigation.navigate('main/account');
-    }, [navigation]);
-//		navigation.navigate('profile');
-//	}, [navigation]);
+	}, [navigation]);
 
 	const _onInfo = React.useCallback(() => {
 		navigation.navigate('info');

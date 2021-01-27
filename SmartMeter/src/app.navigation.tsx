@@ -10,20 +10,8 @@ import { Auth } from 'library/modules';
 import { enableScreens } from 'react-native-screens';
 
 //navigators
-import { TestNavigation } from './screens/TestScreen';
-import { LoginNavigation } from './screens/LoginScreen';
-import { AnnouncementsNavigation } from './screens/AnnouncementsScreen';
-import { AuthNavigation } from './screens/AuthScreen';
-import { AdvicesNavigation } from 'screens/AdvicesScreen';
-import { ReceiptsNavigation } from 'screens/ReceiptsScreen';
-import { AdviceItemNavigation } from 'screens/AdviceItemScreen';
-import { NewsNavigation } from 'screens/NewsScreen';
-import { InformationNavigation } from 'screens/InformationScreen';
-import { AnalyticsNavigation } from 'screens/AnalyticsScreen';
-import { DevicesNavigation } from 'screens/DevicesScreen';
-import { NewDeviceNavigation } from 'screens/NewDeviceScreen';
-import { ContactsNavigation } from 'screens/ContactsScreen';
 import { HomeNavigation } from 'screens/main';
+import { AuthNavigation } from 'screens/AuthScreen';
 import { CallingMasterNavigation } from 'screens/CallingMasterScreen';
 import { MeterSettingsNavigation } from 'screens/MeterSettingsScreen';
 import { RegistarionRequestNavigation } from 'screens/RegistrationRequest';

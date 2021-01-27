@@ -70,8 +70,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
 				iconColor='#5C258D'
 				header='Поддержка'
 				onPress={onSupport}
-				containerStyle={styles.settingsItem}
-			/>
+				containerStyle={styles.settingsItem} />
 
 			<ProfileSettingsItem
 				iconName='ic_master_call'

@@ -3,7 +3,7 @@ import { TouchableOpacity, View } from 'react-native';
 
 //components
 import { GilroyText, HeadlineText, SMIcons } from 'library/components/atoms';
-import { NextButton } from 'library/components/molecules';
+import { NextButton, FloatingAddButton } from 'library/components/molecules';
 
 //styles
 import styles from './Contacts.styles';
@@ -37,7 +37,6 @@ export const ContactsView: React.FC<ContactsViewProps> = ({
 						contact = {true}
 						number={item.number} />
 				</View>
-
 			);
 		});
 	}, [contactsList]);
@@ -71,17 +70,8 @@ export const ContactsView: React.FC<ContactsViewProps> = ({
 				</HeadlineText>
 			)}
 
-			<TouchableOpacity
-				onPress={onPressPlus}
-				style={styles.addButtonContaier}
-			>
-				<SMIcons
-					name='ic_plus'
-					width={28}
-					height={28}
-					size={28}
-					color={'#FDFDFD'} />
-			</TouchableOpacity>
+			<FloatingAddButton onPress={onPressPlus} />
+
 		</View>
 	);
 };

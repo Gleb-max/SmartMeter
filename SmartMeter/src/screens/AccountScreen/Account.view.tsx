@@ -10,15 +10,22 @@ import styles from './Account.styles';
 
 //types
 type AccountViewProps = {
-
+	userData: {
+		address: string;
+		phone: string;
+	  };
 };
 
 export const AccountView: React.FC<AccountViewProps> = ({
-
+	userData,
 }) => {
-	//states
+	//state
 	const [pressedAddress, setPressedAddress] = React.useState(false);
 	const [pressedPhone, setPressedPhone] = React.useState(false);
+
+	const [_address, _setAddress] = React.useState(userData.address);
+	const [_phone, _setPhone] = React.useState(userData.phone);
+
 	//callbacks
 	const onChangeAddress = React.useCallback(() => {
 		setPressedAddress(!pressedAddress);
@@ -27,6 +34,7 @@ export const AccountView: React.FC<AccountViewProps> = ({
 	const onChangePhone = React.useCallback(() =>{
 		setPressedPhone(!pressedPhone);
 	}, [pressedPhone]);
+
 	return (
 		<View style = {styles.container}>
 			<GilroyText
@@ -41,29 +49,29 @@ export const AccountView: React.FC<AccountViewProps> = ({
 				style={styles.card}
 				onPress={onChangeAddress}
 				header='Адрес'
-				text='Ленина 56'
-				iconName='ic_home' />
+				text={_address}
+				iconName='ic_address' />
 
 			{(pressedAddress) && (
 				<CustomTextInput
-					value=''
-					placeholder='Введите новый адрес'
-					onChange={() => {}}
+					value={_address}
+					placeholder='Адрес'
+					onChange={(text: string) => _setAddress(text)}
 					style={{ height: 90 }} />
 			)}
 
 			<AccountCard
 				style={styles.card}
 				header='Телефон'
-				text='+79122345678'
-				iconName= 'ic_master_call'
+				text={_phone}
+				iconName= 'ic_phone'
 				onPress={onChangePhone} />
 
 			{(pressedPhone) && (
 				<CustomTextInput
-					value=''
-					placeholder='Введите новый номер'
-					onChange={() => { }}
+					value={_phone}
+					placeholder='Телефон'
+					onChange={(text: string) => _setPhone(text)}
 					style={{}} />
 			)}
 		</View>

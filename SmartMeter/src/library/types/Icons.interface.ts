@@ -18,7 +18,9 @@ export type CommonIconName =
 	'ic_key' |
 	'ic_fire' |
 	'ic_send_message' |
-	'ic_plus';
+	'ic_plus' |
+	'ic_phone' |
+	'ic_address';
 
 export type TabBarIconName =
 	'ic_tabbar_home' |

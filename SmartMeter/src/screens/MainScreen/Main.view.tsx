@@ -35,6 +35,7 @@ type MainViewProps = {
 	onMasterCall: () => void;
 	onAnnouncements: () => void;
 	onProfile: () => void;
+	onMeterCard: () => void;
 };
 
 export const MainView: React.FC<MainViewProps> = ({
@@ -49,6 +50,7 @@ export const MainView: React.FC<MainViewProps> = ({
 	onMasterCall,
 	onAnnouncements,
 	onProfile,
+	onMeterCard,
 }) => {
 	//state
 	const [place, setPlace] = React.useState<string>('Кухня');
@@ -94,8 +96,8 @@ export const MainView: React.FC<MainViewProps> = ({
 							style={{ alignSelf: 'center' }}
 							withNotif={true} />
 
-						<TouchableOpacity 
-							onPress={onProfile} >
+						<TouchableOpacity
+							onPress={onProfile}>
 							<Image
 								source={{ uri: userData.photo }}
 								style={styles.profilePhoto} />
@@ -124,6 +126,7 @@ export const MainView: React.FC<MainViewProps> = ({
 						]} />
 
 					<View style={styles.lastMeterCard}>
+
 						<CustomDropDown
 							data = {['Кухня', 'Гостиная', 'Зал']}
 							onChange={(el) => {
@@ -132,7 +135,11 @@ export const MainView: React.FC<MainViewProps> = ({
 							containerStyle={styles.dropdownContainer}
 							style={styles.dropdown} />
 
-						<View style={styles.lastMeterContentContainer}>
+						<TouchableOpacity
+							style={styles.lastMeterContentContainer}
+							onPress={onMeterCard}
+						>
+
 							<GilroyText
 								size='g7'
 								type='Semibold'
@@ -151,12 +158,17 @@ export const MainView: React.FC<MainViewProps> = ({
 							>
 								{`на ${date}`}
 							</GilroyText>
-						</View>
+
+						</TouchableOpacity>
+
 					</View>
+
 				</View>
+
 			</View>
 
 			<View style={styles.allCardsContainer}>
+
 				<ScrollView
 					horizontal={true}
 					showsHorizontalScrollIndicator={false}
@@ -167,12 +179,14 @@ export const MainView: React.FC<MainViewProps> = ({
 						style={[styles.cardContainer, { marginLeft: 30 }]}
 					>
 						<View style={[styles.cardIconContainer, { backgroundColor: '#A6EAFF' }]}>
+
 							<SMIcons
 								name='ic_analytics'
 								size={24}
 								color='#FFFFFF'
 								width={24}
 								height={24} />
+
 						</View>
 
 						<GilroyText
@@ -182,6 +196,7 @@ export const MainView: React.FC<MainViewProps> = ({
 							children='Аналитика' />
 
 						<View style={styles.cardContentContainer}>
+
 							<GilroyText
 								styleText={styles.simpleCardText}
 								type='Medium'
@@ -197,7 +212,9 @@ export const MainView: React.FC<MainViewProps> = ({
 							>
 								{`${analytics.total} р`}
 							</GilroyText>
+
 						</View>
+
 					</TouchableOpacity>
 
 					{/* announcements */}
@@ -206,6 +223,7 @@ export const MainView: React.FC<MainViewProps> = ({
 						style={styles.cardContainer}
 					>
 						<View style={[styles.cardIconContainer, { backgroundColor: '#887EFF' }]}>
+
 							<SMIcons
 								name='ic_announcements'
 								size={24}
@@ -221,7 +239,9 @@ export const MainView: React.FC<MainViewProps> = ({
 							children='Объявления' />
 
 						<View style={styles.cardContentContainer}>
+
 							<Text>
+
 								<GilroyText
 									styleText={styles.simpleCardText}
 									type='Medium'
@@ -237,6 +257,7 @@ export const MainView: React.FC<MainViewProps> = ({
 								>
 									{notificationCount}
 								</GilroyText>
+
 							</Text>
 						</View>
 					</TouchableOpacity>

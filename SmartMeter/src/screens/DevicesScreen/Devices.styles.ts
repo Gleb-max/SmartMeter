@@ -13,7 +13,9 @@ const styles = StyleSheet.create({
 	button: {
 		borderRadius: 10,
 		height: 52,
-		marginBottom: 32,
+		marginBottom: 30,
+		marginHorizontal: 3,
+		marginTop: 2,
 	},
 	buttonText: {
 		fontFamily: 'Gilroy-Medium',

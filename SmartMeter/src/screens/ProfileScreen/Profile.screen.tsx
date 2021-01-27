@@ -25,12 +25,9 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
 	const navigation = useNavigation();
 
 	//callbacks
-	// const _onAccount = React.useCallback(() => {
-	// 	navigation.navigate('account');
-	// }, [navigation]);
 	const _onAccount = React.useCallback(() => {
-		console.log("Account");
-	}, []);
+		navigation.navigate('account');
+	}, [navigation]);
 
 	const _onContacts = React.useCallback(() => {
 		navigation.navigate('contacts');
@@ -51,21 +48,5 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({
 			onContacts={_onContacts}
 			onSupport={_onSupport}
 			onMasterCall={_onMasterCall} />
-{/*    
-	//callbacks
-	const _onNotifications = React.useCallback(() => {
-
-	}, []);
-
-	const _onProfile = React.useCallback(() => {
-
-	}, []);
-
-	return (
-		<ProfileView
-			onNotifications={_onNotifications}
-			onProfile={_onProfile}
-			userData={userData} />
-*/}      
 	);
 };

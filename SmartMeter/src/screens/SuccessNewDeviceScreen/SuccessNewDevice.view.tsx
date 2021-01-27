@@ -9,7 +9,7 @@ import styles from './SuccessNewDevice.styles';
 
 //types
 type SuccessNewDeviceViewProps = {
-	onPressButton: ()=>void;
+	onPressButton: () => void;
 };
 
 export const SuccessNewDeviceView: React.FC<SuccessNewDeviceViewProps> = ({
@@ -26,7 +26,7 @@ export const SuccessNewDeviceView: React.FC<SuccessNewDeviceViewProps> = ({
 			</GilroyText>
 
 			<Button
-				header = 'Вернутся в главное меню'
+				header = 'Вернуться на главное меню'
 				style = {styles.button}
 				onPress = {onPressButton} />
 		</View>

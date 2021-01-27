@@ -45,6 +45,10 @@ export const MainScreen: React.FC<MainScreenProps> = ({
 		navigation.navigate('main/account');
 	}, [navigation]);
 
+	const _onMeterCard = React.useCallback(() => {
+		navigation.navigate('devices');
+	}, [navigation]);
+
 	const _onAnalytics = React.useCallback(() => {
 		navigation.navigate('main/graphics');
 	}, [navigation]);
@@ -69,6 +73,7 @@ export const MainScreen: React.FC<MainScreenProps> = ({
 			onReceipts={_onReceipts}
 			onMasterCall={_onMasterCall}
 			onProfile={_onProfile}
+			onMeterCard={_onMeterCard}
 			analytics={{
 				period: 'ноябрь',
 				total: 8642.12,
@@ -78,6 +83,7 @@ export const MainScreen: React.FC<MainScreenProps> = ({
 			receiptAmount={1}
 			userData={{
 				name: 'Светлана',
+				// eslint-disable-next-line max-len
 				photo: 'https://s3-alpha-sig.figma.com/img/eb64/1fc8/64a7f71e6c47d9bbc65c200198c09db4?Expires=1612742400&Signature=JeEWjsBbcKVCvSomR37R4~suoJt2BGERrWHiZ3rFfrllJ5DgQMY2G~wA6XfgaKbGNFVCowjxBHunOCY6k6jfRc5NyQXTgLla6sRxmQUeLyUc6PHKYs1Snk2ohR49ACdbWLZAxWgMGCmRiGiFk6uiTExXfYo1q8FwA-79bdyH7eJvBpJ3vfu7l59zFKoGrLwQZHzzKaUvo-V6~9l~HpolYBge-aBEFVF4WlgdisOMXY6nKRPtb5qFvQKrVCm6XJzDmJUZqGbAk4PgzN3SGyfxzfbKW9bPxTi-ikHFrMh2j5SLOH4g9eJlFXioMc7nFQ3vbeJrWckQJb9jzfsHzAVdvg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
 			}} />
 	);

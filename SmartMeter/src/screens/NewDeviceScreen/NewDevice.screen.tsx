@@ -1,5 +1,8 @@
 import React from 'react';
 
+//navigation
+import { useNavigation } from '@react-navigation/native';
+
 //views
 import { NewDeviceView } from './NewDevice.view';
 
@@ -11,6 +14,9 @@ type NewDeviceScreenProps = {
 export const NewDeviceScreen: React.FC<NewDeviceScreenProps> = ({
 
 }) => {
+	//navigation
+	const navigation = useNavigation();
+
 	//callbacks
 	const _onChangedId = React.useCallback(()=> {
 
@@ -28,8 +34,8 @@ export const NewDeviceScreen: React.FC<NewDeviceScreenProps> = ({
 
 	}, []);
 	const _onAddDevice = React.useCallback(() => {
-
-	}, []);
+		navigation.navigate('successnewdevice');
+	}, [navigation]);
 
 	return (
 		<NewDeviceView

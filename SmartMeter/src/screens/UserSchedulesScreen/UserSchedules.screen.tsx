@@ -116,10 +116,10 @@ export const UserSchedulesScreen: React.FC<UserSchedulesScreenProps> = ({
 
 	const _onProfile = React.useCallback(() => {
 		navigation.navigate('main/account');
-    }, [navigation]);
+	}, [navigation]);
 
 	return (
-		<UserSchedulesView
+		<UserSchedulesView 
 			userData={userData}
 			onNotifications={_onNotifications}
 			onProfile={_onProfile}

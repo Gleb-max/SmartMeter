@@ -65,18 +65,12 @@ export const RequestDetailsView: React.FC<RequestDetailsProps> = ({
 							size='g2'
 							style={styles.cardText}
 							children={request.masterName} />
-						//>
-							//{masterName}
-						//</GilroyText>
 
 						<GilroyText
 							type='Medium'
 							size='g3'
 							style={styles.phoneText}
 							children={request.masterPhone} />
-						//>
-							//{masterPhone}
-						//</GilroyText>
 					</View>
 				</View>
 
@@ -94,9 +88,6 @@ export const RequestDetailsView: React.FC<RequestDetailsProps> = ({
 						size='g2'
 						style={styles.cardText}
 						children={request.name} />
-					//>
-						//{requestName}
-					//</GilroyText>
 				</View>
 
 				<CustomTextInput

@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 10,
 	},
 	dropdownContainer: {
-		// alignSelf: 'stretch',
+		marginHorizontal: 21,
 		height: 39,
 	},
 	button: {
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
 		backgroundColor: '#FFFFFF',
 		borderRadius: 17,
 		...Helpers.boxShadow('rgba(0, 0, 0, 0.04)', { x: 10, y: 20 }, 100, 0.1, 4),
-		paddingHorizontal: 21,
+		// paddingHorizontal: 21,
 		paddingTop: 10,
 		marginTop: 33,
 	},
@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
 		fontStyle: 'normal',
 		fontWeight: '600',
 		lineHeight: 68,
-		marginTop: 27.42,
 	},
 	lastMeterDate: {
 		color: '#747474',
@@ -170,10 +169,10 @@ const styles = StyleSheet.create({
 	},
 	lastMeterContentContainer: {
 		flex: 1,
-		marginTop: -66,
 		justifyContent: 'center',
 		alignContent: 'center',
 		alignItems: 'center',
+		alignSelf: 'stretch',
 	},
 	cardIconContainer: {
 		height: 34.85,

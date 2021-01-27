@@ -19,3 +19,4 @@ export { SupportChatItem } from './SupportChatItem';
 export { Header } from './Header';
 export { RequestCard } from './RequestCard';
 export { AccountCard } from './AccountCard';
+export { FloatingAddButton } from './FloatingAddButton';

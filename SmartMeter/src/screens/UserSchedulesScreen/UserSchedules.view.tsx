@@ -6,7 +6,7 @@ import { ProfileHead, GilroyText, SMIcons } from 'library/components';
 
 //styles
 import styles from './UserSchedules.styles';
-import { NextButton } from 'library/components/molecules';
+import { FloatingAddButton, NextButton } from 'library/components/molecules';
 
 //types
 type UserSchedule = {
@@ -47,11 +47,10 @@ export const UserSchedulesView: React.FC<UserSchedulesViewProps> = ({
 
 	return (
 		<View style={styles.container}>
-			<ProfileHead 
+			<ProfileHead
 				userData={userData}
 				onNotifications={onNotifications}
-				onProfile={onProfile}
-			/>
+				onProfile={onProfile} />
 
 			<GilroyText
 				type='Semibold'
@@ -78,16 +77,8 @@ export const UserSchedulesView: React.FC<UserSchedulesViewProps> = ({
 				</View>
 			)}
 
-			<View style={styles.addButtonContaier}>
-				<TouchableOpacity style={styles.addButtonOpacity}>
-					<SMIcons
-						name='ic_plus'
-						width={28}
-						height={28}
-						size={28}
-						color='#FDFDFD' />
-				</TouchableOpacity>
-			</View>
+			<FloatingAddButton onPress={() => { }} />
+
 		</View>
 	);
 };

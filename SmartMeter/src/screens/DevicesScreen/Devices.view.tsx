@@ -3,17 +3,16 @@ import { View, ScrollView, TouchableOpacity } from 'react-native';
 
 //components
 import { GilroyText, SMIcons } from 'library/components/atoms';
-import { ProfileHead, NextButton } from 'library/components/molecules';
+import { ProfileHead, NextButton, FloatingAddButton } from 'library/components/molecules';
 
 //styles
 import styles from './Devices.styles';
 
 //types
+import { MeterSettings } from '../MeterSettingsScreen/MeterSettings.view';
+
 type DevicesViewProps = {
-	headerList: {
-		title: string;
-		onPress: () => void;
-	}[];
+	meters: MeterSettings[];
 	userData: {
 		name: string;
 		surname: string;
@@ -22,32 +21,34 @@ type DevicesViewProps = {
 	};
 	onNotifications: () => void;
 	onProfile: () => void;
+	onPressMeter: (meter: MeterSettings) => void;
 	onPressPlus: () => void;
 };
 
 export const DevicesView: React.FC<DevicesViewProps> = ({
-	headerList,
+	userData,
+	meters,
 	onPressPlus,
 	onNotifications,
 	onProfile,
-	userData,
+	onPressMeter,
 }) => {
 	//renders
 	const _renderItem = React.useCallback(() => {
-		return headerList.map((item, index) => {
+		return meters.map((item, index) => {
 			return (
 				<NextButton
 					key={index}
-					text={item.title}
+					text={item.place}
 					onPress={() => {
-						item.onPress;
+						onPressMeter(item);
 					}}
 					withMarker={false}
 					style={styles.button}
 					styleText={styles.buttonText} />
 			);
 		});
-	}, [headerList]);
+	}, [meters, onPressMeter]);
 
 	return (
 		<View style = {styles.container} >
@@ -65,22 +66,14 @@ export const DevicesView: React.FC<DevicesViewProps> = ({
 			</GilroyText>
 
 			<ScrollView
+				style={{ paddingTop: 10 }}
 				showsVerticalScrollIndicator={false}
 			>
 				{_renderItem()}
 			</ScrollView>
 
-			<TouchableOpacity
-				onPress={onPressPlus}
-				style={styles.plus}
-			>
-				<SMIcons
-					size={26}
-					height={26}
-					width={26}
-					color='#FFF'
-					name='ic_plus' />
-			</TouchableOpacity>
+			<FloatingAddButton onPress={onPressPlus} />
+
 		</View>
 	);
 };

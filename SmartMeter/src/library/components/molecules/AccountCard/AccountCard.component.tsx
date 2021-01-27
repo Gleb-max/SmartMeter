@@ -7,6 +7,8 @@ import { GilroyText, SMIcons } from 'library/components/atoms';
 //styles
 import styles from './AccountCard.styles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Icons } from 'library/types';
+
 
 //types
 type AccountCardProps = {
@@ -36,10 +38,9 @@ export const AccountCard: React.FC<AccountCardProps> = ({
 				</GilroyText>
 
 				<SMIcons
-					name = {iconName}
+					name = {iconName as Icons.CommonIconName}
 					color = '#747474'
-					size = {18}
-					style = {styles.icon} />
+					size = {24} />
 			</View>
 
 			<View style = {styles.rowContainer}>

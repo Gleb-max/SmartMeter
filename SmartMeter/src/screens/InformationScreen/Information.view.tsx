@@ -27,16 +27,18 @@ type InformationViewProps = {
 		date: string;
 		time: string;
 	}[];
+	phone: string;
 };
 
 export const InformationView: React.FC<InformationViewProps> = ({
 	userData,
-	maplat,
-	maplon,
-	markerlat,
-	markerlon,
+	maplat = 56.8409871,
+	maplon = 60.6280386,
+	markerlat = 56.8409871,
+	markerlon = 60.6280386,
 	address,
 	workingHours,
+	phone,
 	onNotifications,
 	onProfile,
 }) => {
@@ -67,6 +69,7 @@ export const InformationView: React.FC<InformationViewProps> = ({
 	return (
 		<ScrollView
 			style = {styles.container}
+			showsVerticalScrollIndicator = {false}
 			contentContainerStyle = {styles.contentContainer}
 		>
 
@@ -108,6 +111,17 @@ export const InformationView: React.FC<InformationViewProps> = ({
 
 			{_renderItem()}
 
+			<InfoTitle
+				text='Телефон:'
+				style={styles.timeTitle} />
+
+			<HeadlineText
+				type='Medium'
+				size='h2'
+				style = {styles.address}
+			>
+				{phone}
+			</HeadlineText>
 		</ScrollView>
 	);
 };

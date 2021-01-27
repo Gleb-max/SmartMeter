@@ -26,6 +26,12 @@ import { RequestHistoryNavigation } from 'screens/RequestHistoryScreen';
 import { RequestDetailsNavigation } from 'screens/RequestDetailsScreen';
 import { AdviceItemNavigation } from 'screens/AdviceItemScreen';
 import { InformationNavigation } from 'screens/InformationScreen';
+import { AccountNavigation } from 'screens/AccountScreen';
+import { DevicesNavigation } from 'screens/DevicesScreen';
+import { MeterSettingsNavigation } from 'screens/MeterSettingsScreen';
+import { MeterPhotoNavigation } from 'screens/MeterPhotoScreen';
+import { NewDeviceNavigation } from 'screens/NewDeviceScreen';
+import { SuccessNewDeviceNavigation } from 'screens/SuccessNewDeviceScreen';
 
 //components
 import { TabBarContainer } from 'library/components/molecules';
@@ -163,10 +169,6 @@ export const HomeNavigation: React.FC<HomeNavigationProps> = ({
 				name='mastercall'
 				component={CallingMasterNavigation} />
 
-			{/* <HomeNativeStack.Screen
-				name='account'
-				component={CallingMasterNavigation} /> */}
-
 			<HomeNativeStack.Screen
 				name='support'
 				component={SupportNavigation} />
@@ -194,6 +196,30 @@ export const HomeNavigation: React.FC<HomeNavigationProps> = ({
 			<HomeNativeStack.Screen
 				name='info'
 				component={InformationNavigation} />
+
+			<HomeNativeStack.Screen
+				name='account'
+				component={AccountNavigation} />
+
+			<HomeNativeStack.Screen
+				name='devices'
+				component={DevicesNavigation} />
+
+			<HomeNativeStack.Screen
+				name='metersettings'
+				component={MeterSettingsNavigation} />
+
+			<HomeNativeStack.Screen
+				name='meterphoto'
+				component={MeterPhotoNavigation} />
+
+			<HomeNativeStack.Screen
+				name='newdevice'
+				component={NewDeviceNavigation} />
+
+			<HomeNativeStack.Screen
+				name='successnewdevice'
+				component={SuccessNewDeviceNavigation} />
 
 		</HomeNativeStack.Navigator>
 	);

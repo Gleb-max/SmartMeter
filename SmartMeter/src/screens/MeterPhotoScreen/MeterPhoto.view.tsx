@@ -9,6 +9,8 @@ import { ProfileHead } from 'library/components/molecules';
 import styles from './MeterPhoto.styles';
 
 //types
+import { MeterSettings } from 'screens/MeterSettingsScreen/MeterSettings.view';
+
 type MeterPhotoViewProps = {
     userData: {
         name: string;
@@ -18,12 +20,12 @@ type MeterPhotoViewProps = {
     };
     onNotifications: () => void;
 	onProfile: () => void;
-    photo: string;
+	meter: MeterSettings;
 };
 
 export const MeterPhotoView: React.FC<MeterPhotoViewProps> = ({
 	userData,
-	photo,
+	meter,
 	onNotifications,
 	onProfile,
 }) => {
@@ -45,8 +47,7 @@ export const MeterPhotoView: React.FC<MeterPhotoViewProps> = ({
 
 			<Image
 				style={styles.photo}
-				source={{ uri: photo }} />
-
+				source={{ uri: meter.photo }} />
 		</View>
 	);
 };

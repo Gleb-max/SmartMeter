@@ -1,15 +1,22 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, SafeAreaView, ScrollView  } from 'react-native';
 
 //components
 import { GilroyText } from 'library/components/atoms';
 import { ProfileHead } from 'library/components/molecules';
 //styles
 import styles from './MeterSettings.styles';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { ScrollView } from 'react-native-gesture-handler';
 
 //types
+export type MeterSettings = {
+	place: string;
+    scenario: string;
+    isWaterManagement: boolean;
+    rate: string;
+	limit: string;
+	photo: string;
+}
+
 type MeterSettingsViewProps = {
     userData: {
         name: string;
@@ -19,22 +26,16 @@ type MeterSettingsViewProps = {
     };
     onNotifications: () => void;
 	onProfile: () => void;
-    place: string;
-    scenario: string;
-    isWaterManagement: boolean;
-    rate: string;
-    limit: string;
+	onPressMeterPhoto: (meter: MeterSettings) => void;
+    meter: MeterSettings;
 };
 
 export const MeterSettingsView: React.FC<MeterSettingsViewProps> = ({
 	userData,
-	place,
-	scenario,
-	isWaterManagement,
-	rate,
-	limit,
+	meter,
 	onNotifications,
 	onProfile,
+	onPressMeterPhoto,
 }) => {
 	return (
 		<View style = {styles.container} >
@@ -49,7 +50,7 @@ export const MeterSettingsView: React.FC<MeterSettingsViewProps> = ({
 				size='g1'
 				styleText={styles.header}
 			>
-				{place}
+				{meter.place}
 			</GilroyText>
 
 			<SafeAreaView>
@@ -60,7 +61,9 @@ export const MeterSettingsView: React.FC<MeterSettingsViewProps> = ({
 
 					<View style={[styles.cardContainer, { marginTop: 10 }]}>
 
-						<TouchableOpacity>
+						<TouchableOpacity
+							onPress={() => onPressMeterPhoto(meter)}
+						>
 							<GilroyText
 								size='g2'
 								type='Medium'
@@ -91,7 +94,7 @@ export const MeterSettingsView: React.FC<MeterSettingsViewProps> = ({
 								type='Medium'
 								styleText={styles.scenarioType}
 							>
-								{scenario}
+								{meter.scenario}
 							</GilroyText>
 
 							<TouchableOpacity style={styles.changeContainer}>
@@ -129,7 +132,7 @@ export const MeterSettingsView: React.FC<MeterSettingsViewProps> = ({
 								type='Medium'
 								styleText={styles.scenarioType}
 							>
-								{isWaterManagement ? 'Включено' : 'Выключено'}
+								{meter.isWaterManagement ? 'Включено' : 'Выключено'}
 							</GilroyText>
 
 							<TouchableOpacity style={styles.changeContainer}>
@@ -139,7 +142,7 @@ export const MeterSettingsView: React.FC<MeterSettingsViewProps> = ({
 									type='Medium'
 									styleText={[styles.changeText, { color: '#FF5B5B' }]}
 								>
-									{isWaterManagement ? 'Выключить' : 'Включить'}
+									{meter.isWaterManagement ? 'Выключить' : 'Включить'}
 								</GilroyText>
 
 							</TouchableOpacity>
@@ -167,7 +170,7 @@ export const MeterSettingsView: React.FC<MeterSettingsViewProps> = ({
 								type='Medium'
 								styleText={styles.scenarioType}
 							>
-								{rate}
+								{meter.rate}
 							</GilroyText>
 
 							<TouchableOpacity style={styles.changeContainer}>
@@ -206,7 +209,7 @@ export const MeterSettingsView: React.FC<MeterSettingsViewProps> = ({
 								type='Medium'
 								styleText={styles.scenarioType}
 							>
-								{limit}
+								{meter.limit}
 							</GilroyText>
 
 							<TouchableOpacity style={styles.changeContainer}>
