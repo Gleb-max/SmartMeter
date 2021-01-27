@@ -56,5 +56,5 @@ export const AppNavigation: React.FC = ({
 		return 	<AuthNavigation />;
 
 	else
-		return <NewNumberNavigation />;
+		return <HomeNavigation />;
 };
