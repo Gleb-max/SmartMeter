@@ -7,8 +7,8 @@ import { CustomTextInput, ProfileHead } from 'library/components/molecules';
 
 //styles
 import styles from './ScheduleSettings.styles';
-import { Button } from 'library/components';
-// import { TouchableOpacity } from 'react-native-gesture-handler';
+
+//helpers
 import { range } from 'library/helpers';
 
 //constants
@@ -23,6 +23,8 @@ const days = {
 };
 
 //types
+import { UserSchedule } from '../UserSchedulesScreen/UserSchedules.view';
+
 type ScheduleSettingsViewProps = {
     userData: {
         name: string;
@@ -32,14 +34,14 @@ type ScheduleSettingsViewProps = {
     };
     onNotifications: () => void;
 	onProfile: () => void;
-    scheduleName: string;
+	schedule: UserSchedule,
     interval?: number;
     activeDays?: number[];
 };
 
 export const ScheduleSettingsView: React.FC<ScheduleSettingsViewProps> = ({
 	userData,
-	scheduleName,
+	schedule,
 	interval = 2,
 	activeDays = [],
 	onNotifications,
@@ -53,7 +55,7 @@ export const ScheduleSettingsView: React.FC<ScheduleSettingsViewProps> = ({
 
 	//tools
 	const makeAgreeWithNumber = (num: number): string => {
-		if (num == 1) return `${num} час`;
+		if (num === 1) return `${num} час`;
 		else if (num < 5) return `${num} часа`;
 		else if (num <= 12) return `${num} часов`;
 		return 'раз в сутки';
@@ -69,7 +71,7 @@ export const ScheduleSettingsView: React.FC<ScheduleSettingsViewProps> = ({
 		setIsDaysOpen(!isDaysOpen);
 	};
 
-	const renderDayCard = React.useCallback((num: 0 | 1 | 2 | 3 | 5 | 6) => {
+	const renderDayCard = React.useCallback((num: 0 | 1 | 2 | 3 | 4 | 5 | 6) => {
 		const isNowChosen = _activeDays.includes(num);
 
 		let onPressCB: () => void;
@@ -119,7 +121,7 @@ export const ScheduleSettingsView: React.FC<ScheduleSettingsViewProps> = ({
 					size='g1'
 					styleText={styles.header}
 				>
-					{scheduleName}
+					{schedule.name}
 				</GilroyText>
 
 				{/* interval */}
@@ -190,7 +192,7 @@ export const ScheduleSettingsView: React.FC<ScheduleSettingsViewProps> = ({
 				{
 					isDaysOpen && (
 						<View style={styles.daysContainer}>
-							{range(0, 6, 1).map((elem) => renderDayCard(elem))}
+							{range(0, 6, 1).map((elem) => renderDayCard(elem as 0 | 1 | 2 | 3 | 4 | 5 | 6))}
 						</View>
 					)}
 

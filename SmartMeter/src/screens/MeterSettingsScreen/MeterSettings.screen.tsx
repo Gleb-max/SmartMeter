@@ -42,12 +42,17 @@ export const MeterSettingsScreen: React.FC<MeterSettingsScreenProps> = ({
 		navigation.navigate('meterphoto', { details: meter });
 	}, [navigation]);
 
+	const _onPressUserSchedule = React.useCallback(() => {
+		navigation.navigate('userschedules');
+	}, [navigation]);
+
 	return (
 		<MeterSettingsView
 			userData={userData}
 			onNotifications={_onNotifications}
 			onProfile={_onProfile}
 			onPressMeterPhoto={_onPressMeterPhoto}
+			onPressUserSchedule={_onPressUserSchedule}
 			meter={meter} />
 	);
 };

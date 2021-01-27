@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, TouchableOpacity, SafeAreaView, ScrollView  } from 'react-native';
+import { View, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 
 //components
 import { GilroyText } from 'library/components/atoms';
-import { ProfileHead } from 'library/components/molecules';
+import { CustomDropDown, ProfileHead } from 'library/components/molecules';
+        
 //styles
 import styles from './MeterSettings.styles';
 
@@ -27,8 +28,12 @@ type MeterSettingsViewProps = {
     onNotifications: () => void;
 	onProfile: () => void;
 	onPressMeterPhoto: (meter: MeterSettings) => void;
+	onPressUserSchedule: () => void;
     meter: MeterSettings;
 };
+
+//constants
+const scenariosTypes = ['Выберите сценарий', 'Стандартный', 'Пользовательский'];
 
 export const MeterSettingsView: React.FC<MeterSettingsViewProps> = ({
 	userData,
@@ -36,7 +41,29 @@ export const MeterSettingsView: React.FC<MeterSettingsViewProps> = ({
 	onNotifications,
 	onProfile,
 	onPressMeterPhoto,
+	onPressUserSchedule,
 }) => {
+	//state
+	const [pressedScenario, setPressedScenario] = React.useState(false);
+
+	const [_scenario, _setScenario] = React.useState(meter.scenario);
+	const [_water, _setWater] = React.useState(meter.isWaterManagement);
+
+	//callbacks
+	const onChangeScenario = React.useCallback(() => {
+		setPressedScenario(!pressedScenario);
+	}, [pressedScenario]);
+
+	const onChangeWater = React.useCallback(() => {
+		_setWater(!_water);
+	}, [_water]);
+
+	const changeScenario = (scenario: string) => {
+		if (scenario === scenariosTypes[0]) return;
+		_setScenario(scenario);
+		if (scenario === scenariosTypes[2]) onPressUserSchedule();
+	};
+
 	return (
 		<View style = {styles.container} >
 
@@ -53,185 +80,200 @@ export const MeterSettingsView: React.FC<MeterSettingsViewProps> = ({
 				{meter.place}
 			</GilroyText>
 
-			<SafeAreaView>
+			<ScrollView
+				style={styles.scroll}
+				showsVerticalScrollIndicator={false}
+			>
 
-				<ScrollView showsVerticalScrollIndicator={false}>
+				{/* photo */}
 
-					{/* photo */}
+				<View style={[styles.cardContainer, { marginTop: 10 }]}>
 
-					<View style={[styles.cardContainer, { marginTop: 10 }]}>
+					<TouchableOpacity
+						onPress={() => onPressMeterPhoto(meter)}
+					>
+						<GilroyText
+							size='g2'
+							type='Medium'
+							styleText={styles.photoCardHeader}
+						>
+							Фото счетчика
+						</GilroyText>
+					</TouchableOpacity>
+
+				</View>
+
+				{/* scenario */}
+
+				<View style={[styles.cardContainer, pressedScenario && { marginBottom: 15 }]}>
+
+					<GilroyText
+						size='g2'
+						type='Medium'
+						styleText={styles.cardHeader}
+					>
+						Сценарий
+					</GilroyText>
+
+					<View style={styles.cardEditableContantContainer}>
+
+						<GilroyText
+							size='g2'
+							type='Medium'
+							styleText={styles.scenarioType}
+						>
+							{_scenario}
+						</GilroyText>
 
 						<TouchableOpacity
-							onPress={() => onPressMeterPhoto(meter)}
+							style={styles.changeContainer}
+							onPress={onChangeScenario}
 						>
+
 							<GilroyText
-								size='g2'
+								size='g3'
 								type='Medium'
-								styleText={styles.photoCardHeader}
+								styleText={styles.changeText}
 							>
-								Фото счетчика
+								Изменить
 							</GilroyText>
+
 						</TouchableOpacity>
 
 					</View>
 
-					{/* scenario */}
+				</View>
 
-					<View style={styles.cardContainer}>
+				{(pressedScenario) && (
+					<CustomDropDown
+						data={scenariosTypes}
+						onChange={(item: string) => changeScenario(item)}
+						listStyle={styles.list}
+						style={styles.dropdown} />
+				)}
 
-						<GilroyText
-							size='g2'
-							type='Medium'
-							styleText={styles.cardHeader}
-						>
-							Сценарий
-						</GilroyText>
+				{/* water management */}
 
-						<View style={styles.cardEditableContantContainer}>
+				<View style={styles.cardContainer}>
 
-							<GilroyText
-								size='g2'
-								type='Medium'
-								styleText={styles.scenarioType}
-							>
-								{meter.scenario}
-							</GilroyText>
+					<GilroyText
+						size='g2'
+						type='Medium'
+						styleText={styles.cardHeader}
+					>
+						Управление водой
+					</GilroyText>
 
-							<TouchableOpacity style={styles.changeContainer}>
-
-								<GilroyText
-									size='g3'
-									type='Medium'
-									styleText={styles.changeText}
-								>
-									Изменить
-								</GilroyText>
-
-							</TouchableOpacity>
-
-						</View>
-
-					</View>
-
-					{/* water management */}
-
-					<View style={styles.cardContainer}>
+					<View style={styles.cardEditableContantContainer}>
 
 						<GilroyText
 							size='g2'
 							type='Medium'
-							styleText={styles.cardHeader}
+							styleText={styles.scenarioType}
 						>
-							Управление водой
+							{_water ? 'Включено' : 'Выключено'}
 						</GilroyText>
 
-						<View style={styles.cardEditableContantContainer}>
+						<TouchableOpacity
+							style={styles.changeContainer}
+							onPress={onChangeWater}
+						>
 
 							<GilroyText
-								size='g2'
+								size='g3'
 								type='Medium'
-								styleText={styles.scenarioType}
+								styleText={[styles.changeText, { color: '#FF5B5B' }]}
 							>
-								{meter.isWaterManagement ? 'Включено' : 'Выключено'}
+								{_water ? 'Выключить' : 'Включить'}
 							</GilroyText>
 
-							<TouchableOpacity style={styles.changeContainer}>
-
-								<GilroyText
-									size='g3'
-									type='Medium'
-									styleText={[styles.changeText, { color: '#FF5B5B' }]}
-								>
-									{meter.isWaterManagement ? 'Выключить' : 'Включить'}
-								</GilroyText>
-
-							</TouchableOpacity>
-
-						</View>
+						</TouchableOpacity>
 
 					</View>
 
-					{/* rate */}
+				</View>
 
-					<View style={styles.cardContainer}>
+				{/* rate */}
+
+				<View style={styles.cardContainer}>
+
+					<GilroyText
+						size='g2'
+						type='Medium'
+						styleText={styles.cardHeader}
+					>
+						Тариф
+					</GilroyText>
+
+					<View style={styles.cardEditableContantContainer}>
 
 						<GilroyText
 							size='g2'
 							type='Medium'
-							styleText={styles.cardHeader}
+							styleText={styles.scenarioType}
 						>
-							Тариф
+							{meter.rate}
 						</GilroyText>
 
-						<View style={styles.cardEditableContantContainer}>
+						<TouchableOpacity style={styles.changeContainer}>
 
 							<GilroyText
-								size='g2'
+								size='g3'
 								type='Medium'
-								styleText={styles.scenarioType}
+								styleText={styles.changeText}
 							>
-								{meter.rate}
+								Изменить
+
 							</GilroyText>
 
-							<TouchableOpacity style={styles.changeContainer}>
-
-								<GilroyText
-									size='g3'
-									type='Medium'
-									styleText={styles.changeText}
-								>
-									Изменить
-
-								</GilroyText>
-
-							</TouchableOpacity>
-
-						</View>
+						</TouchableOpacity>
 
 					</View>
 
-					{/* limit */}
+				</View>
 
-					<View style={styles.cardContainer}>
+				{/* limit */}
+
+				<View style={styles.cardContainer}>
+
+					<GilroyText
+						size='g2'
+						type='Medium'
+						styleText={styles.cardHeader}
+					>
+						Лимит
+					</GilroyText>
+
+					<View style={styles.cardEditableContantContainer}>
 
 						<GilroyText
 							size='g2'
 							type='Medium'
-							styleText={styles.cardHeader}
+							styleText={styles.scenarioType}
 						>
-							Лимит
+							{meter.limit}
 						</GilroyText>
 
-						<View style={styles.cardEditableContantContainer}>
+						<TouchableOpacity style={styles.changeContainer}>
 
 							<GilroyText
-								size='g2'
+								size='g3'
 								type='Medium'
-								styleText={styles.scenarioType}
+								styleText={styles.changeText}
 							>
-								{meter.limit}
+								Изменить
+
 							</GilroyText>
 
-							<TouchableOpacity style={styles.changeContainer}>
-
-								<GilroyText
-									size='g3'
-									type='Medium'
-									styleText={styles.changeText}
-								>
-									Изменить
-
-								</GilroyText>
-
-							</TouchableOpacity>
-
-						</View>
+						</TouchableOpacity>
 
 					</View>
 
-				</ScrollView>
+				</View>
 
-			</SafeAreaView>
+			</ScrollView>
+
+			{/* </SafeAreaView> */}
 
 		</View>
 	);

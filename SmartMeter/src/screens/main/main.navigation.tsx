@@ -32,6 +32,8 @@ import { MeterSettingsNavigation } from 'screens/MeterSettingsScreen';
 import { MeterPhotoNavigation } from 'screens/MeterPhotoScreen';
 import { NewDeviceNavigation } from 'screens/NewDeviceScreen';
 import { SuccessNewDeviceNavigation } from 'screens/SuccessNewDeviceScreen';
+import { UserSchedulesNavigation } from 'screens/UserSchedulesScreen';
+import { ScheduleSettingsNavigation } from 'screens/ScheduleSettingsScreen';
 
 //components
 import { TabBarContainer } from 'library/components/molecules';
@@ -221,6 +223,13 @@ export const HomeNavigation: React.FC<HomeNavigationProps> = ({
 				name='successnewdevice'
 				component={SuccessNewDeviceNavigation} />
 
+			<HomeNativeStack.Screen
+				name='userschedules'
+				component={UserSchedulesNavigation} />
+
+			<HomeNativeStack.Screen
+				name='schedulesettings'
+				component={ScheduleSettingsNavigation} />
 		</HomeNativeStack.Navigator>
 	);
 };

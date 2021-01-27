@@ -9,7 +9,7 @@ import styles from './UserSchedules.styles';
 import { FloatingAddButton, NextButton } from 'library/components/molecules';
 
 //types
-type UserSchedule = {
+export type UserSchedule = {
     id: number;
     name: string;
     days: number [];
@@ -25,6 +25,8 @@ type UserSchedulesViewProps = {
 	};
 	onNotifications: () => void;
 	onProfile: () => void;
+	onPressPlus: () => void;
+	onPressSchedule: (schedue: UserSchedule) => void;
     schedules: UserSchedule [];
 };
 
@@ -32,6 +34,8 @@ export const UserSchedulesView: React.FC<UserSchedulesViewProps> = ({
 	userData,
 	onNotifications,
 	onProfile,
+	onPressPlus,
+	onPressSchedule,
 	schedules,
 }) => {
 	const _renderChatMessage = (itemInfo: ListRenderItemInfo<UserSchedule>): React.ReactNode => {
@@ -40,8 +44,8 @@ export const UserSchedulesView: React.FC<UserSchedulesViewProps> = ({
 			<NextButton
 				text={schedule.name}
 				withMarker={false}
-				style={[styles.itemContainer, itemInfo.index == 0 && { marginTop: 37 }]}
-				onPress={() => console.log(schedule.name)} />
+				style={[styles.itemContainer, itemInfo.index === 0 && { marginTop: 37 }]}
+				onPress={() => onPressSchedule(schedule)} />
 		);
 	};
 
@@ -77,8 +81,7 @@ export const UserSchedulesView: React.FC<UserSchedulesViewProps> = ({
 				</View>
 			)}
 
-			<FloatingAddButton onPress={() => { }} />
-
+			<FloatingAddButton onPress={onPressPlus} />
 		</View>
 	);
 };

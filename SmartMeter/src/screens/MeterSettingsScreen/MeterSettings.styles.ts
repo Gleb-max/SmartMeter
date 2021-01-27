@@ -4,8 +4,12 @@ import { Helpers } from 'library/theme';
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		padding: 30,
+		paddingTop: 28,
+		paddingHorizontal: 30,
 		backgroundColor: '#FDFDFD',
+	},
+	scroll: {
+		paddingTop: 5,
 	},
 	header: {
 		fontStyle: 'normal',
@@ -13,7 +17,7 @@ const styles = StyleSheet.create({
 		lineHeight: 38,
 		color: '#000000',
 		marginTop: 37,
-		marginBottom: 3,
+		marginBottom: 8,
 	},
 	cardContainer: {
 		backgroundColor: '#FFFFFF',
@@ -47,6 +51,7 @@ const styles = StyleSheet.create({
 		fontSize: 23,
 	},
 	cardEditableContantContainer: {
+		flexWrap: 'wrap',
 		flexDirection: 'row',
 		marginRight: 18,
 		alignItems: 'center',
@@ -60,6 +65,15 @@ const styles = StyleSheet.create({
 	},
 	changeContainer: {
 		marginLeft: 'auto',
+	},
+	dropdown: {
+		height: 60,
+		maxHeight: 60,
+		marginHorizontal: 4,
+		marginBottom: 30,
+	},
+	list: {
+		marginHorizontal: 4,
 	},
 });
 
