@@ -10,36 +10,38 @@ import styles from './Contacts.styles';
 import { ScrollView } from 'react-native-gesture-handler';
 
 //types
+export type Contact = {
+	name: string;
+	phone: string;
+}
+
 type ContactsViewProps = {
-	contactsList: {
-		name: string;
-		number: string;
-		onPress: () => void;
-	}[];
+	contacts: Contact[];
+	onPressContact: (contact: Contact) => void;
 	onPressPlus: () => void;
 };
 
 export const ContactsView: React.FC<ContactsViewProps> = ({
-	contactsList,
+	contacts,
+	onPressContact,
 	onPressPlus,
-
 }) => {
 	//renders
 	const _renderItem = React.useCallback(() => {
-		return contactsList.map((item, index) => {
+		return contacts.map((item, index) => {
 			return (
 				<View key = {index}>
 					<NextButton
 						text = {item.name}
-						onPress = {item.onPress}
+						onPress = {()=> onPressContact(item)}
 						style = {styles.addButton}
 						isPaid = {true}
 						contact = {true}
-						number={item.number} />
+						number={item.phone} />
 				</View>
 			);
 		});
-	}, [contactsList]);
+	}, [contacts, onPressContact]);
 
 	return (
 		<View style={styles.container} >
@@ -51,7 +53,7 @@ export const ContactsView: React.FC<ContactsViewProps> = ({
 				Экстренные контакты
 			</GilroyText>
 
-			{contactsList.length !== 0 && (
+			{contacts.length !== 0 && (
 				<ScrollView
 					contentContainerStyle={{ paddingHorizontal: 30, paddingBottom: 10 }}
 					showsVerticalScrollIndicator={false}
@@ -60,7 +62,7 @@ export const ContactsView: React.FC<ContactsViewProps> = ({
 				</ScrollView>
 			)}
 
-			{(contactsList.length === 0) && (
+			{(contacts.length === 0) && (
 				<HeadlineText
 					type='Medium'
 					size={'h1'}

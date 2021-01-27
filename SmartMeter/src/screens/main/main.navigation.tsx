@@ -34,6 +34,8 @@ import { NewDeviceNavigation } from 'screens/NewDeviceScreen';
 import { SuccessNewDeviceNavigation } from 'screens/SuccessNewDeviceScreen';
 import { UserSchedulesNavigation } from 'screens/UserSchedulesScreen';
 import { ScheduleSettingsNavigation } from 'screens/ScheduleSettingsScreen';
+import { NewNumberNavigation } from 'screens/NewNumberScreen';
+import { DeleteNumberNavigation } from 'screens/DeleteNumberScreen';
 
 //components
 import { TabBarContainer } from 'library/components/molecules';
@@ -230,6 +232,14 @@ export const HomeNavigation: React.FC<HomeNavigationProps> = ({
 			<HomeNativeStack.Screen
 				name='schedulesettings'
 				component={ScheduleSettingsNavigation} />
+
+			<HomeNativeStack.Screen
+				name='contact'
+				component={DeleteNumberNavigation} />
+
+			<HomeNativeStack.Screen
+				name='newcontact'
+				component={NewNumberNavigation} />
 		</HomeNativeStack.Navigator>
 	);
 };

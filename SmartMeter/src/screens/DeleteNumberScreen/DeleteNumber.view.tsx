@@ -9,16 +9,16 @@ import { CustomTextInput } from 'library/components/molecules';
 import styles from './DeleteNumber.styles';
 
 //types
+import { Contact } from '../ContactsScreen/Contacts.view';
+
 type DeleteNumberViewProps = {
 	onButton: () => void;
-	name: string;
-	number: string;
+	contact: Contact;
 };
 
 export const DeleteNumberView: React.FC<DeleteNumberViewProps> = ({
 	onButton,
-	name,
-	number,
+	contact,
 }) => {
 	return (
 		<View style = {styles.container}>
@@ -26,7 +26,7 @@ export const DeleteNumberView: React.FC<DeleteNumberViewProps> = ({
 				size='g1'
 				type='Semibold'
 			>
-				{name}
+				{contact.name}
 			</GilroyText>
 
 			<RobotoText
@@ -40,12 +40,13 @@ export const DeleteNumberView: React.FC<DeleteNumberViewProps> = ({
 			<CustomTextInput
 				style={styles.input}
 				value=''
-				placeholder={number} />
+				placeholder={contact.phone} />
 
 			<Button
 				onPress={onButton}
 				style = {styles.btn}
-				header='Удалить контакт' />
+				header='Удалить контакт'
+				onPress={onButton} />
 		</View>
 	);
 };

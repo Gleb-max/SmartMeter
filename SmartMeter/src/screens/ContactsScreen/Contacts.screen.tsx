@@ -1,7 +1,10 @@
 import React from 'react';
 
+//navigation
+import { useNavigation } from '@react-navigation/native';
+
 //views
-import { ContactsView } from './Contacts.view';
+import { Contact, ContactsView } from './Contacts.view';
 
 //types
 type ContactsScreenProps = {
@@ -9,70 +12,36 @@ type ContactsScreenProps = {
 };
 
 //constants
-const _contactsList = [
+const _contactsList: Contact[] = [
 	{
 		name: 'Муж',
-		number: '+78005553535',
-		onPress: () => { },
+		phone: '+78005553535',
 	}, {
-		name: 'Не муж',
-		number: '+78005553535',
-		onPress: () => { },
+		name: 'Диспетчер',
+		phone: '+78005553535',
 	},
-	{
-		name: 'Муж',
-		number: '+78005553535',
-		onPress: () => { },
-	}, {
-		name: 'Не муж',
-		number: '+78005553535',
-		onPress: () => { },
-	},
-	{
-		name: 'Муж',
-		number: '+78005553535',
-		onPress: () => { },
-	}, {
-		name: 'Не муж',
-		number: '+78005553535',
-		onPress: () => { },
-	},
-	{
-		name: 'Муж',
-		number: '+78005553535',
-		onPress: () => { },
-	}, {
-		name: 'Не муж',
-		number: '+78005553535',
-		onPress: () => { },
-	},
-	{
-		name: 'Муж',
-		number: '+78005553535',
-		onPress: () => { },
-	}, {
-		name: 'Не муж',
-		number: '+78005553535',
-		onPress: () => { },
-	},
-	{
-		name: 'Муж',
-		number: '+78005553535',
-		onPress: () => { },
-	}, {
-		name: 'Не муж',
-		number: '+78005553535',
-		onPress: () => { },
-	},
-
 ];
 
 export const ContactsScreen: React.FC<ContactsScreenProps> = ({
 
 }) => {
+	//navigation
+	const navigation = useNavigation();
+
+	//callbacks
+	const _onPreccContact = React.useCallback((contact: Contact) => {
+		navigation.navigate('contact', { details: contact });
+	}, [navigation]);
+
+	//callbacks
+	const _onPressPlus = React.useCallback(() => {
+		navigation.navigate('newcontact');
+	}, [navigation]);
+
 	return (
 		<ContactsView
-			contactsList={_contactsList}
-			onPressPlus={() => { }} />
+			contacts={_contactsList}
+			onPressContact={_onPreccContact}
+			onPressPlus={_onPressPlus} />
 	);
 };

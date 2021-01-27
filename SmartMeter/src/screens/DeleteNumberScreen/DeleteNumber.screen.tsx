@@ -1,9 +1,14 @@
 import React from 'react';
 
+//navigation
+import { useNavigation, useRoute } from '@react-navigation/native';
+
 //view
 import { DeleteNumberView } from './DeleteNumber.view';
 
 //types
+import { Contact } from '../ContactsScreen/Contacts.view';
+
 type DeleteNumberScreenProps = {
 
 };
@@ -11,15 +16,21 @@ type DeleteNumberScreenProps = {
 export const DeleteNumberScreen: React.FC<DeleteNumberScreenProps> = ({
 
 }) => {
-	//callbacks
-	const _onButton = React.useCallback(()=>{
+	//navigation
+	const route = useRoute();
+	const params = route?.params as { details: Contact };
+	const contact = params.details as Contact;
 
-	}, []);
+	const navigation = useNavigation();
+
+	//callbacks
+	const _onButton = React.useCallback(() => {
+		navigation.navigate('contacts');
+	}, [navigation]);
 
 	return (
 		<DeleteNumberView
-			number = '+7 (808) 555-01-11'
-			name = 'Муж'
+			contact={contact}
 			onButton={_onButton} />
 	);
 };
