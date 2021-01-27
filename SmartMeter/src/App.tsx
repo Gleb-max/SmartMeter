@@ -9,6 +9,8 @@ import { Auth } from 'library/modules';
 
 declare const global: {HermesInternal: null | {}};
 
+console.disableYellowBox = true;
+
 const App = () => {
 	return (
 		<Auth.AuthProvider>

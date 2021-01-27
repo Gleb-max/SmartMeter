@@ -43,6 +43,7 @@ export const DeleteNumberView: React.FC<DeleteNumberViewProps> = ({
 				placeholder={number} />
 
 			<Button
+				onPress={onButton}
 				style = {styles.btn}
 				header='Удалить контакт' />
 		</View>

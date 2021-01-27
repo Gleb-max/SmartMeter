@@ -15,21 +15,6 @@ type NewChartsViewProps = {
 
 };
 
-//constants
-let pie = {
-	title: 'Favorite Food in Jogja',
-	detail: {
-		time_value_list: [2017],
-		legend_list: ['Hamburger', 'Steak', 'Pecel', 'Magelangan'],
-		dataset: {
-			Hamburger: { '2017': 9 },
-			Steak: { '2017': 17 },
-			Pecel: { '2017': 29 },
-			Magelangan: { '2017': 45 },
-		},
-	},
-};
-
 export const NewChartsView: React.FC<NewChartsViewProps> = ({
 
 }) => {

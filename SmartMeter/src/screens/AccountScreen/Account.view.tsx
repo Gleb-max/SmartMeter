@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 
 //components
 import { GilroyText } from 'library/components/atoms';
@@ -36,7 +36,10 @@ export const AccountView: React.FC<AccountViewProps> = ({
 	}, [pressedPhone]);
 
 	return (
-		<View style = {styles.container}>
+		<ScrollView
+			style={styles.container}
+			contentContainerStyle={styles.content}
+		>
 			<GilroyText
 				size = 'g1'
 				type = 'Semibold'
@@ -74,7 +77,7 @@ export const AccountView: React.FC<AccountViewProps> = ({
 					onChange={(text: string) => _setPhone(text)}
 					style={{}} />
 			)}
-		</View>
+		</ScrollView>
 
 	);
 };

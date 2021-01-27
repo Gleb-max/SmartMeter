@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import { View, ScrollView, Text, TouchableOpacity, Image, processColor, ListRenderItemInfo, Modal, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, TouchableOpacity, processColor, ListRenderItemInfo, Modal, TouchableWithoutFeedback } from 'react-native';
 
 //components
 import { ProfileHead } from 'library/components';
@@ -8,7 +8,7 @@ import { ProfileHead } from 'library/components';
 import moment from 'moment';
 import { Modalize } from 'react-native-modalize';
 import { Host, Portal } from 'react-native-portalize';
-import { BarChart, BarData, ChartLegend } from 'react-native-charts-wrapper';
+import { BarChart, BarData, ChartLegend, LineChart } from 'react-native-charts-wrapper';
 import { Calendar, CalendarTheme, DateCallbackHandler, DateObject, LocaleConfig } from 'react-native-calendars';
 
 //types
@@ -44,6 +44,40 @@ const calendarTheme: CalendarTheme = {
 	arrowColor: '#005670',
 	selectedDayTextColor: '#005670',
 	todayTextColor: '#FF5B5B',
+};
+const data = {
+	dataSets: [{
+		label: 'Показания за декабрь',
+		values: [
+			{ y: 250 }, { y: 240 }, { y: 245 }, { y: 260 },
+			{ y: 270 }, { y: 240 }, { y: 240 }, { y: 250 }, { y: 245 },
+			{ y: 270 }, { y: 280 }, { y: 230 }, { y: 220 }, { y: 200 },
+			{ y: 250 }, { y: 258 }, { y: 250 }, { y: 251 }, { y: 254 },
+			{ y: 258 }, { y: 242 }, { y: 270 }, { y: 267 }, { y: 266 },
+			{ y: 250 }, { y: 230 }, { y: 240 }, { y: 263 }, { y: 235 }, { y: 250 }],
+		config: {
+			colors: [processColor('#005670')],
+			drawCircles: false,
+			mode: 'HORIZONTAL_BEZIER',
+			// drawValues: false,
+		},
+	}, {
+		label: 'Предсказание на январь',
+		values: [
+			{ y: 253 }, { y: 243 }, { y: 242 }, { y: 258 }, { y: 267 },
+			{ y: 238 }, { y: 242 }, { y: 253 }, { y: 240 }, { y: 275 },
+			{ y: 275 }, { y: 250 }, { y: 240 }, { y: 230 }, { y: 250 },
+			{ y: 260 }, { y: 255 }, { y: 240 }, { y: 250 }, { y: 264 },
+			{ y: 240 }, { y: 275 }, { y: 267 }, { y: 260 }, { y: 250 },
+			{ y: 240 }, { y: 230 }, { y: 250 }, { y: 238 }, { y: 260 }],
+		config: {
+			drawCircles: false,
+			colors: [processColor('#FF5B5B')],
+			mode: 'HORIZONTAL_BEZIER',
+			drawValues: false,
+		},
+	},
+	],
 };
 
 const calendarLocale = {
@@ -104,32 +138,32 @@ const legend: ChartLegend = {
 	wordWrapEnabled: true,
 };
 
-const data: BarData = {
-	dataSets: [{
-		values: [5, 40, 77, 81, 43],
-		label: 'Холодная',
-		config: {
-			drawValues: false,
-			colors: [processColor('#005670')],
-		},
-	},
-	{
-		values: [40, 5, 50, 23, 79],
-		label: 'Горячая',
-		config: {
-			drawValues: false,
-			colors: [processColor('#FF5B5B')],
-		},
-	}],
-	config: {
-		barWidth: 0.2,
-		group: {
-			fromX: 0,
-			groupSpace: 0.1,
-			barSpace: 0.1,
-		},
-	},
-};
+// const data: BarData = {
+// 	dataSets: [{
+// 		values: [5, 40, 77, 81, 43],
+// 		label: 'Холодная',
+// 		config: {
+// 			drawValues: false,
+// 			colors: [processColor('#005670')],
+// 		},
+// 	},
+// 	{
+// 		values: [40, 5, 50, 23, 79],
+// 		label: 'Горячая',
+// 		config: {
+// 			drawValues: false,
+// 			colors: [processColor('#FF5B5B')],
+// 		},
+// 	}],
+// 	config: {
+// 		barWidth: 0.2,
+// 		group: {
+// 			fromX: 0,
+// 			groupSpace: 0.1,
+// 			barSpace: 0.1,
+// 		},
+// 	},
+// };
 
 export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
 	userData,
@@ -347,7 +381,7 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
 
 				<View style={styles.graphicContainer}>
 
-					<BarChart
+					{/* <BarChart
 						style={{ flex: 1 }}
 						xAxis={xAxis}
 						data={data}
@@ -355,7 +389,11 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
 						drawValueAboveBar={false}
 						chartDescription={{ text: '' }}
 						// onSelect={this.handleSelect.bind(this)}
-						onChange={(event) => console.log(event.nativeEvent)} />
+						onChange={(event) => console.log(event.nativeEvent)} /> */}
+
+					<LineChart
+						style={styles.chart}
+						data={data} />
 
 				</View>
 			</View>
