@@ -5,7 +5,7 @@ import { Text, TextStyle, StyleProp, ViewStyle } from 'react-native';
 type RobotoTextProps = {
 	children: React.ReactNode;
 	type: 'Light' | 'Regular' | 'Medium';
-	size: 'r1' | 'r2' | 'r3' | 'r4' | 'r5';
+	size: 'r1' | 'r2' | 'r3' | 'r4' | 'r5' | 'r6';
 	styleText?: StyleProp<TextStyle>;
 	style?: StyleProp<ViewStyle>;
 };
@@ -33,6 +33,9 @@ export const RobotoText: React.FC<RobotoTextProps> = ({
 			break;
 		case 'r5':
 			fontSize = 12;
+			break;
+		case 'r6':
+			fontSize = 21;
 			break;
 		default:
 			break;

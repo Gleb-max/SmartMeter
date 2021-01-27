@@ -22,6 +22,8 @@ import { MeterPhotoNavigation } from 'screens/MeterPhotoScreen';
 import { UserSchedulesNavigation } from 'screens/UserSchedulesScreen';
 import { AccountNavigation } from 'screens/AccountScreen';
 import { NotificationsNavigation } from 'screens/NotificationsScreen';
+import { NewNumberNavigation } from 'screens/NewNumberScreen';
+import { DeleteNumberNavigation } from 'screens/DeleteNumberScreen';
 
 //native-powered screen containers
 //run before any navigation stacks render
@@ -54,5 +56,5 @@ export const AppNavigation: React.FC = ({
 		return 	<AuthNavigation />;
 
 	else
-		return <AccountNavigation />;
+		return <NewNumberNavigation />;
 };
